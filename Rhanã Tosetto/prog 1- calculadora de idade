@@ -1,0 +1,38 @@
+/**********************************************************
+- Autor:     Rhanã Tosetto sammarco
+- Descrição: calculadora de idade
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+# include <conio.h>
+# include <stdio.h>
+# include <stdlib.h>
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL,"");
+    system("color 1F");
+ cout<<"    cálculadora de idade"; cout<< "\n";
+ cout<<"aperte ENTER para começar"; cout<< "\n";
+ getche();
+
+
+     //Declaração de variáveis
+  int iAnoatual, iAnonasc;
+  cout << "Em que ano você está?"; cin >> iAnoatual;
+  cout << "Em que ano você nasceu?"; cin >> iAnonasc;
+
+
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color 1F");
+
+    //Código do programa
+
+    cout<< "você tem " << iAnoatual - iAnonasc << " anos de idade";
+    getch() ;
+    return 0;
+}

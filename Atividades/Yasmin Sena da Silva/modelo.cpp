@@ -24,6 +24,6 @@ cin  >> iMinatual;
 
 cout << "faltam "
      << iMinfinal - iMinatual
-     << " minutos para as quatro horas da tarde. Isso é tudo pessoals2";
+     << " minutos para a próxima hora. Isso é tudo pessoal!";
     return 0;
 }

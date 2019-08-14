@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Seu nome
-- DescriÁ„o: Breve descriÁ„o do programa
+- Descri√ß√£o: Breve descri√ß√£o do programa
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,33 +10,33 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 float fdin=0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
-cout << "Quantos reais vocÍ pretende gastar no exterior? ";
+    //C√≥digo do programa
+cout << "Quantos reais voc√™ pretende gastar no exterior? ";
 cin >> fdin;
 
-cout << "Com a cotaÁ„o do dÛlar em R$4.00, vocÍ teria "
+cout << "Com a cota√ß√£o do d√≥lar em R$4.00, voc√™ teria "
      << fdin/4
-     << " dÛlares."
+     << " d√≥lares."
      << endl;
 
-cout << "Como o euro vale R$4.475, vocÍ teria "
+cout << "Como o euro vale R$4.475, voc√™ teria "
      << fdin/4.475
      << " euros."
      << endl;
 
-cout << "Quanto o dÛlar canadense, que vale R$2.99, vocÍ teria "
+cout << "Quanto o d√≥lar canadense, que vale R$2.99, voc√™ teria "
      << fdin/2.99
      << " libras esterlinas."
      << endl;
 
-cout << "Tenha uma Ûtima viagem! "
+cout << "Tenha uma √≥tima viagem! "
      << endl;
 
     return 0;

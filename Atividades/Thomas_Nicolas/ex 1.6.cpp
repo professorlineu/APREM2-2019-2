@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Thomas Nicolas
-- DescriÁ„o:
+- Descri√ß√£o: ex 16
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -11,16 +11,16 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 float fcateto1 = 0;
 float fcateto2 = 0;
 float fhipotenusa = 0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color 9F");
 
-    //CÛdigo do programa
+    //C√≥digo do programa
 
     cout    << "insira o cateto1: ";
     cin     >> fcateto1;

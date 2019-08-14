@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Seu nome
-- DescriÁ„o: Breve descriÁ„o do programa
+- Descri√ß√£o: Breve descri√ß√£o do programa
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,23 +10,23 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 float fLitros = 0;
 
 float fEficiencia = 0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
-cout << "Quantos litros de comb˙stivel est„o no tanque do seu carro? ";
+    //C√≥digo do programa
+cout << "Quantos litros de comb√∫stivel est√£o no tanque do seu carro? ";
 cin >> fLitros;
 
 cout << "Quantos km seu carro percorre com 1 litro? ";
 cin >> fEficiencia;
 
-cout << "VocÍ pode percorrer "
+cout << "Voc√™ pode percorrer "
      << fLitros * fEficiencia
      << " km."
      << endl;

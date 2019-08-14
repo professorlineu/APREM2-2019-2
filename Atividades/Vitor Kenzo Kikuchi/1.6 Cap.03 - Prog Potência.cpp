@@ -31,5 +31,6 @@ cout << "A potência necessária no seu cômodo é de "
      << (fLado1*fLado2)*18
      << "W."
      <<endl;
+    
     return 0;
 }

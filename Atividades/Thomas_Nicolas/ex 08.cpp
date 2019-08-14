@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Thomas Nicolas
-- DescriÁ„o:
+- Descri√ß√£o:    ex 8
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,14 +10,14 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 float fpeso = 0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
+    //C√≥digo do programa
 
     cout    << "insira seu peso em kilos: ";
     cin     >> fpeso;

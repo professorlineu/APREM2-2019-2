@@ -1,6 +1,6 @@
 /**********************************************************
-- Autor:     Seu nome
-- Descrição: Breve descrição do programa
+- Autor:     Vitor Kenzo Kikuchi
+- Descrição: Exercício 10 - Este programa calcula a Área de um Quadrado.
 **********************************************************/
 #include <iostream>
 #include <locale.h>

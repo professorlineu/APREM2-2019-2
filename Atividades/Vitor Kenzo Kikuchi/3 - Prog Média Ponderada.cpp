@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Seu nome
-- DescriÁ„o: Breve descriÁ„o do programa
+- Descri√ß√£o: Breve descri√ß√£o do programa
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,23 +10,23 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 float fNota1 = 0;
 
 float fNota2 = 0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
-cout << "Quanto vocÍ tirou na primeira prova? ";
+    //C√≥digo do programa
+cout << "Quanto voc√™ tirou na primeira prova? ";
 cin >> fNota1;
 
-cout << "Quanto vocÍ tirou na segunda prova? ";
+cout << "Quanto voc√™ tirou na segunda prova? ";
 cin >> fNota2;
 
-cout << "Considerando que a primeira prova tem peso 2 e a segunda 3, sua mÈdia ponderada È de "
+cout << "Considerando que a primeira prova tem peso 2 e a segunda 3, sua m√©dia ponderada √© de "
      << (fNota1*2 + fNota2*3)/5
      << " pontos."
      << endl;

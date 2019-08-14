@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Seu nome
-- DescriÁ„o: Breve descriÁ„o do programa
+- Descri√ß√£o: Breve descri√ß√£o do programa
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,22 +10,22 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 float fPreco = 0;
 float fDesconto = 0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
-cout << "Digite o preÁo do produto: ";
+    //C√≥digo do programa
+cout << "Digite o pre√ßo do produto: ";
 cin >> fPreco;
 
 cout << "Digite o desconto: ";
 cin >> fDesconto;
 
-cout << "O valor do produto com desconto È de "
+cout << "O valor do produto com desconto √© de "
      << fPreco - fDesconto
      << " reais."
      << endl;

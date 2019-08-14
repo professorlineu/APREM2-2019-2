@@ -12,9 +12,9 @@ int main()
 {
     //Declaração de variáveis
 
-    int iNumero1 = 0;
-    int iNumero2 = 0;
-    int iSub = 0;
+    float iNumero1 = 0;
+    float iNumero2 = 0;
+    float iSub = 0;
 
     //Configuração da tela de saída
     setlocale(LC_ALL,"");

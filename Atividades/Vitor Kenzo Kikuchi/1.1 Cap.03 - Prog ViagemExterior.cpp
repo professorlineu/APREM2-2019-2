@@ -31,14 +31,21 @@ cout << "Como o euro vale R$4.475, você teria "
      << " euros."
      << endl;
 
-cout << "Quanto o dólar canadense, que vale R$2.99, você teria "
+cout << "Quanto ao dólar canadense, que vale R$2.99, você teria "
      << fdin/2.99
-     << " libras esterlinas."
+     << " dólares canadenses."
      << endl;
 
+if (fdin < 1000)
+{ 
+    cout << "Você chegara no máximo ao aeroporto! "
+}
+else 
+{
 cout << "Tenha uma ótima viagem! "
      << endl;
-
+}
+    
     return 0;
 
 }

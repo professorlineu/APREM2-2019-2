@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Thomas Nicolas
-- DescriÁ„o:    lista 1 ex 6
+- Descri√ß√£o:    lista 1 ex 6
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,16 +10,16 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 float fsalario = 0;
 float fvendas = 0;
 float fcomissao = 0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
+    //C√≥digo do programa
 
     cout    << "insira o seu salario: ";
     cin     >> fsalario;
@@ -29,9 +29,9 @@ float fcomissao = 0;
 
     fcomissao = fvendas*4/100;
 
-    cout    << "o valor da sua comiss„o È: " << fcomissao <<endl;
+    cout    << "o valor da sua comiss√£o √©: " << fcomissao <<endl;
 
-    cout    << "seu salario desse mÍs È: " << fcomissao+fsalario;
+    cout    << "seu salario desse m√™s √©: " << fcomissao+fsalario;
 
     return 0;
 }

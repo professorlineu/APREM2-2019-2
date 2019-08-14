@@ -1,0 +1,33 @@
+/********************************************************
+- Autor: Márcio Campos Mansur Pinto
+- Descrição: Lista 01 - Exercício 01
+********************************************************/
+#include <isostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+  // Declarando as variaveis
+  int iNumerox = O; 
+  int iNumeroy = O;
+  
+  //Tela de saída
+  setlocale(LC_ALL, "");
+  system("color Fl"); 
+  
+  //Codigo
+  cout << "Digite o primeiro numero";
+  cin >> iNumerox;
+  
+  cout << "Digite o segundo numero";
+  cin >> iNumeroy;
+  
+  cout << "A subtração da"
+    <<iNumerox -- iNumeroy
+    <<endl
+    
+    return 0 
+   }

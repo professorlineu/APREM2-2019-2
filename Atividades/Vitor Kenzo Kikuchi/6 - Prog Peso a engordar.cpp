@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Seu nome
-- DescriÁ„o: Breve descriÁ„o do programa
+- Descri√ß√£o: Breve descri√ß√£o do programa
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,23 +10,23 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 float fPeso = 0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
-cout << "Quantos kg vocÍ pesa agora? ";
+    //C√≥digo do programa
+cout << "Quantos kg voc√™ pesa agora? ";
 cin >> fPeso;
 
-cout << "Se vocÍ engordasse 15%, seu peso seria "
+cout << "Se voc√™ engordasse 15%, seu peso seria "
      << fPeso + (fPeso*15/100)
      << " kg."
      << endl;
 
-cout << "se engordasse 20%, vocÍ pesaria "
+cout << "se engordasse 20%, voc√™ pesaria "
      << fPeso + (fPeso*20/100)
      << " kg."
      << endl;

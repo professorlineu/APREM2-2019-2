@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Seu nome
-- DescriÁ„o: Breve descriÁ„o do programa
+- Descri√ß√£o: Breve descri√ß√£o do programa
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,23 +10,23 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 float fcusto=0;
 
 float fconv=0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
-cout << "Qual È o preÁo total de seu evento? ";
+    //C√≥digo do programa
+cout << "Qual √© o pre√ßo total de seu evento? ";
 cin >> fcusto;
 
-cout << "Qual È o preÁo de cada convite? ";
+cout << "Qual √© o pre√ßo de cada convite? ";
 cin >> fconv;
 
-cout << "VocÍ ter· que vender pelo menos "
+cout << "Voc√™ ter√° que vender pelo menos "
      << fcusto/fconv
      << " convites para cobrir seus custos."
      << endl;

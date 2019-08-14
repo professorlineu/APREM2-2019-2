@@ -1,6 +1,6 @@
 /**********************************************************
-- Autor:     Seu nome
-- Descrição: Breve descrição do programa
+- Autor:     Vitor Kenzo Kikuchi
+- Descrição: Exercício 8 - Este programa converte seu peso em gramas.
 **********************************************************/
 #include <iostream>
 #include <locale.h>

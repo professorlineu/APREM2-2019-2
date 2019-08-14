@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Nicolas Veneziani
-- Descrição: Entrada e saída de dados (exercício de subtração)
+- Descrição: Exercício 1 dos propostos.
 **********************************************************/
 #include <iostream>
 #include <locale.h>

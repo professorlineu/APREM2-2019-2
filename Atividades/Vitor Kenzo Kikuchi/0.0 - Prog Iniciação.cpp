@@ -1,6 +1,6 @@
 /**********************************************************
-- Autor:     Seu nome
-- Descrição: Breve descrição do programa
+- Autor:     Vitor Kenzo Kikuchi
+- Descrição: Primeiro Programa elaborado. Calcula o preço com desconto.
 **********************************************************/
 #include <iostream>
 #include <locale.h>

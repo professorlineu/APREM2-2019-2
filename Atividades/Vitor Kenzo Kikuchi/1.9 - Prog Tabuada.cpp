@@ -1,6 +1,6 @@
 /**********************************************************
-- Autor:     Seu nome
-- Descrição: Breve descrição do programa
+- Autor:     Vitor Kenzo Kikuchi
+- Descrição: Este programa determina a tabuada de qualquer número fornecido.
 **********************************************************/
 #include <iostream>
 #include <locale.h>

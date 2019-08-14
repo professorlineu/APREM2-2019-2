@@ -1,6 +1,6 @@
 /**********************************************************
-- Autor:     Seu nome
-- Descrição: Breve descrição do programa
+- Autor:     Vitor Kenzo Kikuchi
+- Descrição: Exercício 4 - Este programa calcula a média ponderada.
 **********************************************************/
 #include <iostream>
 #include <locale.h>

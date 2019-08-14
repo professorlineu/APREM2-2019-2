@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Seu nome
-- DescriÁ„o: Breve descriÁ„o do programa
+- Descri√ß√£o: Breve descri√ß√£o do programa
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,16 +10,16 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 int inumber = 0;
 
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
-cout << "Digite o n˙mero que vocÍ deseja saber a tabuada: ";
+    //C√≥digo do programa
+cout << "Digite o n√∫mero que voc√™ deseja saber a tabuada: ";
 cin >> inumber;
 
 cout << inumber

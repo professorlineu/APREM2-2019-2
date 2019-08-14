@@ -1,6 +1,6 @@
 /**********************************************************
-- Autor:     Seu nome
-- Descrição: Breve descrição do programa
+- Autor:     Vitor Kenzo Kikuchi
+- Descrição: Exercício 7 - Este programa determina seu peso se você engordasse 15% ou 20%.
 **********************************************************/
 #include <iostream>
 #include <locale.h>

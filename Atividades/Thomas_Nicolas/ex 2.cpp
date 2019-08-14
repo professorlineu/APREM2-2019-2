@@ -1,6 +1,6 @@
 /**********************************************************
-- Autor:     thomas
-- Descrição: multiplicação de váriaveis
+- Autor:     thomas nicolas
+- DescriÃ§Ã£o: ex 2
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,16 +10,16 @@ using namespace std;
 
 int main()
 {
-    //Declaração de variáveis
+    //DeclaraÃ§Ã£o de variÃ¡veis
 int ivalor1=0;
 int ivalor2=0;
 int ivalor3=0;
 
-    //Configuração da tela de saída
+    //ConfiguraÃ§Ã£o da tela de saÃ­da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //Código do programa
+    //CÃ³digo do programa
 
 cout    << "Insira o valor 1: ";
 cin     >>ivalor1;
@@ -28,7 +28,7 @@ cin     >>ivalor2;
 cout    <<"Insira o valor 3: ";
 cin     >>ivalor3;
 
-cout    << "resultado da multiplicação :"
+cout    << "resultado da multiplicaÃ§Ã£o :"
         << ivalor1*ivalor2*ivalor3;
 
     return 0;

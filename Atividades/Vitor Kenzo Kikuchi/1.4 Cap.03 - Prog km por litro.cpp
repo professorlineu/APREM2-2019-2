@@ -1,6 +1,6 @@
 /**********************************************************
-- Autor:     Seu nome
-- Descrição: Breve descrição do programa
+- Autor:     Vitor Kenzo Kikuchi
+- Descrição: Exercício 
 **********************************************************/
 #include <iostream>
 #include <locale.h>

@@ -1,6 +1,6 @@
 /**********************************************************
-- Autor:     Seu nome
-- Descrição: Breve descrição do programa
+- Autor:     Vitor Kenzo Kikuchi
+- Descrição: Exercício 19 - Este programa calcula a potência necessária para iluminar seu cômodo.
 **********************************************************/
 #include <iostream>
 #include <locale.h>

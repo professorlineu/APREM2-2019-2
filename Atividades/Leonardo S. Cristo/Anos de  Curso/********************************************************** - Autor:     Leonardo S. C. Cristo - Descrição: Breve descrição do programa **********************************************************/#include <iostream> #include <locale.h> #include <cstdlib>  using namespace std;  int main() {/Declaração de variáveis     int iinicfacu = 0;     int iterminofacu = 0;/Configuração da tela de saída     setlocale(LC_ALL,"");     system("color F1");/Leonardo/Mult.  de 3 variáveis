@@ -1,0 +1,40 @@
+/**********************************************************
+- Autor:   Leo S. Cristo
+- Descrição: Mult. de 3 Var.
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+    float fnum1 = 0;
+    float fnum2 = 0;
+    float fnum3 = 0;
+    double dnum4 = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+      cout << "Entre com 1° numero ";
+      cin >> fnum1 ;
+
+      cout << "Entre com 2° numero ";
+      cin >> fnum2 ;
+
+      cout << "Entre com 3° numero ";
+      cin >> fnum3 ;
+
+
+       cout << "Resultado " << fnum1 * fnum2 * fnum3  << ".";
+
+
+
+
+    return 0;
+}

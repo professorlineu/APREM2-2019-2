@@ -36,16 +36,6 @@ cout << "Quanto ao dólar canadense, que vale R$2.99, você teria "
      << " dólares canadenses."
      << endl;
 
-if (fdin < 1000)
-{ 
-    cout << "Você chegara no máximo ao aeroporto! "
-}
-else 
-{
-cout << "Tenha uma ótima viagem! "
-     << endl;
-}
-    
     return 0;
 
 }

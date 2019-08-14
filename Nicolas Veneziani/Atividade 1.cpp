@@ -12,7 +12,7 @@ int main()
 {
     //Declaração de variáveis
     int idigito1 = 0;
-    int idigito = 0;
+    int idigito2 = 0;
 
     //Configuração da tela de saída
     setlocale(LC_ALL,"");
@@ -26,7 +26,7 @@ int main()
     cin >> idigito2;
 
 
-    cout << "Resultado: " << idigito1 - idigito2 ;
+    cout << "A diferença é: " << idigito1 - idigito2 ;
 
 
     return 0;

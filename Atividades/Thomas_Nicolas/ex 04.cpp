@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Thomas Nicolas
-- DescriÁ„o: Exercicio 4, aplicando na matÈria
+- Descri√ß√£o: Exercicio 4, aplicando na mat√©ria
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,16 +10,16 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 float  fnota1= 0;
 float  fnota2= 0;
 float  fnota3= 0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
+    //C√≥digo do programa
 
     cout    << "insira a nota da prova: ";
     cin     >> fnota1;
@@ -27,7 +27,7 @@ float  fnota3= 0;
     cin     >> fnota2;
     cout    << "insira a nota de atividades no GitHub: ";
     cin     >> fnota3;
-    cout    << "Sua mÈdia final È: "<<(fnota1*2+fnota2*3+fnota3*5)/10;
+    cout    << "Sua m√©dia final √©: "<<(fnota1*2+fnota2*3+fnota3*5)/10;
 
     return 0;
 }

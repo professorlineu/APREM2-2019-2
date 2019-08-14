@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Seu nome
-- DescriÁ„o: Breve descriÁ„o do programa
+- Descri√ß√£o: Breve descri√ß√£o do programa
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -11,23 +11,23 @@ using namespace std;
 int main()
 {
 
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 float fLado1= 0;
 
 float fLado2 = 0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
-cout << "Para saber a potÍncia em Watts necess·ria no seu cÙmodo, digite a medida em metros de um dos lados: ";
+    //C√≥digo do programa
+cout << "Para saber a pot√™ncia em Watts necess√°ria no seu c√¥modo, digite a medida em metros de um dos lados: ";
 cin >> fLado1;
 
 cout << "Digite a medida do outro lado: ";
 cin >> fLado2;
 
-cout << "A potÍncia necess·ria no seu cÙmodo È de "
+cout << "A pot√™ncia necess√°ria no seu c√¥modo √© de "
      << (fLado1*fLado2)*18
      << "W."
      <<endl;

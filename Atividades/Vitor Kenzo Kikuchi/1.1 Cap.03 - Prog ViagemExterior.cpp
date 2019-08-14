@@ -1,6 +1,6 @@
 /**********************************************************
-- Autor:     Seu nome
-- Descrição: Breve descrição do programa
+- Autor:     Vitor Kenzo Kikuchi
+- Descrição: Exercício 24 - Este programa fornece valores de acordo com a cotação das moedas.
 **********************************************************/
 #include <iostream>
 #include <locale.h>

@@ -23,6 +23,7 @@ float fdesc = 0;
 cout << "apresente o preço do produto: ";
 cin  >> fpreco;
 
+fdesc = fpreco - 10/100*fpreco
 cout << "apresente o desconto feito: ";
 cin  >> fdesc;
 

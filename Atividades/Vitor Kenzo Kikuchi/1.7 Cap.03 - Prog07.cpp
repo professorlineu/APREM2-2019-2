@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Vitor Kenzo Kikuchi
-- Descrição: Exercício 25 - Este programa determina o número de ingressos que você deve vender para cobrir o custo de seu evento.
+- Descrição: Exercício 25 - Esse programa determina o número de ingressos que você deve vender para cobrir o custo de seu evento.
 **********************************************************/
 #include <iostream>
 #include <locale.h>

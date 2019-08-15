@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Vandelei Natanael
-- Descrição: Celsius para Fahrenheit
+- Descrição: Salário depois das contas
 **********************************************************/
 
 #include <iostream>

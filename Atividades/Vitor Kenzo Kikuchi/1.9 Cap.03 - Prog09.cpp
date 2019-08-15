@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Vitor Kenzo Kikuchi
-- DescriÁ„o: ExercÌcio 15 - Este programa calcula seu saldo depois de pagar suas contas. (com estrutura condicional)
+- Descri√ß√£o: Exerc√≠cio 15 - Este programa calcula seu saldo depois de pagar suas contas. (com estrutura condicional)
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,22 +10,22 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 float fSalario = 0;
 float fConta1 = 0;
 float fConta2 = 0;
 float fMulta = 0;
 float ffinal = 0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
-cout << "Qual È o valor de seu sal·rio? ";
+    //C√≥digo do programa
+cout << "Qual √© o valor de seu sal√°rio? ";
 cin >> fSalario;
 
-cout << "E quanto ao valor de uma das contas que vocÍ deve pagar? ";
+cout << "E quanto ao valor de uma das contas que voc√™ deve pagar? ";
 cin >> fConta1;
 
 cout << "E o valor da segunda conta? ";
@@ -34,32 +34,32 @@ cin >> fConta2;
 fMulta = (fConta1*2/100 +fConta1) + (fConta2*2/100 + fConta2);
 ffinal = fSalario - fMulta;
 
-cout << "Considerando a multa de 2% por conta do atraso, vocÍ ter· R$"
+cout << "Considerando a multa de 2% por conta do atraso, voc√™ ter√° R$"
      << ffinal
-     << " apÛs quitar todas suas dÌvidas."
+     << " ap√≥s quitar todas suas d√≠vidas."
      << endl;
 
 if (ffinal < 400 && ffinal > 0)
 
 {
-cout << "Eu acho que alguÈm vai ter que cancelar a netflix..."
+cout << "Eu acho que algu√©m vai ter que cancelar a netflix..."
      << endl;
 }
 
 else if (ffinal > 5000)
 
 {
-cout << "T· com dinheiro de sobra em? se quiser pagar minhas contas, eu agradeÁo."
+cout << "T√° com dinheiro de sobra em? se quiser pagar minhas contas, eu agrade√ßo."
      << endl;
 }
 else if (ffinal < 0)
 {
-cout << "Eu creio que a ˙nica saÌda È pedir dinheiro no sem·foro..."
+cout << "Eu creio que a √∫nica sa√≠da √© pedir dinheiro no sem√°foro..."
      << endl;
 }
 else
 {
-cout << "Ufa, seu nome n„o vai pro SPC!"
+cout << "Ufa, seu nome n√£o vai pro SPC!"
      << endl;
 }
     return 0;

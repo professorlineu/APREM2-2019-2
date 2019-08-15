@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     ramon
-- DescriÁ„o: media ponderada de duas variaveis
+- Descri√ß√£o: media ponderada de duas variaveis
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,15 +10,15 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
     float fnota1=0;
     float fnota2=0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
+    //C√≥digo do programa
 
 cout << "primeira nota com peso 2: ";
 cin  >> fnota1;

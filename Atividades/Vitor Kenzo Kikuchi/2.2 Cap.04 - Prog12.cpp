@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Vitor Kenzo Kikuchi
-- DescriÁ„o: ExercÌcio 15 - Este programa calcula seu saldo depois de pagar suas contas.
+- Descri√ß√£o: Exerc√≠cio 04 - Este programa determina qual √© o maior n√∫mero entre os tr√™s fornecidos.
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,43 +10,43 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 float fNum1 = 0;
 
 float fNum2 = 0;
 
 float fNum3 = 0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
-    system("color 5D");
+    system("color F1");
 
-    //CÛdigo do programa
-cout << "Digite um n˙mero qualquer: ";
+    //C√≥digo do programa
+cout << "Digite um n√∫mero qualquer: ";
 cin  >> fNum1;
 
-cout << "Digite o segundo n˙mero: ";
+cout << "Digite o segundo n√∫mero: ";
 cin  >> fNum2;
 
-cout << "Digite o terceiro n˙mero: ";
+cout << "Digite o terceiro n√∫mero: ";
 cin >> fNum3;
 
 if (fNum1 > fNum2 && fNum2 > fNum3)
 {
 cout << fNum1
-     << " È o maior n˙mero!"
+     << " √© o maior n√∫mero!"
      << endl;
 }
 else if (fNum2 > fNum1 && fNum1 > fNum3)
 {
 cout << fNum2
-     << " È o maior n˙mero!"
+     << " √© o maior n√∫mero!"
      << endl;
 }
 else
 {
 cout << fNum3
-     << " È o maior n˙mero!"
+     << " √© o maior n√∫mero!"
      << endl;
 }
 

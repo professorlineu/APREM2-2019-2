@@ -1,0 +1,33 @@
+/**********************************************************
+- Autor:     Bárbara Marques
+- Descrição: exercício 5 (10% de desconto)
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+        int iPeso = 0;
+
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+    cout << "Digite seu peso atula: ";
+    cin >> iPeso;
+    cout << endl;
+    cout << "Se você engordar 15% de seu peso atual, então pesará: " << iPeso + iPeso * 0.15 << "!";
+    cout << endl;
+    cout << "Se você emagrecer 20% de seu peso atual, então pesará: " << iPeso - iPeso * 0.2 << "!";
+    cout << endl;
+
+    return 0;
+
+}

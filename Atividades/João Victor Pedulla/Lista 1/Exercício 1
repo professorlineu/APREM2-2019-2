@@ -1,0 +1,36 @@
+/**********************************************************
+- Autor:     João Victor Pedulla
+- Descrição: Lista 1 - ex 1
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+
+    float fsalario = 0;
+    float fgasto = 0;
+    float fLucro = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F0");
+
+    //Código do programa
+
+    cout << "Informe o ganho mensal: ";
+    cin >> fsalario;
+
+    cout << "Informe o gasto mensal: ";
+    cin >> fgasto;
+
+    fLucro = fsalario - fgasto;
+
+    cout << "O lucro mensal é de: " << fLucro;
+
+    return 0;
+}

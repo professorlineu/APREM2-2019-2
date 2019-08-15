@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Vandelei Natanael
-- Descrição: Salário depois das contas
+- Descrição: Salário depois das 2 contas
 **********************************************************/
 
 #include <iostream>

@@ -1,0 +1,34 @@
+/**********************************************************
+- Autor:     Bárbara Marques
+- Descrição: exercício 2.
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+        int iValor1= 0 ;
+        int iValor2 = 0;
+        int iValor3= 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+    cout << " Digite o primeiro valor: ";
+    cin >> iValor1;
+    cout <<  " digite o segundo valor: ";
+    cin >> iValor2;
+    cout << "digite o terceiro valor : ";
+    cin >> iValor3;
+    cout << " A multiplicação desses valores é: " << iValor1*iValor2*iValor3;
+
+    return 0;
+
+}

@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Vitor Kenzo Kikuchi
-- Descrição: Primeiro Programa elaborado. Calcula o preço com desconto.
+- Descrição: Primeiro programa desenvolvido. Calcula o preço com desconto.
 **********************************************************/
 #include <iostream>
 #include <locale.h>

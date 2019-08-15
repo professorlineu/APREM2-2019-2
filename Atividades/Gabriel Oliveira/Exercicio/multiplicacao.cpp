@@ -1,0 +1,32 @@
+/**********************************************************
+- Autor: Gabriel Guimarães
+- Descrição: Lista 1 - Exercício 2
+**********************************************************/
+
+
+
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+
+{
+    int in1 = 0;
+    int in2 = 0;
+    int in3 = 0;
+    int imultiplicacao = 0;
+
+    cout << "insira 3 numeros";
+
+    cin >> in1;
+    cin >> in2;
+    cin >> in3;
+
+    imultiplicacao= in1*in2*in3;
+
+    cout << imultiplicacao;
+
+}

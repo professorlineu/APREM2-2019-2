@@ -1,6 +1,6 @@
 /**********************************************************
-- Autor:     Seu nome
-- DescriÁ„o: Breve descriÁ„o do programa
+- Autor:     Vitor Kenzo Kikuchi
+- Descri√ß√£o: EX 01 - Programa que calcula a m√©dia aritm√©tica e determina se voc√™ est√° aprovado ou n√£o.
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 float fNota1 = 0;
 
 float fNota2 = 0;
@@ -21,13 +21,13 @@ float fNota4 = 0;
 
 float fNotaFinal = 0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
+    //C√≥digo do programa
 
-cout << "Quanto vocÍ tirou na primeira prova? ";
+cout << "Quanto voc√™ tirou na primeira prova? ";
 cin  >> fNota1;
 
 cout << "Segunda prova? ";
@@ -36,29 +36,29 @@ cin  >> fNota2;
 cout << "Terceira prova? ";
 cin  >> fNota3;
 
-cout << "E na ˙ltima? ";
+cout << "E na √∫ltima? ";
 cin  >> fNota4;
 
 fNotaFinal = (fNota1 + fNota2 + fNota3 + fNota4)/4;
 
-cout << "A sua mÈdia aritmÈtica final È "
+cout << "A sua m√©dia aritm√©tica final √© "
      << fNotaFinal
      << endl;
 
 if (fNotaFinal > 7)
 {
-    cout << "VocÍ est· aprovado!"
+    cout << "Voc√™ est√° aprovado!"
          << endl;
 }
 
 else if (fNotaFinal < 3)
 {
-    cout << "Quem È capaz de tirar esse tipo de nota? "
+    cout << "Quem √© capaz de tirar esse tipo de nota? "
          << endl;
 }
 else
 {
-    cout << "VocÍ est· reprovado. Ou vai pra recuperaÁ„o, eu n„o sei, sou sÛ um programa."
+    cout << "Voc√™ est√° reprovado. Ou vai pra recupera√ß√£o, eu n√£o sei, sou s√≥ um programa."
          << endl;
 }
     return 0;

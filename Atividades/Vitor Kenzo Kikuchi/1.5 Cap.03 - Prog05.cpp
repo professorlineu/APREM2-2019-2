@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Vitor Kenzo Kikuchi
-- Descrição: Exercício 7 - Este programa determina seu peso se você engordasse 15% ou 20%.
+- Descrição: Exercício 7 - Este programa determina seu peso se você engordasse 15% ou emagrecesse 20%.
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -26,8 +26,8 @@ cout << "Se você engordasse 15%, seu peso seria "
      << " kg."
      << endl;
 
-cout << "se engordasse 20%, você pesaria "
-     << fPeso + (fPeso*20/100)
+cout << "se emagrecesse 20%, você pesaria "
+     << fPeso - (fPeso*20/100)
      << " kg."
      << endl;
 

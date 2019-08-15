@@ -1,0 +1,37 @@
+/**********************************************************
+- Autor:     Bárbara Marques
+- Descrição: exercício 9
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+       int iBase = 0;
+       int ibase = 0;
+       int iAltura = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+    cout <<"Digite o valor da base maior do trapézio: ";
+    cin >> iBase;
+    cout << endl;
+    cout << "Digite o valor da base menor do trapézio: ";
+    cin >> ibase;
+    cout << endl;
+    cout << "Digite a altura do trapézio: ";
+    cin >> iAltura;
+    cout << endl;
+    cout << "A área desse trapézio vale: " << ((iBase + ibase) * iAltura) / 2;
+
+    return 0;
+
+}

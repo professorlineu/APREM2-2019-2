@@ -1,6 +1,6 @@
 /**********************************************************
-- Autor:     Seu nome
-- DescriÁ„o: Breve descriÁ„o do programa
+- Autor:     Jo√£o vitor morais
+- Descri√ß√£o: Fa√ßa um programa que receba tr√™s n√∫meros, calcule e mostre a multiplica√ß√£o desses n√∫meros. 
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,23 +10,23 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
     int n1 = 0;
     int n2 = 0;
     int n3 = 0;
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
+    //C√≥digo do programa
 
-    cout << " Digite o primeiro n˙mero: ";
+    cout << " Digite o primeiro n√∫mero: ";
     cin >> n1;
-    cout << " dgite o segundo n˙mero: ";
+    cout << " dgite o segundo n√∫mero: ";
     cin >> n2;
     cout << " digite o terceiro numero: ";
     cin >> n3;
-    cout << "resultado da multiplicaÁ„o dos numeros = " << n1 * n2 * n3;
+    cout << "resultado da multiplica√ß√£o dos numeros = " << n1 * n2 * n3;
 
 
     return 0;

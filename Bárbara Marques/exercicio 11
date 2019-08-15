@@ -1,0 +1,35 @@
+/**********************************************************
+- Autor:     Bárbara Marques
+- Descrição: exercício 11
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+       int iDiagonal = 0;
+       int idiagonal = 0;
+
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+    cout <<"Digite o valor da diagonal maior do losango: ";
+    cin >> iDiagonal;
+    cout << endl;
+    cout << "Digite o da diagonal menor do losango: ";
+    cin >> idiagonal;
+    cout << endl;
+    cout << "A área desse losango é: " <<(iDiagonal*idiagonal)/ 2;
+
+
+    return 0;
+
+}

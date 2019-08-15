@@ -11,9 +11,9 @@ using namespace std;
 int main()
 {
     //Declaração de variáveis
-    int n1 = 0;
-    int n2 = 0;
-    int n3 = 0;
+    int inum1 = 0;
+    int inum2 = 0;
+    int inum3 = 0;
     //Configuração da tela de saída
     setlocale(LC_ALL,"");
     system("color F1");
@@ -21,13 +21,16 @@ int main()
     //Código do programa
 
     cout << " Digite o primeiro número: ";
-    cin >> n1;
+    cin  >> num1;
+    
     cout << " dgite o segundo número: ";
-    cin >> n2;
+    cin  >> num2;
+    
     cout << " digite o terceiro numero: ";
-    cin >> n3;
-    cout << "resultado da multiplicação dos numeros = " << n1 * n2 * n3;
-
-
+    cin  >> num3;
+    
+    cout << "resultado da multiplicação dos numeros = " 
+         << num1 * num2 * num3;
+    
     return 0;
 }

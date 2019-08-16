@@ -1,9 +1,10 @@
-//Exercicio 1: Faça um programa que receba dois números, calcule e mostre a subtração do primeiro número pelo segundo.
+//5. FaÃ§a um programa que receba o preÃ§o de um produto, calcule e mostre o novo preÃ§o, sabendo-se
+//que este sofreu um desconto de 10%.
 //**********************************************************
 
 //- Autor: Gabriel Correia Soares
 
-//- Descrição: Lista 1 - Exercício 5
+//- DescriÃ§Ã£o: Lista 1 - ExercÃ­cio 5
 
 //**********************************************************/
 
@@ -21,9 +22,9 @@ int main()
 
     setlocale(LC_ALL,"");
     system("color 7E");
-    cout << "PROGRAMA DE Gabriel Correia Soares; Curso de engenharia mecânica; IFSP-SJC";
+    cout << "PROGRAMA DE Gabriel Correia Soares; Curso de engenharia mecÃ¢nica; IFSP-SJC";
     cout <<endl;
-    cout << "preço da gasolina: ";
+    cout << "preÃ§o da gasolina: ";
     cin  >>ip;
     cout <<endl;
     itotal=(ip*10)/100;

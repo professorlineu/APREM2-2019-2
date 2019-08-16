@@ -1,6 +1,7 @@
+//8. Fa√ßa um programa que receba o peso de uma pessoa em quilos, calcule e mostre esse peso em gramas.
 //**********************************************************
 //- Autor: Gabriel Correia Soares
-//- DescriÁ„o: Lista 1 - ExercÌcio 8
+//- Descri√ß√£o: Lista 1 - Exerc√≠cio 8
 //**********************************************************/
 
 #include <iostream>
@@ -16,7 +17,7 @@ int main()
 
     setlocale(LC_ALL,"");
     system("color 7E");
-    cout << "PROGRAMA DE Gabriel Correia Soares; Curso de engenharia mec‚nica; IFSP-SJC";
+    cout << "PROGRAMA DE Gabriel Correia Soares; Curso de engenharia mec√¢nica; IFSP-SJC";
     cout <<endl;
     cout << "insira o seu peso atual: ";
     cin  >>ipeso;

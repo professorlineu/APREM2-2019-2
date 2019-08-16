@@ -1,8 +1,10 @@
+//7. Fa√ßa um programa que receba o peso de uma pessoa, calcule e mostre:
+//a) o novo peso, se a pessoa engordar 15% sobre o peso digitado;
+//b) o novo peso, se a pessoa emagrecer 20% sobre o peso digitado.
+
 //**********************************************************
-
 //- Autor: Gabriel Correia Soares
-
-//- DescriÁ„o: Lista 1 - ExercÌcio 7
+//- Descri√ß√£o: Lista 1 - Exerc√≠cio 7
 
 //**********************************************************/
 
@@ -17,7 +19,7 @@ int main()
     int ipeso = 0;
     setlocale(LC_ALL,"");
     system("color 7E");
-    cout << "PROGRAMA DE Gabriel Correia Soares; Curso de engenharia mec‚nica; IFSP-SJC";
+    cout << "PROGRAMA DE Gabriel Correia Soares; Curso de engenharia mec√¢nica; IFSP-SJC";
     cout <<endl;
     cout << "insira o seu peso atual: ";
     cin  >>ipeso;

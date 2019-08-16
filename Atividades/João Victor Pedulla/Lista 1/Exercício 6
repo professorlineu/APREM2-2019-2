@@ -1,0 +1,36 @@
+/**********************************************************
+- Autor:     João Victor Pedulla
+- Descrição: Lista 1 - Ex 6
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+
+    float fsalariofix = 0;
+    float fvendas = 0;
+    float fresultado = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+    cout << "Valor do salário fixo: ";
+    cin >> fsalariofix;
+
+    cout << "Valor de venda: ";
+    cin >> fvendas;
+
+    fresultado = fsalariofix + (fvendas * 0.04);
+
+    cout << "Valor do salário total " << fresultado;
+
+    return 0;
+}

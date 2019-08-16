@@ -1,9 +1,11 @@
-//Exercicio 1: FaÁa um programa que receba dois n˙meros, calcule e mostre a subtraÁ„o do primeiro n˙mero pelo segundo.
+//3. Fa√ßa um programa que receba dois n√∫meros, calcule e mostre a divis√£o do primeiro n√∫mero pelo
+//segundo. sabe-se que o segundo n√∫mero n√£o pode ser zero, portanto, n√£o √© necess√°rio se preocupar
+//com valida√ß√µes.
 //**********************************************************
 
 //- Autor: Gabriel Correia Soares
 
-//- DescriÁ„o: Lista 1 - ExercÌcio 3
+//- Descri√ß√£o: Lista 1 - Exerc√≠cio 3
 
 //**********************************************************/
 
@@ -20,7 +22,7 @@ int main()
 
     setlocale(LC_ALL,"");
     system("color 7E");
-    cout << "PROGRAMA DE Gabriel Correia Soares; Curso de engenharia mec‚nica; IFSP-SJC";
+    cout << "PROGRAMA DE Gabriel Correia Soares; Curso de engenharia mec√¢nica; IFSP-SJC";
     cout <<endl;
     cout << "primeiro numero: ";
     cin  >>ip;

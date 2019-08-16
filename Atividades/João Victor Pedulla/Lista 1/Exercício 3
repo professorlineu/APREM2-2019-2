@@ -1,0 +1,36 @@
+/**********************************************************
+- Autor:     João Victor Pedulla
+- Descrição: Lista 1 - ex 3
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+
+    int ipessoas = 0;
+    float fdinheiro = 0;
+    float fresultado = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+    cout << "Quantidade de dinheiro a ser dividida: ";
+    cin >> fdinheiro;
+
+    cout << "Quantidade de pessoas para dividir: ";
+    cin >> ipessoas;
+
+    fresultado = fdinheiro / ipessoas;
+
+    cout << "O valor para cada pessoa é " << fresultado;
+
+    return 0;
+}

@@ -1,9 +1,10 @@
-//Exercicio 1: Faça um programa que receba dois números, calcule e mostre a subtração do primeiro número pelo segundo.
+//4.FaÃ§a um programa que receba duas notas, calcule e mostre a mÃ©dia ponderada dessas notas, consi-
+//derando peso 2 para a primeira e peso 3 para a segunda.
 //**********************************************************
 
 //- Autor: Gabriel Correia Soares
 
-//- Descrição: Lista 1 - Exercício 4
+//- DescriÃ§Ã£o: Lista 1 - ExercÃ­cio 4
 
 //**********************************************************/
 
@@ -23,7 +24,7 @@ int main()
     int ipeso2 = 0;
     setlocale(LC_ALL,"");
     system("color 7E");
-    cout << "PROGRAMA DE Gabriel Correia Soares; Curso de engenharia mecânica; IFSP-SJC";
+    cout << "PROGRAMA DE Gabriel Correia Soares; Curso de engenharia mecÃ¢nica; IFSP-SJC";
     cout <<endl;
     cout << "primeira nota: ";
     cin  >>ip;

@@ -1,0 +1,38 @@
+/**********************************************************
+- Autor:     João Victor Pedulla
+- Descrição: Lista 1 - ex 7
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+
+    float fpeso = 0;
+    float fresultado1 = 0;
+    float fresultado2 = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+    cout << "Peso: ";
+    cin >> fpeso;
+
+    fresultado1 = fpeso * 1.15;
+
+    cout << "Se a pessoa engordar 15% do peso inicial, seu peso será: " << fresultado1 << endl;
+
+    fresultado2 = fpeso * 0.8;
+
+    cout << "Se a pessoa emagrecer 20% do peso inicial, seu peso será: " << fresultado2;
+
+
+    return 0;
+}

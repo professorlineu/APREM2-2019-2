@@ -1,0 +1,42 @@
+/**********************************************************
+- Autor:     João Victor Pedulla
+- Descrição: Lista 1 - ex 4
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+
+    float fnota1 = 0;
+    float fresultado1 = 0;
+    float fnota2 = 0;
+    float fresultado2 = 0;
+    float fresultadofinal = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+    cout << "Nota 1: ";
+    cin >> fnota1;
+
+    cout << "Nota 2: ";
+    cin >> fnota2;
+
+    fresultado1 = fnota1 * 2;
+
+    fresultado2 = fnota2 * 3;
+
+    fresultadofinal = (fresultado1 + fresultado2)/5;
+
+    cout << "Nota final: " << fresultadofinal;
+
+    return 0;
+}

@@ -1,9 +1,9 @@
-//Exercicio 1: Faça um programa que receba dois números, calcule e mostre a subtração do primeiro número pelo segundo.
+//2. FaÃ§a um programa que receba trÃªs nÃºmeros, calcule e mostre a multiplicaÃ§Ã£o desses nÃºmeros.
 //**********************************************************
 
 //- Autor: Gabriel Correia Soares
 
-//- Descrição: Lista 1 - Exercício 2
+//- DescriÃ§Ã£o: Lista 1 - ExercÃ­cio 2
 
 //**********************************************************/
 

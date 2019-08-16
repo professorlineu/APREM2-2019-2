@@ -1,6 +1,7 @@
+//11.Fa√ßa um programa que calcule e mostre a √°rea de um losango.
 //**********************************************************
 //- Autor: Gabriel Correia Soares
-//- DescriÁ„o: Lista 1 - ExercÌcio 10
+//- Descri√ß√£o: Lista 1 - Exerc√≠cio 10
 //**********************************************************/
 
 #include <iostream>
@@ -11,28 +12,28 @@ using namespace std;
 
 int main()
 {
-    int ibanana= 0;
+    int inumero= 0;
 
 
     setlocale(LC_ALL,"");
     system("color 7E");
-    cout << "PROGRAMA DE Gabriel Correia Soares; Curso de engenharia mec‚nica; IFSP-SJC";
+    cout << "PROGRAMA DE Gabriel Correia Soares; Curso de engenharia mec√¢nica; IFSP-SJC";
     cout <<endl;
     cout << "insira o numero para ser multiplicado: ";
-    cin  >>ibanana;
+    cin  >>inumero;
     cout <<endl;
-    cout << "A tabuada do numero " << ibanana << "e:"<<endl;
-    cout <<ibanana<<"*0: "<<(ibanana*0)<<";"<<endl;
-    cout <<ibanana<<"*1: "<<(ibanana*1)<<";"<<endl;
-    cout <<ibanana<<"*2: "<<(ibanana*2)<<";"<<endl;
-    cout <<ibanana<<"*3: "<<(ibanana*3)<<";"<<endl;
-    cout <<ibanana<<"*4: "<<(ibanana*4)<<";"<<endl;
-    cout <<ibanana<<"*5: "<<(ibanana*5)<<";"<<endl;
-    cout <<ibanana<<"*6: "<<(ibanana*6)<<";"<<endl;
-    cout <<ibanana<<"*7: "<<(ibanana*7)<<";"<<endl;
-    cout <<ibanana<<"*8: "<<(ibanana*8)<<";"<<endl;
-    cout <<ibanana<<"*9: "<<(ibanana*9)<<";"<<endl;
-    cout <<ibanana<<"*10: "<<(ibanana*10)<<";"<<endl;
+    cout << "A tabuada do numero " << inumero << "e:"<<endl;
+    cout <<inumero<<"*0: "<<(inumero*0)<<";"<<endl;
+    cout <<inumero<<"*1: "<<(inumero*1)<<";"<<endl;
+    cout <<inumero<<"*2: "<<(inumero*2)<<";"<<endl;
+    cout <<inumero<<"*3: "<<(inumero*3)<<";"<<endl;
+    cout <<inumero<<"*4: "<<(inumero*4)<<";"<<endl;
+    cout <<inumero<<"*5: "<<(inumero*5)<<";"<<endl;
+    cout <<inumero<<"*6: "<<(inumero*6)<<";"<<endl;
+    cout <<inumero<<"*7: "<<(inumero*7)<<";"<<endl;
+    cout <<inumero<<"*8: "<<(inumero*8)<<";"<<endl;
+    cout <<inumero<<"*9: "<<(inumero*9)<<";"<<endl;
+    cout <<inumero<<"*10: "<<(inumero*10)<<";"<<endl;
 
 
 }

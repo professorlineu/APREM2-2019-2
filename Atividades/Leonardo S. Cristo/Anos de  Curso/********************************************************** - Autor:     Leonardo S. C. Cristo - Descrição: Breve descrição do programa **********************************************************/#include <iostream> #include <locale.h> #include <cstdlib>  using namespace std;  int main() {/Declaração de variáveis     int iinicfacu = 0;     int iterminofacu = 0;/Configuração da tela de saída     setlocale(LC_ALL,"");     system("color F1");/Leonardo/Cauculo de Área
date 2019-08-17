@@ -1,0 +1,53 @@
+/**********************************************************
+- Autor:     Leonardo S. Cristo
+- Descrição: exercício 10
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+    float fnum1 = 0;
+    float fnum2 = 0;
+    float fnum3 = 0;
+    float fnum4 = 0;
+    
+   
+
+   
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+      cout << " Lado A  ";
+      cin >> fnum1;
+
+    fnum3 = fnum1*fnum1;
+
+      cout << " Lado B  ";
+      cin >> fnum2;
+
+      fnum4 = fnum2*fnum2;
+
+  
+
+       cout << " Área Total " << fnum3+fnum4 << " M^2."<<endl;
+   
+     
+
+
+
+
+
+
+
+      
+  return 0;
+    }

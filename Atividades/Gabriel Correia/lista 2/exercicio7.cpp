@@ -1,9 +1,9 @@
-//7. Uma empresa decide dar um aumento de 30% aos funcionários com salários inferiores a R$ 500,00. Faça um
-//programa que receba o salário do funcionário e mostre o valor do salário reajustado ou uma mensagem, caso
-//ele não tenha direito ao aumento.
+//7. Uma empresa decide dar um aumento de 30% aos funcionÃ¡rios com salÃ¡rios inferiores a R$ 500,00. FaÃ§a um
+//programa que receba o salÃ¡rio do funcionÃ¡rio e mostre o valor do salÃ¡rio reajustado ou uma mensagem, caso
+//ele nÃ£o tenha direito ao aumento.
 //**********************************************************
 //- Autor: Gabriel Correia Soares
-//- Descrição: Lista 2 - Exercício 5
+//- DescriÃ§Ã£o: Lista 2 - ExercÃ­cio 7
 //**********************************************************/
 
 #include <iostream>

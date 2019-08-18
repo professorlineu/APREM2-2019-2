@@ -1,8 +1,8 @@
-//17. FaÁa um programa que verifique a validade de uma senha fornecida pelo usu·rio. A senha È 4531. O
-//programa deve mostrar uma mensagem de permiss„o de acesso ou n„o.
+//17. Fa√ßa um programa que verifique a validade de uma senha fornecida pelo usu√°rio. A senha √© 4531. O
+//programa deve mostrar uma mensagem de permiss√£o de acesso ou n√£o.
 //**********************************************************
 //- Autor: Gabriel Correia Soares
-//- DescriÁ„o: Lista 2 - ExercÌcio 5
+//- Descri√ß√£o: Lista 2 - Exerc√≠cio 17
 //**********************************************************/
 
 #include <iostream>

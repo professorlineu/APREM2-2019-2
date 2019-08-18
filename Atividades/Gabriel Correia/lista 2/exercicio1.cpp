@@ -1,8 +1,8 @@
-//1. Faça um programa que receba quatro notas de um aluno, calcule e mostre a média aritmética das notas e a
-//mensagem de aprovado ou reprovado, considerando para aprovação média 7.
+//1. FaÃ§a um programa que receba quatro notas de um aluno, calcule e mostre a mÃ©dia aritmÃ©tica das notas e a
+//mensagem de aprovado ou reprovado, considerando para aprovaÃ§Ã£o mÃ©dia 7.
 //**********************************************************
 //- Autor: Gabriel Correia Soares
-//- Descrição: Lista 2 - Exercício 1
+//- DescriÃ§Ã£o: Lista 2 - ExercÃ­cio 1
 //**********************************************************/
 
 #include <iostream>
@@ -21,7 +21,7 @@ int main()
     setlocale(LC_ALL,"");
     system("color 7E");
 
-    cout << "primeiro nota: ";
+    cout << "primeira nota: ";
     cin  >> inota1;
     cout << endl;
     cout << "segunda nota: ";

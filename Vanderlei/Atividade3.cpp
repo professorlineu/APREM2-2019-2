@@ -24,7 +24,7 @@ int main()
     cin >> iNumero1;
 
     cout << "Insira primeiro número 2: ";
-    cin >> iNumero
+    cin >> iNumero;
 
     iDiv = iNumero1 / iNumero2;
 

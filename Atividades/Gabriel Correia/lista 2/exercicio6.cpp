@@ -1,12 +1,12 @@
-//6. Faça um programa que receba dois números e execute uma das operações listadas a seguir, de acordo com a
-//escolha do usuário. Se for digitada uma opção inválida, mostre mensagem de erro e termine a execução do
-//programa. As opções são:
-//a) O primeiro número elevado ao segundo número.
-//b) Raiz quadrada de cada um dos números.
-//c) Raiz cúbica de cada um dos números.
+//6. FaÃ§a um programa que receba dois nÃºmeros e execute uma das operaÃ§Ãµes listadas a seguir, de acordo com a
+//escolha do usuÃ¡rio. Se for digitada uma opÃ§Ã£o invÃ¡lida, mostre mensagem de erro e termine a execuÃ§Ã£o do
+//programa. As opÃ§Ãµes sÃ£o:
+//a) O primeiro nÃºmero elevado ao segundo nÃºmero.
+//b) Raiz quadrada de cada um dos nÃºmeros.
+//c) Raiz cÃºbica de cada um dos nÃºmeros.
 //**********************************************************
 //- Autor: Gabriel Correia Soares
-//- Descrição: Lista 2 - Exercício 5
+//- DescriÃ§Ã£o: Lista 2 - ExercÃ­cio 6
 //**********************************************************/
 
 #include <iostream>

@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     clayton
-- Descrição: desconto exercício 12
+- Descrição: media ponderada exercício 4
 **********************************************************/
 #include <iostream>
 #include <locale.h>

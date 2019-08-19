@@ -5,6 +5,7 @@
 #include <iostream>
 #include <locale.h>
 #include <cstdlib>
+#include <cmath>
 
 using namespace std;
 
@@ -20,10 +21,10 @@ int main()
     cout<<" insira on valor do segundo cateto ";
     cin>>icateto2;
 
-    ihipotenusa*ihipotenusa= icateto1*icateto1+ icateto2*icateto1;
+    ihipotenusa=pow(icateto1,2)+ pow(icateto2,2);
 
     cout<< "a hipotenusa vale: ";
-    cout ihipotenusa;
+    cout <<sqrt(ihipotenusa);
 
 
 

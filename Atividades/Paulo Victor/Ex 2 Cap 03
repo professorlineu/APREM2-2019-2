@@ -1,0 +1,37 @@
+/**********************************************************
+- Autor: Paulo Victor Vicente Da Silva
+- Descri��o: Ex 2 Cap 03, Multiplicacao entre tres numeros
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declara��o de vari�veis
+int iNumero1 = 0;
+int iNumero2 = 0;
+int iNumero3 = 0;
+
+    //Configura��o da tela de sa�da
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //C�digo do programa
+
+cout << "Digite Numero 1 :";
+cin >> iNumero1;
+
+cout  <<  "Digite Numero 2 :";
+cin   >>  iNumero2;
+
+cout  <<  "Digite Numero 3 :";
+cin   >>  iNumero3;
+
+cout  << "Resultado da Multiplicacao: " <<  iNumero1 * iNumero2 * iNumero3;
+
+
+    return 0;
+}

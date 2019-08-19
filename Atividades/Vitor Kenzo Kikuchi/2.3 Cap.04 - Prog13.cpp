@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Vitor Kenzo Kikuchi
-- Descrição: Exercício 05 - Este programa recebe dois dois números e te dá opções do que fazer com eles.
+- DescriÃ§Ã£o: ExercÃ­cio 05 - Este programa recebe dois dois nÃºmeros e te dÃ¡ opÃ§Ãµes do que fazer com eles.
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,67 +10,72 @@ using namespace std;
 
 int main()
 {
-    //Declaração de variáveis
+    //DeclaraÃ§Ã£o de variÃ¡veis
 float fNumber1 = 0;
 float fNumber2 = 0;
 int iOpcao = 0;
-    //Configuração da tela de saída
+    //ConfiguraÃ§Ã£o da tela de saÃ­da
     setlocale(LC_ALL,"");
     system("color F0
            ");
 
-    //Código do programa
-cout << "Forneça o primeiro número: ";
+    //CÃ³digo do programa
+cout << "ForneÃ§a o primeiro nÃºmero: ";
 cin >> fNumber1;
 
-cout << "Digite o segundo número: ";
+cout << "Digite o segundo nÃºmero: ";
 cin >> fNumber2;
 
-cout << "Se você deseja saber a média dos números digitados, digite 1."
+cout << "Se vocÃª deseja saber a mÃ©dia dos nÃºmeros digitados, digite 1."
      << endl;
 
-cout << "Caso você queira saber a diferença do maior pelo menor, digite 2."
+cout << "Caso vocÃª queira saber a diferenÃ§a do maior pelo menor, digite 2."
      << endl;
 
-cout << "Para saber o produto entre os dois números, digite 3."
+cout << "Para saber o produto entre os dois nÃºmeros, digite 3."
      << endl;
 
-cout << "E se você quiser saber a divisão do primeiro pelo segundo, digite 4."
+cout << "E se vocÃª quiser saber a divisÃ£o do primeiro pelo segundo, digite 4."
      << endl;
 
-cout << "então...? ";
+cout << "entÃ£o...? ";
 cin >> iOpcao;
 
 if (iOpcao == 1)
 {
-cout << "A média desses números é igual a "
+cout << "A mÃ©dia desses nÃºmeros Ã© igual a "
      << (fNumber1 + fNumber2)/2
      << endl;
 }
 else if (iOpcao == 2 && fNumber1 >= fNumber2 )
 {
-cout << "A diferença do maior pelo menor é igual a "
+cout << "A diferenÃ§a do maior pelo menor Ã© igual a "
      << fNumber1 - fNumber2
      << endl;
 }
 else if (iOpcao == 2 && fNumber2 >= fNumber1 )
 {
-cout << "A diferença do maior pelo menor é igual a "
+cout << "A diferenÃ§a do maior pelo menor Ã© igual a "
      << fNumber2 - fNumber1
      << endl;
 }
 else if (iOpcao == 3)
 {
-cout << "O produto entre esses dois números é igual a "
+cout << "O produto entre esses dois nÃºmeros Ã© igual a "
      << fNumber1*fNumber2
      << endl;
 }
-else
+else  if (iOpcao == 4)
 {
-cout << "O quociente é igual a "
+cout << "O quociente Ã© igual a "
      << fNumber1 / fNumber2
      << endl;
 }
-
+else 
+{
+cout << "OpÃ§Ã£o invÃ¡lida."
+     << endl;
+}
+           
     return 0;
 }

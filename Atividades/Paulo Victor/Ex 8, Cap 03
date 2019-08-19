@@ -1,0 +1,30 @@
+/**********************************************************
+- Autor: Paulo Victor Vicente Da Silva
+- Descrição: Ex 8, Cap 03, Converter Kg em Gramas 
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+
+ int iPeso = 0;
+ int iGramas = 1000;
+
+ //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+cout << "Digite seu peso em Kg: ";
+cin  >> iPeso;
+
+cout << "Seu Peso Em Gramas: " << iPeso * iGramas;
+
+    return 0;
+}

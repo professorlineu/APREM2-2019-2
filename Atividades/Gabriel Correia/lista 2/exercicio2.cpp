@@ -1,7 +1,7 @@
-//2. Faça um programa que receba duas notas, calcule e mostre a média aritmética e a mensagem que se encontra
+//2. FaÃ§a um programa que receba duas notas, calcule e mostre a mÃ©dia aritmÃ©tica e a mensagem que se encontra
 //**********************************************************
 //- Autor: Gabriel Correia Soares
-//- Descrição: Lista 2 - Exercício 2
+//- DescriÃ§Ã£o: Lista 2 - ExercÃ­cio 2
 //**********************************************************/
 
 #include <iostream>
@@ -31,7 +31,7 @@ int main()
 
     if (imedia>=7)
         cout<< "voce foi aprovado(a)";
-    if (imedia>=3)
+    if (imedia>=3&&imedia<7)
         cout<<"voce esta de exame";
     if (imedia<3)
         cout<<"voce foi reprovado(a)";

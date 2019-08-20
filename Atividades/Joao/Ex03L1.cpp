@@ -1,7 +1,7 @@
 /********************************************************
-- Autor: Jo„o Pedro Neves Baldin
+- Autor: Jo√£o Pedro Neves Baldin
 
-- DescriÁ„o: Lista 01 - ExercÌcio 03
+- Descri√ß√£o: Lista 01 - Exerc√≠cio 03
 ********************************************************/
 
 #include <stdio.h>
@@ -16,7 +16,7 @@ int main()
     printf("Digite o segundo numero: " );
     scanf("%f", &num2);
 
-    //Divis„o
+    //Divis√£o
     div = num1/num2;
 
     printf("%.2f / %.2f = %.2f\n", num1, num2, div);

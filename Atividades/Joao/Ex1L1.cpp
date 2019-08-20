@@ -1,8 +1,8 @@
 /********************************************************
 
-- Autor: Jo„o Pedro Neves Baldin
+- Autor: Jo√£o Pedro Neves Baldin
 
-- DescriÁ„o: Lista 01 - ExercÌcio 01
+- Descri√ß√£o: Lista 01 - Exerc√≠cio 01
 
 ********************************************************/
 
@@ -18,7 +18,7 @@ int main()
     printf("Digite o segundo numero: " );
     scanf("%f", &num2);
 
-    //SubtraÁ„o
+    //Subtra√ß√£o
     sub = num1 - num2;
 
 

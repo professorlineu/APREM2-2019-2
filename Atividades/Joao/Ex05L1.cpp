@@ -1,7 +1,7 @@
 /********************************************************
-- Autor: Jo„o Pedro Neves Baldin
+- Autor: Jo√£o Pedro Neves Baldin
 
-- DescriÁ„o: Lista 01 - ExercÌcio 04
+- Descri√ß√£o: Lista 01 - Exerc√≠cio 05
 ********************************************************/
 #include <iostream>
 
@@ -25,25 +25,25 @@ int main()
 
     system("cls");
 
-    // Ativa acentuaÁ„o
+    // Ativa acentua√ß√£o
 
     setlocale(LC_ALL,"");
 
-    // Mostra mensagem antes da leitura do sal·rio
+    // Mostra mensagem antes da leitura do sal√°rio
 
-    cout << "\nInforme o preÁo do produto: $ ";
+    cout << "\nInforme o pre√ßo do produto: $ ";
 
     // Recebe o valor do produto
 
     cin >> preco;
 
-    // Calcula o preÁo com desconto
+    // Calcula o pre√ßo com desconto
 
     novopre = preco - preco * 10/100;
 
-    // Mostra o novo preÁo
+    // Mostra o novo pre√ßo
 
-    cout << "\nPreÁo com desconto = $" << novopre;
+    cout << "\nPre√ßo com desconto = $" << novopre;
 
     // Para o programa a espera de um ENTER
 

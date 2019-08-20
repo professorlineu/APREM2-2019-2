@@ -1,8 +1,8 @@
 
 /********************************************************
-- Autor: Jo„o Pedro Neves Baldin
+- Autor: Jo√£o Pedro Neves Baldin
 
-- DescriÁ„o: Lista 01 - ExercÌcio 023
+- Descri√ß√£o: Lista 01 - Exerc√≠cio 023
 ********************************************************/
 
 #include <stdio.h>
@@ -21,7 +21,7 @@ int main()
     scanf("%f", &num3);
 
 
-    //MultiplicaÁao
+    //Multiplica√ßao
     mult = num1 * num2 * num3;
 
     printf("%.2f * %.2f * %.2f = %.2f\n", num1, num2, num3, mult);

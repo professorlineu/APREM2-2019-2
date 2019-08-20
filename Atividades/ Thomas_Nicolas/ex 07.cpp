@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Thomas Nicolas
-- DescriÁ„o: ex 07
+- Descri√ß√£o: ex 07
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,22 +10,22 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 
     float fpeso = 0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
+    //C√≥digo do programa
 
     cout    <<"insira o seu peso atual: ";
     cin     >> fpeso;
 
-    cout    <<"o seu peso se vocÍ engordar 15%: " <<fpeso+(fpeso*0,15)<<endl;
+    cout    <<"o seu peso se voc√™ engordar 15%: " <<fpeso+(fpeso*0,15)<<endl;
 
-    cout    <<"o seu peso se vocÍ emagrecer 20%: " <<fpeso-(fpeso*0,20);
+    cout    <<"o seu peso se voc√™ emagrecer 20%: " <<fpeso-(fpeso*0,20);
 
 
     return 0;

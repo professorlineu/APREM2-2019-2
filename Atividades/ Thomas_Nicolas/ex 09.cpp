@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Thomas Nicolas
-- DescriÁ„o: ex 09
+- Descri√ß√£o: ex 09
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,27 +10,27 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 
     float fbasem = 0;
     float fbaseM = 0;
     float faltura = 0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
+    //C√≥digo do programa
 
-    cout    <<"insira a base menor do trapÈsio: ";
+    cout    <<"insira a base menor do trap√©sio: ";
     cin     >> fbasem;
 
-    cout    <<"insira a base maior do trapÈsio: ";
+    cout    <<"insira a base maior do trap√©sio: ";
     cin     >> fbaseM;
 
-    cout    <<"insira a altura do trapÈsio: ";
+    cout    <<"insira a altura do trap√©sio: ";
     cin     >> faltura;
 
-    cout    <<"a ·rea do trapÈsio È: " <<((fbaseM+fbasem)*faltura)/2;
+    cout    <<"a √°rea do trap√©sio √©: " <<((fbaseM+fbasem)*faltura)/2;
     return 0;
 }

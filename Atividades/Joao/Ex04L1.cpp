@@ -1,7 +1,7 @@
 /********************************************************
-- Autor: Jo„o Pedro Neves Baldin
+- Autor: Jo√£o Pedro Neves Baldin
 
-- DescriÁ„o: Lista 01 - ExercÌcio 04
+- Descri√ß√£o: Lista 01 - Exerc√≠cio 04
 ********************************************************/
 
 #include <conio.h>

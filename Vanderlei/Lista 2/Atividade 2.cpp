@@ -33,14 +33,14 @@ int main()
     cout << "a sua nota foi de " << imedia;
 
     if (imedia>=7)
-      cout<< ", parabéns você foi aprovado! :)";
+      cout<< ", parabéns você foi aprovado!";
 
     if (7>imedia && imedia>=3)
 
         cout<< ", você foi para exame, estude bem.";
 
     if (imedia<3)
-        cout << ", você foi reprovado, se fudeu! :D";
+        cout << ", você foi reprovado!";
 
 
     return 0;

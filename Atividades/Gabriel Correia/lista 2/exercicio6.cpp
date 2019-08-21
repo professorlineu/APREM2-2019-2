@@ -35,18 +35,14 @@ int main()
     cout << endl;
 
     if (inumero3>=1&&inumero3<4)
-        {if (inumero3==1)
+        {{if (inumero3==1)
                {cout<<"primeiro numero elevado pelo segundo:"<<pow(inumero1,inumero2);}}
         if  (inumero3==2)
            {if (inumero1>0 && inumero2>0)
              {cout<<"a raiz de "<<inumero1<<" e: "<<sqrt(inumero1)<<";"<<endl<<"a raiz de "<<inumero2<<" e: "<<sqrt(inumero2)<<";";}
         else  { cout<<"nao foi possivel realizar esta operacao" ;}}
         if  (inumero3==3)
-             {cout<<"a raiz de "<<inumero1<<" e: "<<cbrt(inumero1)<<";"<<endl<<"a raiz de "<<inumero2<<" e: "<<cbrt(inumero2)<<";";}
-
-    if (inumero3<1)
+             {cout<<"a raiz de "<<inumero1<<" e: "<<cbrt(inumero1)<<";"<<endl<<"a raiz de "<<inumero2<<" e: "<<cbrt(inumero2)<<";";}}
+    else
         cout<<"operacao innvalida";
-    if (inumero3>3)
-        cout<<"operacao innvalida";
-
 }

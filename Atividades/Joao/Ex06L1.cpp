@@ -1,7 +1,7 @@
 /********************************************************
-- Autor: João Pedro Neves Baldin
+- Autor: JoÃ£o Pedro Neves Baldin
 
-- Descrição: Lista 01 - Exercício 06
+- DescriÃ§Ã£o: Lista 01 - ExercÃ­cio 06
 ********************************************************/
 #include <iostream>
 
@@ -25,15 +25,15 @@ int main()
 
     system("cls");
 
-    // Ativa acentuação
+    // Ativa acentuaÃ§Ã£o
 
     setlocale(LC_ALL,"");
 
-    // Mostra mensagem antes da leitura do salário
+    // Mostra mensagem antes da leitura do salÃ¡rio
 
-    cout << "\nDigite o salário do funcionário: $";
+    cout << "\nDigite o salÃ¡rio do funcionÃ¡rio: $";
 
-    // Salário fixo
+    // SalÃ¡rio fixo
 
     cin >> fixo;
 
@@ -45,18 +45,18 @@ int main()
 
     cin >> vendas;
 
-    // Calcula a comissão
+    // Calcula a comissÃ£o
 
     comissao = vendas * 4/100;
 
-    // Calcula o novo salário
+    // Calcula o novo salÃ¡rio
 
     salario = fixo + comissao;
 
-    // Mostra o novo salário
+    // Mostra o novo salÃ¡rio
 
     cout << "\n Salario = $ " << fixo;
-    cout << "\n Comissão = $ " << comissao;
+    cout << "\n ComissÃ£o = $ " << comissao;
     cout << "\n Total a receber = $ " << salario;
 
     // Para o programa a espera de um ENTER

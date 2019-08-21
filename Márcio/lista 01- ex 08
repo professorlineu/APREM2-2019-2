@@ -1,0 +1,51 @@
+/********************************************************
+- Autor: Márcio Campos Mansur Pinto
+- Descrição: Lista 01 - Exercício 08
+********************************************************/
+#include <iostream>
+
+#include <conio.h>
+
+#include <locale.h>
+
+#include <cstdlib>
+
+using namespace std;
+
+
+
+int main()
+
+{
+
+    float pesokg, pesog;
+
+    //Limpa a tela
+
+    system("cls");
+
+    // Ativa acentuação
+
+    setlocale(LC_ALL,"");
+
+    // Mostra mensagem antes da leitura do peso
+
+    cout << "\nInforme seu peso em quilogramas  ";
+
+    // Recebe o peso em quilos
+
+    cin >> pesokg;
+
+    // Calcula o peso em gramas
+
+    pesog = pesokg * 1000;
+
+    // Mostra o peso em gramas
+
+    cout << "\nSeu peso em gramas é " << pesog;
+
+    // Para o programa a espera de um ENTER
+
+    getch();
+
+}

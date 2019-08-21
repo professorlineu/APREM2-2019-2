@@ -1,6 +1,6 @@
 /**********************************************************
-- Autor:     Seu nome
-- DescriÁ„o: Breve descriÁ„o do programa
+- Autor:     Vitor Kenzo Kikuchi
+- Descri√ß√£o: Exerc√≠cio 17 - Esse programa diz se seu acesso est√° liberado ou n√£o com uma senha (6753).
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -11,14 +11,14 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 float fSenha = 0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color 8F");
 
-    //CÛdigo do programa
+    //C√≥digo do programa
 
 cout << "\n\n"
      << "              ___________\n"

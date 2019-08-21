@@ -1,7 +1,7 @@
 /********************************************************
-- Autor: Jo„o Pedro Neves Baldin
+- Autor: Jo√£o Pedro Neves Baldin
 
-- DescriÁ„o: Lista 01 - ExercÌcio 08
+- Descri√ß√£o: Lista 01 - Exerc√≠cio 08
 ********************************************************/
 #include <iostream>
 
@@ -25,7 +25,7 @@ int main()
 
     system("cls");
 
-    // Ativa acentuaÁ„o
+    // Ativa acentua√ß√£o
 
     setlocale(LC_ALL,"");
 
@@ -43,7 +43,7 @@ int main()
 
     // Mostra o peso em gramas
 
-    cout << "\nSeu peso em gramas È " << pesog;
+    cout << "\nSeu peso em gramas √© " << pesog;
 
     // Para o programa a espera de um ENTER
 

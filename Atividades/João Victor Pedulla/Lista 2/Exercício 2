@@ -1,0 +1,50 @@
+/**********************************************************
+- Autor:     Seu nome
+- Descrição: Breve descrição do programa
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+
+    float fnota1 = 0;
+    float fnota2 = 0;
+    float fresultado = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+    cout << "Nota 1: ";
+    cin >> fnota1;
+
+    cout << "Nota 2: ";
+    cin >> fnota2;
+
+    fresultado = (fnota1 + fnota2) / 2;
+
+    if (fresultado < 3)
+{
+    cout << "Reprovado";
+}
+
+    else if (fresultado < 7)
+{
+    cout << "Exame";
+}
+
+    else
+{
+    cout << "Aprovado";
+}
+
+
+    return 0;
+}

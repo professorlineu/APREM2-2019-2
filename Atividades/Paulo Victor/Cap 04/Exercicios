@@ -1,0 +1,39 @@
+/**********************************************************
+- Autor: Paulo Victor Vicente Da Silva
+- Descri��o: ex1 lista 2 Calcular media entre 4 notas
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declara��o de vari�veis
+
+float i1, i2, i3, i4, imed;
+
+    //Configura��o da tela de sa�da
+
+ setlocale(LC_ALL,"");
+    system("color F1");
+    //C�digo do programa
+
+cout << "Digite nota 1: ";
+cin >> i1;
+
+cout << "digite nota 2: ";
+cin >> i2;
+
+cout << "Digite nota 3: ";
+cin >> i3;
+
+cout << "Digite nota 4: ";
+cin >> i4;
+
+imed = (i1 + i2 + i3 + i4) / 4 ;
+
+cout << "Sua media e: " << imed ;
+    return 0;
+}

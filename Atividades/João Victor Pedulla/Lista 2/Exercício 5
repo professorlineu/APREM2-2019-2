@@ -32,6 +32,13 @@ int main()
     cout << "Segundo número: ";
     cin >> fnum2;
 
+    cout << "----------------------------------------\n\n";
+    cout << "1 - Média entre os números\n\n";
+    cout << "2 - Diferença do maior pelo menor\n\n";
+    cout << "3 - Produto entre os números\n\n";
+    cout << "4 - Divisão do primeiro pelo segundo\n\n";
+    cout << "----------------------------------------\n\n";
+
     cout << "Operação: ";
     cin >> iescolha;
 
@@ -77,8 +84,10 @@ int main()
         cout << "Resposta inexistente";
     }
 
-
-
+    else
+    {
+        cout << "Nenhuma solução selecionada.";
+    }
 
     return 0;
 }

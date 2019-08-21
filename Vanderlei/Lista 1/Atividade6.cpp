@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:   vanderlei natanael
-- Descrição: preço
+- Descrição: Preço com desconto
 **********************************************************/
 #include <iostream>
 #include <locale.h>

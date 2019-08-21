@@ -1,0 +1,52 @@
+/**********************************************************
+- Autor:    Bárbara Marques
+- Descrição: Maior número
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+        float fNum1 = 0;
+        float fNum2 = 0;
+        float fNum3 = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+        cout << "Digite dois números: ";
+        cout << endl;
+
+        cout << "Número 1: ";
+        cin >> fNum1;
+
+        cout << "Número 2: ";
+        cin >> fNum2;
+
+        cout << "Número 3: ";
+        cin >> fNum3;
+
+        if (fNum1 > fNum2 && fNum1 > fNum3)
+
+            cout << fNum1 << " é maior do que " << fNum2 << " e " << fNum3 << endl;
+
+        else if (fNum2 > fNum1 && fNum2 > fNum3)
+
+            cout << fNum2 << " é maior do que " << fNum1 << " e " << fNum3;
+
+        else
+
+            cout << fNum3 << " é maior do que " << fNum1 << " e " << fNum2;
+
+
+
+
+    return 0;
+}

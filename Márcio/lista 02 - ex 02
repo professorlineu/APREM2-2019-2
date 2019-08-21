@@ -1,0 +1,50 @@
+/**********************************************************
+- Autor:  Márcio Campos Mansur Pinto
+- Descrição: Calculadora de duas médias
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+
+float i1, i2, imed;
+
+    //Configuração da tela de saída
+
+ setlocale(LC_ALL,"");
+    system("color F1");
+    //Código do programa
+
+cout << "Digite nota 1: ";
+cin >> i1;
+
+cout << "digite nota 2: ";
+cin >> i2;
+
+
+imed = (i1 + i2 ) / 2 ;
+
+if (imed >=7)
+{
+    cout << "Sua media e: " << imed ;
+    cout << " você esta aprovado";
+}
+else if (imed <=3)
+{
+     cout << "Sua media e: " << imed ;
+     cout << " você esta reprovado";
+}
+else if (3 <= imed <=7)
+{
+     cout << "Sua media e: " << imed ;
+     cout << " você esta de exame";
+}
+
+
+    return 0;
+}

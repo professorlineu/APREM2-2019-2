@@ -1,0 +1,49 @@
+/**********************************************************
+- Autor:     clayton
+- Descrição: media ex 1 lista 2
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+int ivalor1 = 0;
+int ivalor2 = 0;
+int ivalor3 = 0;
+int ivalor4 = 0;
+
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+cout << "digite sua primeira nota";
+cin >> ivalor1;
+
+cout <<"digite sua segunda nota";
+cin >> ivalor2;
+
+cout << "digite sua terceira nota";
+cin >> ivalor3;
+
+cout << "digite sua quarta nota";
+cin >> ivalor4;
+
+int imedia = (ivalor1 + ivalor2 + ivalor3 + ivalor4)/4;
+
+cout <<" sua media e " << imedia << ".";
+if (imedia < 7)
+{
+    cout << "reprovado";
+}
+else if (imedia <= 10)
+{
+    cout << "aprovado";
+}
+    return 0;
+}

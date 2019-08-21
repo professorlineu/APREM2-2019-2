@@ -41,10 +41,10 @@ int main()
     cout << "a sua nota foi de " << imedia;
 
     if (imedia>=7)
-      cout<< ", parabéns você foi aprovado! :)";
+      cout<< ", parabéns você foi aprovado!";
 
     else
-        cout << ", você foi reprovado, se fudeu! :D";
+        cout << ", você foi reprovado!";
 
 
     return 0;

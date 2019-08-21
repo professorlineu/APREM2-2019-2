@@ -1,0 +1,84 @@
+/**********************************************************
+- Autor:     João Victor Pedulla
+- Descrição: Lista 2 - Ex 5
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+
+    float fnum1 = 0;
+    float fnum2 = 0;
+    int iescolha = 0;
+    float fmedia = 0;
+    float fdiferenca = 0;
+    float fproduto = 0;
+    float fdivisao = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+    cout << "Primeiro número: ";
+    cin >> fnum1;
+
+    cout << "Segundo número: ";
+    cin >> fnum2;
+
+    cout << "Operação: ";
+    cin >> iescolha;
+
+    fmedia = (fnum1 + fnum2) / 2;
+    fproduto = fnum1 * fnum2;
+    fdivisao = fnum1 / fnum2;
+
+    if (fnum1 > fnum2)
+    {
+        fdiferenca = fnum1 - fnum2;
+    }
+    else if (fnum1 < fnum2)
+    {
+        fdiferenca = fnum2 - fnum1;
+    }
+    else if (fnum1 = fnum2)
+    {
+        fdiferenca = 0;
+    }
+
+    if (iescolha < 2)
+    {
+        cout << "Resposta da média é: " << fmedia;
+    }
+
+    else if (iescolha < 3)
+    {
+        cout << "Resposta da diferença é: " << fdiferenca;
+    }
+
+    else if (iescolha < 4)
+    {
+        cout << "Resposta do produto é: " << fproduto;
+    }
+
+    else if (iescolha < 5 && fnum2 > 0)
+    {
+        cout << "Resposta da divisão é: " << fdivisao;
+    }
+
+    else if (iescolha < 5 && fnum2 <= 0)
+    {
+        cout << "Resposta inexistente";
+    }
+
+
+
+
+    return 0;
+}

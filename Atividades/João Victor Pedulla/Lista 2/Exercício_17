@@ -1,0 +1,39 @@
+/**********************************************************
+- Autor:     João Victor Pedulla
+- Descrição: Lita 2 - Ex 17
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+
+    int iNum1 = 0;
+
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+    cout << "Digite a senha de 4 números: ";
+    cin >> iNum1;
+
+    if (iNum1 == 4531)
+    {
+        cout << "Acesso liberado!";
+    }
+
+    else
+    {
+        cout << "Acesso negado!";
+    }
+
+
+    return 0;
+}

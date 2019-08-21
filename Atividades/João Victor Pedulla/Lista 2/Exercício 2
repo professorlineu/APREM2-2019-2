@@ -1,6 +1,6 @@
 /**********************************************************
-- Autor:     Seu nome
-- Descrição: Breve descrição do programa
+- Autor:     João Victor Pedulla
+- Descrição: Lista 2 - Ex 2
 **********************************************************/
 #include <iostream>
 #include <locale.h>

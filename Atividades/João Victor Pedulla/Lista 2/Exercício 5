@@ -52,27 +52,27 @@ int main()
         fdiferenca = 0;
     }
 
-    if (iescolha < 2)
+    if (iescolha == 1)
     {
         cout << "Resposta da média é: " << fmedia;
     }
 
-    else if (iescolha < 3)
+    else if (iescolha == 2)
     {
         cout << "Resposta da diferença é: " << fdiferenca;
     }
 
-    else if (iescolha < 4)
+    else if (iescolha == 3)
     {
         cout << "Resposta do produto é: " << fproduto;
     }
 
-    else if (iescolha < 5 && fnum2 > 0)
+    else if (iescolha == 4 && fnum2 != 0)
     {
         cout << "Resposta da divisão é: " << fdivisao;
     }
 
-    else if (iescolha < 5 && fnum2 <= 0)
+    else if (iescolha == 4 && fnum2 == 0)
     {
         cout << "Resposta inexistente";
     }

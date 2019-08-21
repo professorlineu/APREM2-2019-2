@@ -1,0 +1,40 @@
+  // * *********************************************** *********************************************
+  // -autor: Milene Caroline
+  // -programa: maior idade
+ // ************************************************ ************************************************ * / /
+
+ #include <iostream>
+ #include <locale.h>
+ #include <cstdlib>
+ #include <cmath>
+
+ using namespace std;
+
+ int main()
+
+ {
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F2");
+
+
+  // Declaração de variáveis
+
+    int iIdade = 0 ;
+
+    cout << " Quantos anos vove tem : " ;
+    cin >> inumero1;
+
+
+     if (iIdade>=18 )
+     {
+        cout << " voce ja e maior de idade " ;
+     }
+
+
+     else  if (iIdade<18 )
+     {
+        cout << " voce e menor de idade " ;
+
+     }
+}

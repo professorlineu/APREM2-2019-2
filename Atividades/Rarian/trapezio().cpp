@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Rarian
-- Descrição: Produto com desconto
+- Descrição: Área de um trapézio
 **********************************************************/
 #include <iostream>
 #include <locale.h>

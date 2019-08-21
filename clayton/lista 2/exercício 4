@@ -1,0 +1,46 @@
+/**********************************************************
+- Autor:     clayton
+- Descrição: media ex 1 lista 4
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+int ivalor1 = 0;
+int ivalor2 = 0;
+int ivalor3 = 0;
+
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+cout << "digite o primeiro valor";
+cin >> ivalor1;
+
+cout <<"digite o segunda valor";
+cin >> ivalor2;
+
+cout <<"digite o segunda valor";
+cin >> ivalor3;
+
+cout <<" menor numero e";
+if (ivalor1 > ivalor2 && ivalor1 > ivalor3)
+{
+    cout << ivalor1;
+}
+else if (ivalor2 > ivalor1 && ivalor2 > ivalor1)
+     {cout << ivalor2;
+}
+else if (ivalor3 > ivalor1 && ivalor3> ivalor2)
+{
+ cout << ivalor3;
+}
+    return 0;
+}

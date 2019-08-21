@@ -1,6 +1,6 @@
 //**********************************************************
-//- Autor:
-//- Descrição: Maior numero EX04
+//- Autor: Isabela Aparecida de Souza
+//- DescriÃ§Ã£o: Maior numero EX04
 //**********************************************************/
 
 #include <iostream>
@@ -30,9 +30,9 @@ int main()
     cout << endl;
 
     if (iNumero1>iNumero2 && iNumero1>iNumero3)
-        {cout << iNumero1 <<" é o maior numero. ";}
+        {cout << iNumero1 <<" Ã© o maior numero. ";}
     if (iNumero2>iNumero1  && iNumero2>iNumero3)
-        {cout << iNumero2 <<" é o maior numero. ";}
+        {cout << iNumero2 <<" Ã© o maior numero. ";}
     if (iNumero3>iNumero2 && iNumero3>iNumero1)
-        {cout << iNumero3 <<" é o maior numero. ";}
+        {cout << iNumero3 <<" Ã© o maior numero. ";}
 }

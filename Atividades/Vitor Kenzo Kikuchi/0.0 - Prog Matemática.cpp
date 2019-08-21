@@ -1,6 +1,6 @@
 /**********************************************************
-- Autor:     Seu nome
-- DescriÁ„o: Breve descriÁ„o do programa
+- Autor:     Vitor Kenzo Kikuchi
+- Descri√ß√£o: Programa que calcula a pot√™ncia, raiz quadrada e raiz c√∫bica de dois n√∫meros.
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -11,25 +11,25 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
     float fBase = 0;
     float fExpoente = 0;
     float fResul = 0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
-    cout << "Digite o primeiro n˙mero (Base): ";
+    //C√≥digo do programa
+    cout << "Digite o primeiro n√∫mero (Base): ";
     cin  >> fBase;
 
-    cout << "Digite o segundo n˙mero (Expoente): ";
+    cout << "Digite o segundo n√∫mero (Expoente): ";
     cin  >> fExpoente;
 
     fResul = pow(fBase, fExpoente);
 
-    cout << "\n\nPotÍncia: "
+    cout << "\n\nPot√™ncia: "
          << fResul
          << "\n"
          << endl;
@@ -39,7 +39,7 @@ int main()
          << "\n"
          << endl;
 
-    cout << "Raiz c˙bica: "
+    cout << "Raiz c√∫bica: "
          << cbrt(fResul)
          << endl;
 

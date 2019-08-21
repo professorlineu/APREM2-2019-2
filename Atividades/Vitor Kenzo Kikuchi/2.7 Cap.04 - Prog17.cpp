@@ -1,6 +1,6 @@
 /**********************************************************
-- Autor:     Seu nome
-- DescriÁ„o: Breve descriÁ„o do programa
+- Autor:     Vitor Kenzo Kikuchi
+- Descri√ß√£o: Exerc√≠cio 06 - Esse programa realiza a opera√ß√£o matem√°tica desejada pelo usu√°rio.
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -11,31 +11,31 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 int iOpcao = 0;
 int iNum1 = 0;
 int iNum2 = 0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
-    cout << "Digite o primeiro n˙mero: ";
+    //C√≥digo do programa
+    cout << "Digite o primeiro n√∫mero: ";
     cin  >> iNum1;
     cout << "\n";
 
-    cout << "Digite o primeiro n˙mero: ";
+    cout << "Digite o primeiro n√∫mero: ";
     cin  >> iNum2;
     cout << "\n";
 
     cout << "--------------------------------------------\n\n";
-    cout << "  1 - PotÍncia (primeiro pelo segundo)\n\n";
-    cout << "  2 - Raiz quadrada de cada um dos n˙meros\n\n";
-    cout << "  3 - Raiz c˙bica de cada um dos n˙meros\n\n";
+    cout << "  1 - Pot√™ncia (primeiro pelo segundo)\n\n";
+    cout << "  2 - Raiz quadrada de cada um dos n√∫meros\n\n";
+    cout << "  3 - Raiz c√∫bica de cada um dos n√∫meros\n\n";
     cout << "--------------------------------------------\n\n";
 
-    cout << "OpÁ„o: ";
+    cout << "Op√ß√£o: ";
     cin >> iOpcao;
 
     if (iOpcao == 1)
@@ -53,33 +53,33 @@ int iNum2 = 0;
     cout << "\n"
          << "Raiz quadrada de "
          << iNum1
-         << " È igual a "
+         << " √© igual a "
          << sqrt(iNum1)
          << "\n"
          << "E a raiz quadrada de "
          << iNum2
-         << " È igual a "
+         << " √© igual a "
          << sqrt (iNum2)
          << endl;
     }
     else if (iOpcao == 3)
     {
     cout << "\n"
-         << "Raiz c˙bica de "
+         << "Raiz c√∫bica de "
          << iNum1
-         << " È igual a "
+         << " √© igual a "
          << cbrt (iNum1)
          << "\n"
-         << "E a raiz c˙bica de "
+         << "E a raiz c√∫bica de "
          << iNum2
-         << " È igual a "
+         << " √© igual a "
          << cbrt (iNum2)
          << endl;
     }
     else
     {
     cout << "\n"
-         << "OpÁ„o inv·lida!"
+         << "Op√ß√£o inv√°lida!"
          << endl;
     }
 

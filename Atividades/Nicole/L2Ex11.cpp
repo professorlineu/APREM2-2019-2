@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Nicole Oska
-- Descrição: Exercício 8
+- Descrição: Exercício 11
 **********************************************************/
 #include <iostream>
 #include <locale.h>

@@ -1,7 +1,7 @@
 
 //**********************************************************
 //- Autor: Vanderlei Natanael
-//- Descrição: 3 menores números
+//- Descrição: Lista 2 - Ex 4
 //**********************************************************/
 
 #include <iostream>
@@ -28,13 +28,19 @@ int main()
 
     cout << "terceiro numero: ";
     cin  >> inumero3;
+    
 
     if (inumero1>inumero2 && inumero1>inumero3)
+        
         cout<<inumero1 <<" é o maior numero.";
         
+    
     if (inumero2>inumero1  && inumero2>inumero3)
+        
         cout<<inumero2 <<" é o maior numero.";
         
+    
     if (inumero3>inumero2 && inumero3>inumero1)
+        
         cout<<inumero3 <<" é o maior numero.";
 }

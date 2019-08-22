@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Nicolas Veneziani
-- Descrição: Exercício 1 dos propostos (Lista 2).
+- Descrição: Exercício 2 dos propostos (Lista 2).
 **********************************************************/
  #include <iostream>
  #include <locale.h>

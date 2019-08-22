@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Vanderlei Natanael
-- Descrição: Reajuste Salarial
+- Descrição: Lista 2 - Ex 8
 **********************************************************/
 
 #include <iostream>

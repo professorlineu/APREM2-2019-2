@@ -1,12 +1,8 @@
-//6. Faça um programa que receba dois números e execute uma das operações listadas a seguir, de acordo com a
-//escolha do usuário. Se for digitada uma opção inválida, mostre mensagem de erro e termine a execução do
-//programa. As opções são:
-//a) O primeiro número elevado ao segundo número.
-//b) Raiz quadrada de cada um dos números.
-//c) Raiz cúbica de cada um dos números.
+//1. FaÃ§a um programa que leia cinco grupos de quatro valores (A, B, C, D) e mostre-os na ordem lida. Em segui-
+//da, organize-os em ordem crescente e decrescente.
 //**********************************************************
 //- Autor: Gabriel Correia Soares
-//- Descrição: Lista 2 - Exercício 6
+//- DescriÃ§Ã£o: Lista 2 - ExercÃ­cio 6
 //**********************************************************/
 
 #include <iostream>
@@ -26,7 +22,7 @@ int main()
     setlocale(LC_ALL,"");
     system("color 7E");
     cout << "\niniciando o programa: \n";
-     while (i<2)
+     while (i<5)
     {cout << "\nprimeiro numero: ";
     cin  >> inumero1;
     cout << endl;
@@ -46,7 +42,7 @@ int main()
     if (inumero3>inumero2 && inumero3>inumero1 && inumero3>inumero4)
         {cout<<inumero3 <<" eh o maior numero ";}
     if (inumero4>inumero1 && inumero4>inumero2 && inumero4>inumero3)
-        {cout<<inumero3 <<" eh o maior numero ";}
+        {cout<<inumero4 <<" eh o maior numero ";}
     i=i+1;
     cout<< "\nreiniciando o programa\n";
     }

@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:   vanderlei natanael
-- Descrição: Média aluno
+- Descrição: Lista 2 - Ex 1
 **********************************************************/
 #include <iostream>
 #include <locale.h>

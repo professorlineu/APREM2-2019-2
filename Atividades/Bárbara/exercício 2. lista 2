@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:    Bárbara Marques
-- Descrição: Cálculo de média com 4 notas
+- Descrição: Cálculo de média com 2 notas
 **********************************************************/
 #include <iostream>
 #include <locale.h>

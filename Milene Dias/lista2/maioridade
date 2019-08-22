@@ -23,7 +23,7 @@
     int iIdade = 0 ;
 
     cout << " Quantos anos vove tem : " ;
-    cin >> inumero1;
+    cin >> iIdade;
 
 
      if (iIdade>=18 )

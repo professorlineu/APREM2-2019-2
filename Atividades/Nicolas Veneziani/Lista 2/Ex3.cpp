@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Nicolas Veneziani
-- Descrição: Exercício 3 e 4 dos propostos (Lista 2).
+- Descrição: Exercício 3 dos propostos (Lista 2).
 **********************************************************/
  #include <iostream>
  #include <locale.h>
@@ -33,22 +33,18 @@ int main()
 
 
 
-    if (fN1 > fN2)
+    if (fN1 < fN2)
     {
         cout << "\n O número " << fN1;
-        cout << " é maior que " << fN2;
-    }
-    else if (fN2 > fN1)
-    {
-        cout << "\nO número " << fN1;
         cout << " é menor que " << fN2;
     }
-    else if (fN2 = fN1)
+    else if (fN2 < fN1)
     {
-        cout << "\nOs números ";
-        cout << "são iguais";
+        cout << "\nO número " << fN2;
+        cout << " é menor que " << fN1;
     }
+
 
 
     return 0;
-}
+} 

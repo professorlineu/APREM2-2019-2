@@ -1,0 +1,56 @@
+/**********************************************************
+- Autor:     clayton
+- Descrição: escolha a operação 
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+
+float fNum1 = 0;
+float fNum2 = 0;
+float fNum3 = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+cout << "Digite três números: ";
+
+cout << "Número 1: ";
+cin >> fNum1;
+
+cout << "Número 2: ";
+cin >> fNum2;
+
+cout << "Escolha uma opção:";
+cout << " 1 (média) , 2 (diferença) , 3 (produto) ou 4 (divisão) ";
+cin >> fNum3;
+
+if (fNum3 == 1)
+
+cout << (fNum1 + fNum2)/2;
+
+else if (fNum3 = 2 )
+
+cout << (fNum1-fNum2);
+
+else if (fNum3 = 3)
+
+cout << (fNum1*fNum2);
+
+else if (fNum3 = 4)
+cout << (fNum1/fNum2);
+
+else
+
+cout << " Operação inválida! ";
+
+}

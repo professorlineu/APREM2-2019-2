@@ -20,7 +20,7 @@ int main()
     float fMed = 0;
 
 
-
+ 
 
     //Configuração da tela de saída
     setlocale(LC_ALL,"");

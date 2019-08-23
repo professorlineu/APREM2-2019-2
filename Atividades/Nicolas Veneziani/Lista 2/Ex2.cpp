@@ -26,7 +26,7 @@ int main()
     //Código do programa
     cout << "Digite a nota obtida na P1: ";
     cin >> fNotaP1;
-
+ 
     cout << "Digite a nota obtida na P2: ";
     cin >> fNotaP2;
 

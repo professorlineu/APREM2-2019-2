@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Seu nome
-- Descrição: Breve descrição do programa
+- Descrição: SUBTRACAO
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -22,11 +22,11 @@ int main()
     system("color F1");
 
     //Código do programa
-cout<<"Digite a primeira variável";
+cout<<"Digite a primeira variavel";
 cin>>Fvari1;
 
 
-cout << "Digite a segunda variável";
+cout << "Digite a segunda variavel";
 cin >> Fvari2;
 
 

@@ -1,7 +1,7 @@
-//3.Faça um programa que receba dois números e mostre o menor.
+//3.FaÃ§a um programa que receba dois nÃºmeros e mostre o menor.
 //**********************************************************
 //- Autor: Gabriel Correia Soares
-//- Descrição: Lista 2 - Exercício 3
+//- DescriÃ§Ã£o: Lista 2 - ExercÃ­cio 3
 //**********************************************************/
 
 #include <iostream>
@@ -25,6 +25,8 @@ int main()
     cout << endl;
     if (inumero1>inumero2)
         cout<<inumero1 <<" eh maior que " <<inumero2;
+    if (inumero1==inumero2)
+        cout<<"ambos sao numeros iguais ";
     else
         cout<<inumero2 <<" eh maior que " <<inumero1;
 }

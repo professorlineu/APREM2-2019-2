@@ -28,7 +28,7 @@ int main()
     cout << "Digite outro número: ";
     cin >> fN2;
 
-
+ 
 
 
 

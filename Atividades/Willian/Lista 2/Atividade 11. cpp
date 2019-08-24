@@ -1,0 +1,70 @@
+
+/**********************************************************
+- Autor:     Willian Paixao da Silva
+- Descrição: Reajuste de Salário 2
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+    float fSala = 0;
+    float freajs = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+    cout << "Digite o seu salário ";
+    cin >> fSala ;
+
+
+
+    if (fSala <= 300.00)
+
+    {
+        freajs = fSala * 0.15;
+
+        cout << "\nSeu novo salário será de " <<freajs + fSala << "\n";
+
+    }
+    else if (fSala <= 600.00)
+    {
+        freajs = fSala * 0.10;
+
+        cout << "\nSeu novo salário será de " <<freajs + fSala << "\n";
+    }
+
+    else if (fSala <= 900.00)
+    {
+        freajs = fSala * 0.05;
+
+        cout << "\nSeu novo salário será de " <<freajs + fSala << "\n";
+    }
+
+
+    else
+    {
+
+
+        cout << "\nVocê não tem direito a reajuste no salário\n";
+
+    }
+
+    cout << fixed << setprecision(2);
+
+
+
+
+
+
+
+
+    return 0;
+}

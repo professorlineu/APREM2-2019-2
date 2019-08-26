@@ -1,6 +1,6 @@
 //**********************************************************
-//- Autor: Gabriel Guimar„es de Oliveira
-//- DescriÁ„o: Lista 2 - ExercÌcio 3
+//- Autor: Gabriel Guimar√£es de Oliveira
+//- Descri√ß√£o: Lista 2 - Exerc√≠cio 3
 //**********************************************************/
 
 #include <iostream>
@@ -24,15 +24,15 @@ int main()
     cout<<"insira numero 3:      ";
     cin>>in3;
 
-   if (in1 > in2)
+   if (in1 > in2 && in1>in3)
     {
-    maior = in1;
-  else
-    maior = num2;
-    }
-
+   cout<<" maior"<< in1;}
+  if (in2 > in3 && in2>in1)
+    {
+   cout<<" maior"<< in2;}
+    if (in3 > in1 && in3>in2)
+    {
+   cout<<" maior"<< in3;}
 
 }
-
-
 

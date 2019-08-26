@@ -13,19 +13,19 @@ using namespace std;
 int main()
 
 {
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F2");
 
 
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 
     int inumero1=0;
     int inumero2=0;
     int imedia=0;
     int idiferenca=0;
     int iproduto=0;
-    int idivizao=0;
+    int idivisao=0;
     int iOpcao = 0;
 
     cout<< " Digite um numero: ";
@@ -38,7 +38,7 @@ int main()
     cout << " 1-media " ;
     cout << " 2-diferenca " ;
     cout << " 3-produto " ;
-    cout << " 4-divizao " ;
+    cout << " 4-divisao " ;
 
     cout << "  escolha uma operacao:  ";
     cin >> iOpcao;

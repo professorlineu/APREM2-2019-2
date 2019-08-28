@@ -1,0 +1,59 @@
+/**********************************************************
+- Autor:     João Victor Pedulla
+- Descrição: Lista 3 - Ex 22
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+#include <cmath>  // comandos pow, sqrt, cbrt, etc
+#include <ctype.h> // comando toupper ou tolower
+
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+
+    int iIdade = 1;
+    float fAltura = 0;
+    float fSomaAlt = 0;
+    int iQuantidade = 0;
+    float fResultado = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+    cout << "Coloque a idade e a altura de varias pessoas, no final a média das alturas de quem tem mais de 50 ano será calculada." << endl << endl;
+ system("pause");
+
+    while (iIdade > 0)
+    {
+        system("cls");
+
+        cout << "Digite a idade: ";
+        cin >> iIdade;
+
+        cout << "Digite a altura em metros: ";
+        cin >> fAltura;
+        system("pause");
+
+        if (iIdade > 50)
+        {
+            fSomaAlt = fSomaAlt + fAltura;
+
+            iQuantidade = iQuantidade + 1;
+        }
+
+    }  //while
+
+    fResultado = fSomaAlt / iQuantidade;
+
+    cout << "A média das alturas é " << fResultado;
+
+
+    return 0;
+}

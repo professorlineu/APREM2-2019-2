@@ -1,0 +1,53 @@
+//**********************************************************
+//- Autor:     LEONARDO S
+//- Descrição: N menor
+//*********************************************************
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+#include <iomanip>
+
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+    float fnum1 = 0;
+    float fnum2 = 0;
+    float fnum3 = 0;
+    double dnum4 = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+      cout << "Entre com 1° numero ";
+      cin >> fnum1 ;
+
+      cout << "Entre com 2° numero ";
+      cin >> fnum2 ;
+
+      if (fnum1 < fnum2)
+
+      cout << "menor n. é " << fnum1 << endl;
+
+
+      
+else if (fnum1 > fnum2)
+      cout << "menor n. é  " << fnum2 << endl;
+
+      else if (fnum1 == fnum2 )
+      cout << " menor n.   " << fnum1;
+      
+
+
+
+       cout << "   Resultado  "   << ".";
+
+
+
+
+    return 0;
+}

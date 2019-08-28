@@ -1,0 +1,43 @@
+/**********************************************************
+- Autor:     clayton
+- Descrição: tabuada
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+
+    float fvalor1 = 0;
+    float fvalor2 = 0;
+    int i = 0;
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+    cout << " Digite um numero " << endl;
+
+    cin >> fvalor1;
+    cout << "tabauda e.";
+
+    while (i<11)
+
+ {
+
+     cout << fvalor1 << "X" << i <<" = " << fvalor2 << endl;
+       i++;
+     fvalor2 = fvalor1 * i;
+
+ }
+
+
+
+
+   return 0;
+}

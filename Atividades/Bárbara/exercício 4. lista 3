@@ -1,0 +1,38 @@
+/**********************************************************
+- Autor:     Bárbara Marques
+- Descrição: tabuada
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+    float fV1 = 0;
+    float fV2 = 0;
+    int i = 0;
+
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+    cout << "Digite um número: ";
+    cin >> fV1;
+    cout << "A tabuada desse número é: " << endl;
+    while   (i < 11)
+    {
+        cout << fV1 << " x " << i << " = " << fV2 << endl;
+        i++;
+        fV2 = fV1 * i;
+
+    }
+
+
+
+    return 0;
+}

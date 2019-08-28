@@ -17,16 +17,15 @@ cout<<" digite o salario";
 cin>> isalario;
 
 
-if (isalario>=500)
-    { cout<< "voce nao tem direito ao aumento no salario "
+if  (isalario<=1000)
+    { cout<< " seu novo salario e de" << (isalario+(isalario*(0.35)))
          << endl;
     }
 
-
-
-else if  (isalario<500)
-    { cout<< " seu novo salario e de" << (isalario+(isalario*(0.3)))
+    if  (isalario>1000)
+    { cout<< " seu novo salario e de" << (isalario+(isalario*(0.15)))
          << endl;
     }
+
 
 }

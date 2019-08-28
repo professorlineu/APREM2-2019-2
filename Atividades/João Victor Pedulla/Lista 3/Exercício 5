@@ -1,0 +1,46 @@
+/**********************************************************
+- Autor:     João Victor Pedulla
+- Descrição: Lista 3 - Ex 5
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+#include <cmath>  // comandos pow, sqrt, cbrt, etc
+#include <ctype.h> // comando toupper ou tolower
+
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+
+    int i = 0;
+    int iNumero = 1;
+    int iResultado = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+    while (iNumero < 11) // controla a tabuada
+    {
+
+        while (i < 11) // controla quantas opações de cada tabuada
+       {
+        iResultado = (iNumero) * i;
+
+       cout << iNumero << " X " << i << " = " << iResultado << endl;
+
+        i = i + 1;
+
+       }
+       cout << endl << endl;
+        iNumero = iNumero + 1;
+        i = 0;
+    }
+
+    return 0;
+}

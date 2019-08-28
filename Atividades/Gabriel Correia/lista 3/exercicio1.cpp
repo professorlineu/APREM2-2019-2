@@ -2,7 +2,7 @@
 //da, organize-os em ordem crescente e decrescente.
 //**********************************************************
 //- Autor: Gabriel Correia Soares
-//- Descrição: Lista 2 - Exercício 6
+//- Descrição: Lista 3 - Exercício 1
 //**********************************************************/
 
 #include <iostream>

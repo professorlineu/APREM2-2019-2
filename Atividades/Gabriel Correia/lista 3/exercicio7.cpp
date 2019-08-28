@@ -1,6 +1,6 @@
 //**********************************************************
 //- Autor: Gabriel Correia Soares
-//- DescriÁ„o: Lista 3 - ExercÌcio 7
+//- Descri√ß√£o: Lista 3 - Exerc√≠cio 7
 //**********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 
     int i = 1;
     float fp = 0;
@@ -48,14 +48,14 @@ int main()
         }
 
         i++;
-        cout<<i   <<" numero de vezes \n";
-        cout<<fp  <<" numero peso \n";
-        cout<<fp4 <<" numero pessoas < peso 40 \n";
-        cout<<fa  <<" numero altura\n";
-        cout<<fi  <<" numero idade \n";
-        cout<<fi5 <<" numero pessoas maior que 50\n";
-        cout<<fit <<" numero para idade 10<>20\n";
-        cout<<fito<<" numero de pessoas com incremento\n";
+        //cout<<i   <<" numero de vezes \n";
+        //cout<<fp  <<" numero peso \n";
+        //cout<<fp4 <<" numero pessoas < peso 40 \n";
+        //cout<<fa  <<" numero altura\n";
+        //cout<<fi  <<" numero idade \n";
+        //cout<<fi5 <<" numero pessoas maior que 50\n";
+        //cout<<fit <<" numero para idade 10<>20\n";
+        //cout<<fito<<" numero de pessoas com incremento\n";
         system("pause");
         system("cls");
 

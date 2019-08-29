@@ -1,0 +1,89 @@
+//**********************************************************
+//- Autor:     LEONARDO S
+//- Descrição: 3 fun var.
+//*********************************************************
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+#include <iomanip>
+#include <math.h>
+
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+    float fnum1 = 0;
+    float fnum2 = 0;
+    float fnum3 = 0;
+    float fnum4 = 0;
+    float fnum5 = 0;
+    float fnum6 = 0;
+    float fnum7 = 0;
+    float fnum8 = 0;
+
+
+    double dnum4 = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+      cout << "Entre com 1° numero ";
+      cin >> fnum1 ;
+
+      cout << "Entre com 2° numero ";
+      cin >> fnum2 ;
+
+
+
+      cout << " Escolha a função :" <<endl;
+      cout << " A^b  digite 1 "  << endl;
+      cout << " A^2 / B^2  digite 2 " << endl;
+      cout << " A^3 /A^3 = 3  digite 3 " <<  endl;
+     
+
+       cout << "Entre com a função numero " <<endl;
+      cin >> fnum3 ;
+      
+   //equações
+
+   fnum4 = pow(fnum1,fnum2);
+ 
+   fnum7 = pow(fnum1,2);
+
+   fnum6 = pow (fnum2,2)  ;
+
+   fnum5 = pow(fnum1, 3);
+
+   fnum8 = pow(fnum2,3);
+ 
+
+if  ( fnum3 <= 1) 
+
+      cout << " Resultado " << fnum4 << endl;
+
+else if (fnum3 <= 2)
+      cout << " Resultado   " << fnum7 << "  /  "  << fnum6 << endl;
+
+
+      else if (fnum3 <= 3 )
+      cout << " Resultado  " << fnum5 <<" / " << fnum8 << endl;
+
+      else if  (fnum3 >= 4 )
+      cout << " função invalida   "  << endl;
+
+      
+
+
+
+       cout << "   Resultado  "   << "." << endl;
+
+
+
+
+
+    return 0;
+}

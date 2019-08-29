@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Vitor Kenzo Kikuchi
-- DescriÁ„o: ExercÌcio 03 - Este programa determina quantas pessoas est„o em cada faixa et·ria e a porcentagem.
+- Descri√ß√£o: Exerc√≠cio 03 - Este programa determina quantas pessoas est√£o em cada faixa et√°ria, al√©m da porcentagem.
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -26,7 +26,7 @@ main()
     system("cls");
     cout << " \n\nDigite a idade da "
          << i
-         << "∞ pessoa: ";
+         << "¬∞ pessoa: ";
     cin  >> iIdade;
 
     cout << "\n\n";
@@ -56,14 +56,14 @@ main()
 
     system("pause");
 
-    } // fim do laÁo
+    } // fim do la√ßo
 
     system("cls");
     cout << "\n"
          << iSoma15
          << " pessoas tem menos de 15 anos;\n"
          << iSoma1630
-         << " est„o entre 16 a 30 anos; \n"
+         << " est√£o entre 16 a 30 anos; \n"
          << iSoma3145
          << " tem 31 a 45 anos; \n"
          << iSoma4660
@@ -74,10 +74,10 @@ main()
 
     system("pause");
 
-    cout << "\n\nA porcentagem de pessoas com menos de 15 anos È de "
+    cout << "\n\nA porcentagem de pessoas com menos de 15 anos √© de "
          << (iSoma15 / 8.0)*100
          << "%; \n\n"
-         << "J· a porcentagem de pessoas com mais de 60 anos, È de "
+         << "J√° a porcentagem de pessoas com mais de 60 anos, √© de "
          << (iSoma60 / 8.0)*100
          << "%."
          << endl;

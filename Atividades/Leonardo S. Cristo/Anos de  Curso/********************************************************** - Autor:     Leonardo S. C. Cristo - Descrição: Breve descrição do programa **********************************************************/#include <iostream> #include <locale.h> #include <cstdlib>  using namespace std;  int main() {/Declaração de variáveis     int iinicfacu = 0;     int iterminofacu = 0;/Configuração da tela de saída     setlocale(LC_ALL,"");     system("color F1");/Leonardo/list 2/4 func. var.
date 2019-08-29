@@ -1,0 +1,105 @@
+//**********************************************************
+//- Autor:     LEONARDO S
+//- Descrição: 4 fun var.
+//*********************************************************
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+#include <iomanip>
+
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+    float fnum1 = 0;
+    float fnum2 = 0;
+    float fnum3 = 0;
+    float fnum4 = 0;
+    float fnum5 = 0;
+    float fnum6 = 0;
+    float fnum7 = 0;
+    float fnum8 = 0;
+
+
+    double dnum4 = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+      cout << "Entre com 1° (Maior ) numero ";
+      cin >> fnum1 ;
+
+      cout << "Entre com 2°(Menor) numero ";
+      cin >> fnum2 ;
+
+
+
+      cout << " Escolha a função :" <<endl;
+      cout << " Média digite = 1 "  << endl;
+      cout << " N. Maior digite = 2 " << endl;
+      cout << " Produto digite = 3 " <<  endl;
+      cout << " Divisão digite = 4 " <<  endl;
+
+       cout << "Entre com a função numero " <<endl;
+      cin >> fnum3 ;
+      
+   //equações
+
+   fnum4 = ( fnum1 + fnum2 )/2;
+
+   fnum7 = fnum1/fnum2;
+
+   fnum6 = fnum1*fnum2;
+
+   fnum5 = fnum1-fnum2;
+ 
+
+if  ( fnum3 <= 1) 
+
+      cout << " Media " << fnum4 << endl;
+
+else if (fnum3 <= 2)
+      cout << " Deferença   " << fnum5 << endl;
+
+      else if (fnum3 <= 3 )
+      cout << " Produto   " << fnum6 << endl;
+
+      else if (fnum3 <= 4 )
+      cout << " Divisão  " << fnum7 << endl;
+
+      else if  (fnum3 >= 5 )
+      cout << " função invalida   "  << endl;
+
+      
+
+
+
+       cout << "   Resultado  "   << "." << endl;
+
+
+
+
+
+
+
+
+
+     
+
+
+
+ 
+
+
+
+  
+
+
+
+
+    return 0;
+}

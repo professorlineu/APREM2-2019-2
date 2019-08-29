@@ -29,14 +29,14 @@ int main()
 
     if (fn1 > fn2)
     {
-        cout << "O primeiro numero é maior "
+        cout << "O segundo numero é o menor "
              << endl;
 
     }
 
     else
     {
-        cout << "O segundo numero é maior "
+        cout << "O primeiro numero é menor "
              << endl;
 
     }

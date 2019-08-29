@@ -1,0 +1,63 @@
+//**********************************************************
+//- Autor:     LEONARDO S
+//- Descrição: Sal. min.
+//*********************************************************
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+#include <iomanip>
+#include <math.h>
+
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+    float fnum1 = 0;
+    float fnum2 = 0;
+    float fnum3 = 0;
+    float fnum4 = 0;
+    float fnum5 = 0;
+    float fnum6 = 0;
+    float fnum7 = 0;
+    float fnum8 = 0;
+
+
+    double dnum4 = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+      cout << "Entre com Salario ";
+      cin >> fnum1 ;
+
+     
+
+
+
+      
+ 
+
+if  ( fnum1 <= 500) 
+
+      cout << " Parabens você tem direito ao beneficio R$ " << fnum1*1.3 << endl;
+
+else if  (fnum1 >= 500)
+      cout << " Resultado   " <<  "  Não tem direito ao beneficio extra  "  << endl;
+
+
+      
+
+
+
+       cout << "   Resultado  "   << "." << endl;
+
+
+
+
+
+    return 0;
+}

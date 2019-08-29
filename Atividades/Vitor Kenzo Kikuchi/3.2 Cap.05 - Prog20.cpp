@@ -54,8 +54,6 @@ main()
     iSoma60 += 1;
     }
 
-    system("pause");
-
     } // fim do laço
 
     system("cls");

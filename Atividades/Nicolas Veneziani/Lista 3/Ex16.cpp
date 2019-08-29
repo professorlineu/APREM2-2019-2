@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Nicolas Veneziani
-- Descrição: Exercício 16 da lista 3.
+- Descrição: Exercício 16 da lista 3 (Ler o enunciado).
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -23,6 +23,7 @@ int main()
 
     //Código do programa
     while (i < 6)
+    //while (iSoma != 0)
     {
         cout << "Digite a " << i + 1 << "ª idade: ";
         cin >> fIdade;
@@ -38,3 +39,4 @@ int main()
 
     return 0;
 }
+

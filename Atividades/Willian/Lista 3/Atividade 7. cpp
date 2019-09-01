@@ -1,0 +1,231 @@
+/**********************************************************
+- Autor:     Willian Paixao da Silva
+- Descrição: Recebe 5 dados (peso, altura e idade) e faz os calculos
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+
+    int i = 0;
+    int iIdade1 = 0;
+    int iIdade2 = 0;
+    int iIdade3 = 0;
+    int iIdade4 = 0;
+    int iIdade5 = 0;
+    float fAltura1 = 0;
+    float fAltura2 = 0;
+    float fAltura3 = 0;
+    float fAltura4 = 0;
+    float fAltura5 = 0;
+    float fPeso1 = 0;
+    float fPeso2 = 0;
+    float fPeso3 = 0;
+    float fPeso4 = 0;
+    float fPeso5 = 0;
+    int iId50 = 0;
+    float fMediaAlt = 0;
+    int iContMedAlt = 0;
+    float fMediaPes = 0;
+    float fContMedPes = 0;
+    float fSomapeso = 0;
+
+
+
+
+
+
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+    while (i < 1)
+    {
+        cout << "\nDigite a idade da " << i + 1 << "ª pessoa ";
+        cin >> iIdade1 ;
+        cout << "Digite o peso da " << i + 1 << "ª pessoa ";
+        cin >> fPeso1 ;
+        cout << "Digite a altura da " << i + 1 << "ª pessoa ";
+        cin >> fAltura1 ;
+        if (iIdade1 >50)
+        {
+            iId50 = iId50 + 1;
+        }
+        else if (iIdade1 >= 10 && iIdade1 <= 20)
+        {
+            fMediaAlt = fAltura1;
+            iContMedAlt = iContMedAlt +1;
+        }
+        if (fPeso1 < 40)
+        {
+            fMediaPes = fPeso1;
+            fContMedPes  = fContMedPes + 1;
+
+        }
+
+        i = i +1;
+    }
+    i = 0;
+    while (i <1)
+    {
+        cout << "\nDigite a idade da " << i + 2 << "ª pessoa ";
+        cin >> iIdade2 ;
+        cout << "Digite o peso da " << i + 2 << "ª pessoa ";
+        cin >> fPeso2 ;
+        cout << "Digite a altura da " << i + 2 << "ª pessoa ";
+        cin >> fAltura2 ;
+
+        if (iIdade2 >50)
+        {
+            iId50 = iId50 + 1;
+        }
+        else if (iIdade2 >= 10 && iIdade2 <= 20)
+        {
+            fMediaAlt = fMediaAlt + fAltura2;
+            iContMedAlt = iContMedAlt +1;
+
+        }
+        if (fPeso2 < 40)
+        {
+            fMediaPes = fPeso2 + fMediaPes;
+            fContMedPes  = fContMedPes +1;
+
+        }
+
+        i = i +1;
+    }
+    i = 0;
+    while (i <1)
+    {
+        cout << "\nDigite a idade da " << i + 3 << "ª pessoa ";
+        cin >> iIdade3 ;
+        cout << "Digite o peso da " << i + 3 << "ª pessoa ";
+        cin >> fPeso3 ;
+        cout << "Digite a altura da " << i + 3 << "ª pessoa ";
+        cin >> fAltura3 ;
+
+        if (iIdade3 >50)
+        {
+            iId50 = iId50 + 1;
+        }
+        else if (iIdade3 >= 10 && iIdade3 <= 20)
+        {
+            fMediaAlt = fMediaAlt + fAltura3;
+            iContMedAlt = iContMedAlt +1;
+
+        }
+        if (fPeso3 < 40)
+        {
+            fMediaPes = fPeso3 + fMediaPes;
+            fContMedPes  = fContMedPes +1;
+        }
+
+        i = i +1;
+    }
+    i = 0;
+    while (i <1)
+    {
+        cout << "\nDigite a idade da " << i + 4 << "ª pessoa ";
+        cin >> iIdade4 ;
+        cout << "Digite o peso da " << i + 4 << "ª pessoa ";
+        cin >> fPeso4 ;
+        cout << "Digite a altura da " << i + 4 << "ª pessoa ";
+        cin >> fAltura4 ;
+
+        if (iIdade4 >50)
+        {
+            iId50 = iId50 + 1;
+        }
+
+        else if (iIdade4 >= 10 && iIdade4 <= 20)
+        {
+            fMediaAlt = fMediaAlt + fAltura4;
+            iContMedAlt = iContMedAlt +1;
+
+        }
+        if (fPeso4 < 40)
+        {
+            fMediaPes = fPeso4 + fMediaPes;
+            fContMedPes  = fContMedPes +1;
+        }
+
+        i = i +1;
+    }
+    i = 0;
+    while (i <1)
+    {
+        cout << "\nDigite a idade da " << i + 5 << "ª pessoa ";
+        cin >> iIdade5 ;
+        cout << "Digite o peso da " << i + 5 << "ª pessoa ";
+        cin >> fPeso5 ;
+        cout << "Digite a altura da " << i + 5<< "ª pessoa ";
+        cin >> fAltura5 ;
+        if (iIdade5 >50)
+        {
+            iId50 = iId50 + 1;
+        }
+        else if (iIdade5 >= 10 && iIdade5 <= 20)
+        {
+            fMediaAlt = fMediaAlt + fAltura5;
+            iContMedAlt = iContMedAlt +1;
+
+        }
+        if (fPeso5 < 40)
+        {
+            fMediaPes = fPeso5 + fMediaPes;
+            fContMedPes  = fContMedPes +1;
+        }
+
+        fSomapeso = fPeso1 +fPeso2 + fPeso3 + fPeso4 + fPeso5;
+
+        i = i +1;
+    }
+
+    if (iId50 > 0)
+    {
+
+        cout << "\nA quantidade de pessoas acimas dos 50 anos é de " << iId50 << " pessoas ";
+    }
+    else if (iId50 <= 0)
+    {
+        cout << "\nA não a pessoas com idade acimas dos 50 anos ";
+    }
+
+    if (iContMedAlt > 0)
+    {
+        cout << "\n\nA média das alturas das pessoas com idade entre 10 a 20 anos é " << fMediaAlt / iContMedAlt;
+
+    }
+    else if (iContMedAlt <= 0)
+    {
+        cout << "\n\nA não a pessoas com idade entre 10 a 20 anos ";
+    }
+
+    if (fContMedPes > 0)
+    {
+        cout << "\n\nAs pessoas com peso abaixo de 40kg representam " << ( fContMedPes / 5  )*100 <<"% do total de pessoas\n\n";
+
+    }
+    else if (fContMedPes  <= 0)
+    {
+        cout << "\n\nA não a pessoas com peso menor que 40kg \n\n";
+    }
+
+
+
+
+
+    cout << fixed << setprecision(2);
+
+
+    return 0;
+}

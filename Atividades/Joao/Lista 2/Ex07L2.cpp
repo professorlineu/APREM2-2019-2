@@ -1,7 +1,7 @@
   
 /**********************************************************
 - Autor: João Pedro Neves Baldin
-- Descrição: Lista 02 - Exercício 03
+- Descrição: Lista 02 - Exercício 07
 **********************************************************/
 #include <iostream>
 #include <locale.h>

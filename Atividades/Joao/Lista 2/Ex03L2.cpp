@@ -1,7 +1,7 @@
   
 /**********************************************************
-- Autor:     Seu nome
-- Descrição: Breve descrição do programa
+- Autor: João Pedro Neves Baldin
+- Descrição: Lista 02 - Exercício 03
 **********************************************************/
 #include <iostream>
 #include <locale.h>

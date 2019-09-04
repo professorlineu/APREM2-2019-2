@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:    Márcio Campos Mansur Pinto
-- Descrição: exercício 05
+- Descrição: Exercício 05
 **********************************************************/
 #include <iostream>
 #include <locale.h>

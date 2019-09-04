@@ -1,6 +1,6 @@
 //**********************************************************
 //- Autor: Gabriel Correia Soares
-//- DescriÁ„o: Lista 3 - ExercÌcio 9
+//- Descri√ß√£o: Lista 3 - Exerc√≠cio 9
 //**********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 
     char cn1;
     float fi = 0;

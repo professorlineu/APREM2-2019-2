@@ -1,0 +1,59 @@
+/**********************************************************
+- Autor:    Bárbara Marques
+- Descrição: Cálculo de média com 4 notas
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+        float fNota1 = 0;
+        float fNota2 = 0;
+        float fNota3 = 0;
+        float fNota4 = 0;
+        float fMedia = 0;
+
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+        cout << "Digite suas notas: ";
+        cout << endl;
+
+        cout << "Nota 1: ";
+        cin >> fNota1;
+
+        cout << "Nota 2: ";
+        cin >> fNota2;
+
+        cout << "Nota 3: ";
+        cin >> fNota3;
+
+        cout << "Nota 4: ";
+        cin >> fNota4;
+        cout << endl;
+
+        fMedia = (fNota1 + fNota2 + fNota3 + fNota4 )/ 4;
+
+        cout << "Sua média é " << fMedia << ".";
+
+        if (fMedia < 7)
+
+            cout << " Você foi reprovado. ";
+
+        else
+
+            cout << " Você foi aprovado. ";
+
+
+
+
+    return 0;
+}

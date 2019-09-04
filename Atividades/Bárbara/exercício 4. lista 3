@@ -21,15 +21,20 @@ int main()
     system("color F1");
 
     //Código do programa
-    cout << "Digite um número: ";
-    cin >> fV1;
-    cout << "A tabuada desse número é: " << endl;
-    while   (i < 11)
+    cout << "Tabuada de 1 a 10! " << endl;
+    while (i < 11)
     {
-        cout << fV1 << " x " << i << " = " << fV2 << endl;
-        i++;
-        fV2 = fV1 * i;
+        while   (fV1 < 11)
+        {
 
+            fV2 = fV1 * i;
+            cout << fV1 << " x " << i << " = " << fV2 << "\n";
+            fV1++;
+
+        }
+        fV1 = 0;
+        i++;
+        cout << endl;
     }
 
 

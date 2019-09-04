@@ -1,0 +1,53 @@
+/**********************************************************
+- Autor:    Bárbara Marques
+- Descrição: Cálculo de média com 2 notas
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+        float fNota1 = 0;
+        float fNota2 = 0;
+        float fMedia = 0;
+
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+        cout << "Digite suas notas: ";
+        cout << endl;
+
+        cout << "Nota 1: ";
+        cin >> fNota1;
+
+        cout << "Nota 2: ";
+        cin >> fNota2;
+
+        fMedia = (fNota1 + fNota2 )/2;
+
+        cout << "Sua média é " << fMedia << ".";
+
+        if (fMedia < 3)
+
+            cout << " Você foi reprovado. ";
+
+        else if (fMedia < 7)
+
+            cout << " Você está de exame. ";
+
+        else // (fMedia <= 10)
+
+            cout << " Você foi aprovado. ";
+
+
+
+    return 0;
+}

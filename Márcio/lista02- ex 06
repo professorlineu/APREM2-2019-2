@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor: Márcio Campos Mansur Pinto
-- Descrição: Lista 02 - Exercício 06
+- Descrição: Lista 02 -  Exercício 06
 **********************************************************/
 #include <iostream>
 #include <locale.h>

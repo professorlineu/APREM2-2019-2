@@ -1,29 +1,31 @@
 /**********************************************************
-- Autor:     Vitor Kenzo Kikuchi
-- Descri√ß√£o: Exerc√≠cio 25 - Este programa calcula o rendimento de v√°rios investimentos
+- Autor:     Seu nome
+- DescriÁ„o: Breve descriÁ„o do programa
 **********************************************************/
 #include <iostream>
 #include <locale.h>
 #include <cstdlib>
+#include <math.h>
 
 using namespace std;
 
-main()
+int main()
 {
-    int iOpcao = 0;
+        int iOpcao = 0;
     int i = 1;
     float fDin = 0;
     int iCodigo = 0;
+    float fMeses = 0;
 
-    //Configura√ß√£o da tela de sa√≠da
+    //ConfiguraÁ„o da tela de saÌda
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //C√≥digo do programa
+    //CÛdigo do programa
 while (i!=0)
 {
 system("cls");
-cout << "\nAperte 0 para sair ou qualquer outro n√∫mero para continuar... ";
+cout << "\nAperte 0 para sair ou qualquer outro n˙mero para continuar... ";
 cin  >> i;
 
 if (i==0)
@@ -35,38 +37,38 @@ return 0;
 else
 {
 
-cout << "\n\n     Qual √© o valor que voc√™ deseja investir? ";
+cout << "\n\n     Qual È o valor que vocÍ deseja investir? ";
 cin  >> fDin;
 
-cout << "\n\nPara investir na poupan√ßa, digite 1.\n"
-     << "\nPara investir na poupan√ßa Plus, digite 2.\n"
+cout << "\n\nPara investir na poupanÁa, digite 1.\n"
+     << "\nPara investir na poupanÁa Plus, digite 2.\n"
      << "\nPara investir em fundos de renda fixa, digite 3.\n\n\n                       ";
 cin  >> iOpcao;
 }
-cout << "\n\nPor quantos meses voc√™ deseja deixar seu dinheiro investido? ";
-cin  >> iMeses;
+cout << "\n\nPor quantos meses vocÍ deseja deixar seu dinheiro investido? ";
+cin  >> fMeses;
 
 if (iOpcao == 1)
 {
-cout << "\n\nNa poupan√ßa, seu dinheiro rende 1.5% por m√™s.\n\n"
-     << "Em " << iMeses << " Meses, voc√™ teria "
-     << fDin*(1+0.015)^iMeses
+cout << "\n\nNa poupanÁa, seu dinheiro rende 1.5% por mÍs.\n\n"
+     << "Em " << fMeses << " Meses, vocÍ teria "
+     << fDin*(pow(1.015,fMeses))
      << " reais.\n\n "
      << endl;
 }
 else if (iOpcao == 2)
 {
-cout << "\n\nNa poupan√ßa Plus, seu dinheiro rende 2% por m√™s.\n\n"
-     << "Em " << iMeses << " Meses, voc√™ teria "
-     << fDin*(1+0.020)^iMeses
+cout << "\n\nNa poupanÁa Plus, seu dinheiro rende 2% por mÍs.\n\n"
+     << "Em " << fMeses << " Meses, vocÍ teria "
+     << fDin*(pow(1.020,fMeses))
      << " reais.\n\n "
      << endl;
 }
 else
 {
-cout << "\n\nNa Renda Fixa, seu dinheiro rende 4% por m√™s.\n\n"
-     << "Em " << iMeses << " Meses, voc√™ teria "
-     << fDin*(1+0.040)^iMeses
+cout << "\n\nNa Renda Fixa, seu dinheiro rende 4% por mÍs.\n\n"
+     << "Em " << fMeses << " Meses, vocÍ teria "
+     << fDin*(pow(1.040,fMeses))
      << " reais.\n\n "
      << endl;
 }

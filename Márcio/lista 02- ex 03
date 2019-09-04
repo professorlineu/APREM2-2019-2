@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Márcio Campos Mansur Pinto
-- Descrição: programação de senha
+- Descrição: Exercício 03
 **********************************************************/
 #include <iostream>
 #include <locale.h>

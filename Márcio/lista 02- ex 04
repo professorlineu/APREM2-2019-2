@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:   Márcio Campos Mansur Pinto
-- Descrição: cálculo de média 
+- Descrição: Exercício 04
 **********************************************************/
 #include <iostream>
 #include <locale.h>

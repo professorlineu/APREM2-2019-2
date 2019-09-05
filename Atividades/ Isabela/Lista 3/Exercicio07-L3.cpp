@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Lineu Lima
-- DescriÁ„o: Comando while
+- Descri√ß√£o: Comando while
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,17 +10,17 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·vei
+    //Declara√ß√£o de vari√°vei
     int i = 0;
     float fIdade = 0;
     float fAltura = 0;
     float fPeso = 0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F3");
 
-    //CÛdigo do programa
+    //C√≥digo do programa
 
     while (i < 2)
  {

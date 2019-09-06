@@ -5,6 +5,7 @@
 #include <iostream>
 #include <locale.h>
 #include <cstdlib>
+#include <conio.h>
 using namespace std;
 
 int main()
@@ -28,6 +29,8 @@ int main()
     system("color F1");
 
     //Código do programa
+     while (i > izero)
+     {
     cout << "Para votar no candidato Ramon, digite 1.\n";
     cout << "Para votar na candidata Nicole, digite 2.\n";
     cout << "Para votar no candidato Rarian, digite 3.\n";
@@ -36,10 +39,6 @@ int main()
     cout << "para votar em branco, digite 6.\n";
     cout << "Para finalizar a votação, digite 0.\n";
 
-
-
-    while (i > izero)
-    {
 
         cout << "Voto " << i << ": ";
         cin >> fvoto;
@@ -80,12 +79,14 @@ int main()
          {
              cout << "Voto invalido.\n";
              iInvalido += 1;
+             getch();
          }
 
          if (fvoto == 0)
          {
              izero += i;
          }
+         system("cls");
 
     } //Fim do laco
 
@@ -129,3 +130,4 @@ int main()
 
     return 0;
 }
+

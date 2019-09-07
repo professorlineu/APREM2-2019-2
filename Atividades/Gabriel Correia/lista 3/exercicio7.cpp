@@ -62,7 +62,7 @@ int main()
         }
 
         cout<<"numero de pesssoas com a idade superior a 50 anos:  "<<fi5<<endl;
-        cout<<"porcentagem de pessoas com o pesso inferior a 40kg: "<<(fito*100)/i<<"\n";
+        cout<<"porcentagem de pessoas com o pesso inferior a 40kg: "<<(fp4*100)/i<<"\n";
 
         if (fito!=0)
     {

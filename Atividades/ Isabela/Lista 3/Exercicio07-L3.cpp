@@ -22,7 +22,7 @@ int main()
     //setlocale(LC_ALL,"");
     //system("color F3");
 
-    while (i < 3)
+    while (i < 5)
     {
         cout << "\nDigite sua idade: ";
         cin >> fIdade;

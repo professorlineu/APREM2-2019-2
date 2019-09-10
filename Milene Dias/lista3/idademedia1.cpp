@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Milene Caroline B. D. Chaves
-- DescriÁ„o: Comando while
+- Descri√ß√£o: Comando while
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,26 +10,67 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
-    int i = 0;
-    int idade=0;
-    int idadet=0;
+    //Declara√ß√£o de vari√°veis
+      int idade = 0;
+      float faltura = 0;
+      float fpeso=0;
+      int i50=0;
+      int i=1;
+      float f20 =0;
+      float falturat =0;
+      float f40=0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
-    while (i < 10)
-    {
-        cout<< " digite sua idade: ";
-        cin>> idade;
-return 0;
-        idadet=idadet+idade;return 0;
-        i++;
-    }
+    //C√≥digo do programa
 
-      cout<< " a media das idades È: " << idadet/i << endl;
 
+ while (i<6)
+ {
+
+   cout<<" qual a sua idade:  ";
+   cin>>idade;
+
+   cout<< " qual a sua altura: ";
+   cin>>faltura;
+
+
+   cout<< " qual o seu peso: ";
+   cin>>fpeso;
+
+   i=i+1;
+
+   if ( idade>50)
+ {
+    i50++;
 
 }
+
+if (idade>=10 && idade <= 20 )
+
+   {
+     falturat=falturat+faltura;
+     f20 ++;
+   }
+
+   if ( fpeso<=39)
+
+  {
+      f40++;
+  }
+
+
+
+ }
+
+
+
+  cout<<i50 <<"numero de pessoas com idade superior a 50 anos\n";
+  cout<< falturat/f20 << " e a media das alturas  \n" ;
+  cout<< (100*f40)/i <<"% de pessoas com peso inferior a 40kg \n";
+
+
+ }
+

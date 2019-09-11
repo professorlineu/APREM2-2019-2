@@ -1,0 +1,51 @@
+/**********************************************************
+- Autor:     clayton continua
+- Descrição: exercicio 7
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+    int i = 0;
+    float fPeso = 0;
+    float fIdade =0;
+    float fAltu =0;
+    float fIdadetotal =0;
+    float fPesototal =0;
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+    while (i < 11)
+    {
+        cout << "Digite sua idade:\n ";
+        cin >> fIdade;
+
+        cout << "Digite sua altura:\n";
+        cin >> fAltu;
+
+        cout << "Digite seu Peso:\n";
+        cin >> fPeso;
+
+
+        if (fPeso > 90 and fAltu >1.5)
+        {
+            fPesototal++;
+        }
+        if (fIdade >9 && fIdade <31 )
+
+        {
+            fIdadetotal++
+        }
+    }
+    cout <<"A media da idade e" << fIdadetotal/i;
+
+
+    return 0;
+}

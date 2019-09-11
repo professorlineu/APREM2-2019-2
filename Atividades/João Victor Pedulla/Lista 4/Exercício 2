@@ -1,0 +1,57 @@
+/**********************************************************
+- Autor:     João Victor Pedulla
+- Descrição: Lista 4 - Ex 2
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+#include <cmath>  // comandos pow, sqrt, cbrt, etc
+#include <ctype.h> // comando toupper ou tolower
+
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+
+    int vet[7];
+    int i = 0;
+    int NumDiv2 = 0;
+    int NumDiv3 = 0;
+    int NumDiv2e3 = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+    for (i = 0; i < 7; i = i + 1)
+    {
+        cout << "Elemento " << i + 1 << ": ";
+        cin >> vet[i];
+
+        if (vet[i] % 2 == 0)
+        {
+            NumDiv2++;
+        }
+        if (vet[i] % 3 == 0)
+        {
+            NumDiv3++;
+        }
+        if (vet[i] % 2 == 0 && vet[i] % 3 == 0)
+        {
+            NumDiv2e3++;
+        }
+    }
+
+    cout << "Quantidade de valores múltiplos de 2: " << NumDiv2 << endl << endl;
+
+    cout << "Quantidade de valores múltiplos de 3: " << NumDiv3 << endl << endl;
+
+    cout << "Quantidade de valores múltiplos de 2 e 3: " << NumDiv2e3 << endl << endl;
+
+
+    return 0;
+}

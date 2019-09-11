@@ -1,6 +1,6 @@
 /**********************************************************
-- Autor:      Lineu Lima
-- DescriÁ„o:  Vetor
+- Autor:      Vitor Kenzo Kikuchi
+- Descri√ß√£o:  Exerc√≠cio 01 - Programa que determina os n√∫meros pares e impares entre 6 elementos.
 **********************************************************/
 
 #include <iostream>
@@ -30,7 +30,7 @@ int main()
     }
 
     system("cls");
-    cout << "\n\n\tN˙meros Pares: \n" << endl;
+    cout << "\n\n\tN√∫meros Pares: \n" << endl;
 
 
     for (i = 0; i < 6; i++)
@@ -45,12 +45,12 @@ int main()
 
     }
 
-    cout << "\n\nQuantidade de n˙meros pares: "
+    cout << "\n\nQuantidade de n√∫meros pares: "
          << iContPar
          << endl;
 
 
-    cout << "\n\n\tN˙meros impares: \n" << endl;
+    cout << "\n\n\tN√∫meros impares: \n" << endl;
 
     for (i = 0; i < 6; i++)
     {
@@ -64,7 +64,7 @@ int main()
 
     }
 
-    cout << "\n\nQuantidade de n˙meros impares: "
+    cout << "\n\nQuantidade de n√∫meros impares: "
          << iContImpar
          << endl;
 

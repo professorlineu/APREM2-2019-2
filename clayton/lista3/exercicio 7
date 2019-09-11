@@ -1,0 +1,65 @@
+/**********************************************************
+- Autor:     clayton
+- Descrição: exercicio 7
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+    int i = 0;
+    float fIdade = 0;
+    float fAltura = 0;
+    float fPeso = 0;
+    float ftotal = 0;
+    int iMaior50 =0;
+    int Itotal =0;
+    float fAltuTotal=0;
+    int IPesoTotal=0;
+    int iIdade = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+    while (i < 5)
+    {
+        cout << "Digite sua idade:\n ";
+        cin >> fIdade;
+
+        cout << "Digite sua altura:\n";
+        cin >> fAltura;
+
+        cout << "Digite seu Peso:\n";
+        cin >> fPeso;
+        i++;
+
+        if (fIdade > 50)
+
+       {
+
+        iMaior50 ++;
+    }
+
+
+   if (iIdade >9 && iIdade <21)
+   {
+       Itotal++;
+       fAltuTotal = fAltuTotal + fAltura;
+   }
+   if (fPeso < 40)
+   {
+     IPesoTotal++;
+   }
+}
+  cout <<"A quantidade de pessoas com idade superior a 50" << iMaior50 << "." ;
+  cout <<"A média das alturas das pessoas com idade entre 10 e 20 anos é de " << fAltuTotal/fAltura << " metros";
+  cout <<"A portentagem de pessoas com peso inferior a 40kg entre totas as pessoas analisadas" << fPeso *100/5 ;
+
+    return 0;
+}

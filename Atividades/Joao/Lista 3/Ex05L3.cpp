@@ -1,0 +1,53 @@
+/**********************************************************
+- Autor: João Pedro Neves Baldin
+- Descrição: Lista 03 - Exercício 05
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+    int i = 0;
+    int ival = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+    while (i < 11)
+    {
+cout<< i <<" x 0 =  "<< (i*0)<<endl;
+
+cout<< i <<" x 1 = "<< (i*1)<<endl;
+
+cout<< i <<" x 2 = "<< (i*2)<<endl;
+
+cout<< i <<" x 3 = "<< (i*3)<<endl;
+
+cout<< i <<" x 4 = "<< (i*4)<<endl;
+
+cout<< i <<" x 5 = "<< (i*5)<<endl;
+
+cout<< i <<" x 6 = "<< (i*6)<<endl;
+
+cout<< i <<" x 7 = "<< (i*7)<<endl;
+
+cout<< i <<" x 8 = "<< (i*8)<<endl;
+
+cout<< i <<" x 9 = "<< (i*9)<<endl;
+
+cout<< i <<" x 10 = "<< (i*10)<<endl;
+
+cout << "\n";
+
+        i = i + 1;
+    }
+
+
+    return 0;
+}

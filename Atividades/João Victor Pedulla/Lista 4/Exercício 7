@@ -1,0 +1,54 @@
+/**********************************************************
+- Autor:     João Victor Pedulla
+- Descrição: Lista 4 - Ex 7
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+#include <cmath>  // comandos pow, sqrt, cbrt, etc
+#include <ctype.h> // comando toupper ou tolower
+
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+
+    int vet[10];
+    int i = 0;
+    int iNumNeg = 0;
+    int iSomaPar = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+    cout << "Preencha com números positivos ou negativos." << endl;
+
+    for (i = 0; i < 10; i++)
+    {
+        cout << "Número " << i + 1 << ": ";
+        cin >> vet[i];
+
+        if(vet[i] < 0)
+        {
+            iNumNeg++;
+        }
+
+        else
+        {
+            iSomaPar = iSomaPar + vet[i];
+        }
+
+    }
+
+    cout << endl;
+    cout << "Quantidade de números negativos: " << iNumNeg << endl << endl;
+    cout << "Soma dos números positivos: " << iSomaPar << endl << endl;
+
+
+    return 0;
+}

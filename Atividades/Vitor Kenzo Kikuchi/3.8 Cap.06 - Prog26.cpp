@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:      Vitor Kenzo Kikuchi
-- Descrição:  Exercício
+- DescriÃ§Ã£o:  ExercÃ­cio 11 - Programa que imprime dois vetores: um com numeros pares e outro com numeros impares.
 **********************************************************/
 
 #include <iostream>
@@ -20,13 +20,13 @@ int main()
 
     for (i=0; i<10; i+=1)
     {
-    cout << "\nDigite o " << i+1 << "° número: ";
+    cout << "\nDigite o " << i+1 << "Â° nÃºmero: ";
     cin  >> inum[i];
     }
 
     system("cls");
 
-    cout << "\n\n\t\tNúmeros pares: \n" << endl;
+    cout << "\n\n\t\tNÃºmeros pares: \n" << endl;
 
     for (i=0; i<10; i++)
     {
@@ -34,7 +34,7 @@ int main()
         cout << inum[i] << "\t";
     }
 
-    cout << "\n\n\t\tNúmeros impares: \n" << endl;
+    cout << "\n\n\t\tNÃºmeros impares: \n" << endl;
 
     for (i=0; i<10; i++)
     {

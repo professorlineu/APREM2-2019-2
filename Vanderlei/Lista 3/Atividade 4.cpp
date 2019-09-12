@@ -29,12 +29,12 @@ int main()
        {
         iResult = (iNum) * i;
 
-       cout << iNum << " X " << i << " = " << iResult << endl;
+       cout << iNum << " x " << i << " = " << iResult << endl;
 
         i++;
-
        }
-       cout << endl << endl;
+        
+       cout << endl;
         iNum = iNum + 1;
         i = 0;
     }

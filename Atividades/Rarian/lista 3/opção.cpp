@@ -29,6 +29,7 @@ int main()
     //Código do programa
     while (d !=1)
     {
+        system("cls");
         cout << "Escolha uma das opções a seguir:\n";
         cout << "/********************************************************** \n";
         cout << "1. Media aritmética \n";
@@ -43,6 +44,9 @@ int main()
         switch (iopcao)
         {
         case 1:
+            fnota = 0;
+            fsoma = 0;
+            i = 0;
             while (fnota !=-1)
             {
                 system("cls");
@@ -51,21 +55,24 @@ int main()
                 cin >> fnota;
                 if (fnota !=-1)
                 {
-                fsoma = fsoma+fnota;
-                i++;
+                    fsoma = fsoma+fnota;
+                    i++;
                 }
                 if (fnota == -1)
                 {
                     system("cls");
-                    --i;
                     fmedia = fsoma/i;
                     cout << " A sua media é " << fmedia << ".\n";
+                    system("pause");
                 }
 
             } // fim do while 1
             break;
 
         case 2:
+            fnota2 = 0;
+            fsoma = 0;
+            fsomapeso = 0;
             while ( fnota2!= -1)
             {
                 system("cls");
@@ -73,21 +80,20 @@ int main()
                 cout << "Digite as notas: ";
                 cin >> fnota2;
                 if (fnota2!= -1)
-                {cout << "Digite o peso desta nota: ";
-                cin >> fpeso;
-                fsoma = fsoma+(fnota2*fpeso);
-                fsomapeso = fsomapeso + fpeso;
+                {
+                    cout << "Digite o peso desta nota: ";
+                    cin >> fpeso;
+                    fsoma = fsoma+(fnota2*fpeso);
+                    fsomapeso = fsomapeso + fpeso;
                 }
-                 if (fnota2 == -1)
+                if (fnota2 == -1)
                 {
                     system("cls");
                     fmedia = fsoma/fsomapeso;
                     cout << " A sua media é " << fmedia << ".\n";
-
+                    system("pause");
                 }
-            }
-
-             // fim do while 2
+            }// fim do while 2
             break;
 
         case 3:
@@ -97,14 +103,14 @@ int main()
             break;
 
         default:
-            cout << "Opção inválida.\n";
+            cout << "Opção inválida. Tente novamente.\n";
             system("pause");
             system("cls");
             break;
 
         } // fim do switch
 
-    } // fim do while
+    } // fim do while principal
 
 
 

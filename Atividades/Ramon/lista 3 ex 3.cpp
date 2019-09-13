@@ -1,9 +1,9 @@
 /**********************************************************
 - Autor:     ramon macedo
-- DescriÁ„o: FaÁa um programa que receba a idade de oito pessoas, calcule e mostre:
-a) a quantidade de pessoas em cada faixa et·ria;
-b) a porcentagem de pessoas na primeira faixa et·ria com relaÁ„o ao total de pessoas.
-c) a porcentagem de pessoas na ˙ltima faixa et·ria com relaÁ„o ao total de pessoas
+- Descri√ß√£o: Fa√ßa um programa que receba a idade de oito pessoas, calcule e mostre:
+a) a quantidade de pessoas em cada faixa et√°ria;
+b) a porcentagem de pessoas na primeira faixa et√°ria com rela√ß√£o ao total de pessoas.
+c) a porcentagem de pessoas na √∫ltima faixa et√°ria com rela√ß√£o ao total de pessoas
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -13,7 +13,7 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 int i = 0;
 int idade = 0;
 int isoma15 = 0;
@@ -24,11 +24,11 @@ int isoma61 = 0;
 float fmed1 = 0;
 float fmedult = 0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
+    //C√≥digo do programa
 while ( i < 8)
 {
     cout << "digite sua idade: ";
@@ -63,13 +63,13 @@ cout << "pessoas que tem entre 31 e 45 anos: "<< isoma3145 << endl;
 cout << "pessoas que tem entre 46 e 60 anos: "<< isoma4660 << endl;
 cout << "pessoas acima de 60 anos: "<< isoma61 << endl;
 
-fmed1 = (isoma15/ 8) * 100;
-fmedult = (isoma61/ 8)* 100;
+fmed1 = (isoma15/ 8.0) * 100;
+fmedult = (isoma61/ 8.0)* 100;
 
-cout << " a porcentagem de pessoas na primeira faixa etaria em relaÁao as outras foi de : "
+cout << " a porcentagem de pessoas na primeira faixa etaria em rela√ßao as outras foi de : "
 << fmed1 << "%" << endl;
 
-cout << " a porcentagem de pessoas na ultima faixa et·ria em relaÁ„o as outras foi de : "
+cout << " a porcentagem de pessoas na ultima faixa et√°ria em rela√ß√£o as outras foi de : "
 << fmedult << "%" << endl;
 
 

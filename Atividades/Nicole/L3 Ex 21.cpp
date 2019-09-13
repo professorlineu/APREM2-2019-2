@@ -62,7 +62,7 @@ int main()
         break;
 
       case 2:
-        cout << "\n O valor das férias será de" << fSal += (fSal/3);
+        cout << "\n O valor das férias será de" << fSal + (fSal/3);
         system("pause");
         break;
 
@@ -71,8 +71,7 @@ int main()
         cin >> iMeses;
 
       if (iMeses < 12)
-      cout << "\n O décimo terceiro equivale a " << fSal *= (iMeses/12)
-        system("pause");
+      cout << "\n O décimo terceiro equivale a " << fSal * (iMeses/12);
 
       else 
       cout << " Não é possível ultrapassar 12 meses!!";

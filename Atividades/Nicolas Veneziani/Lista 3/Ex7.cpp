@@ -24,6 +24,7 @@ int main()
     int iPeso3 = 0;
     int iPeso4 = 0;
     int iPeso5 = 0;
+    float fAlt = 0;
     float fAltura = 0;
     float fAltura2 = 0;
     float fAltura3 = 0;
@@ -32,7 +33,7 @@ int main()
     float fCont = 0;
     float fCont2 = 0;
     float fCont3 = 0;
-    ;
+
 
 
     //Configuração da tela de saída
@@ -65,6 +66,8 @@ int main()
     if (iIdade <= 20 && iIdade >= 10)
     {
         fCont2 = fCont2 + 1;
+        fAlt = fAlt + fAltura;
+
     }
 
     if (iPeso < 40)
@@ -98,6 +101,8 @@ int main()
     if (iIdade2 <= 20 && iIdade2 >= 10)
     {
         fCont2 = fCont2 + 1;
+        fAlt = fAlt + fAltura2;
+
     }
 
     if (iPeso2 < 40)
@@ -131,6 +136,8 @@ int main()
     if (iIdade3 <= 20 && iIdade3 >= 10)
     {
         fCont2 = fCont2 + 1;
+        fAlt = fAlt + fAltura3;
+
     }
 
     if (iPeso3 < 40)
@@ -164,11 +171,14 @@ int main()
     if (iIdade4 <= 20 && iIdade4 >= 10)
     {
         fCont2 = fCont2 + 1;
+        fAlt = fAlt + fAltura4;
+
     }
 
     if (iPeso4 < 40)
     {
         fCont3 = fCont3 + 1;
+
     }
 
     }
@@ -197,6 +207,8 @@ int main()
     if (iIdade5 <= 20 && iIdade5 >= 10)
     {
         fCont2 = fCont2 + 1;
+        fAlt = fAlt + fAltura5;
+
     }
 
     if (iPeso5 < 40)
@@ -211,7 +223,7 @@ int main()
 
 
     cout << "A quantidade de pessoas com idade maior de 50 é: " << fCont << " pessoas" << endl;
-    cout << "A média das alturas das pessoas entre 10 e 20 anos é: " << (fAltura + fAltura2 + fAltura3 + fAltura4 + fAltura5) / fCont2 << endl;
+    cout << "A média das alturas das pessoas entre 10 e 20 anos é: " <<  fAlt / fCont2 << endl;
     cout << "A porcentagem de pessoas com peso inferior a 40 kg entre todas as pessoas é de: " << (fCont3 / 5) * 100 << "%" << endl;
 
 

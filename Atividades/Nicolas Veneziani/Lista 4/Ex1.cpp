@@ -10,8 +10,7 @@ using namespace std;
 int main()
 {
     int i = 0; 
-    int vet[6] =  {1, 2, 3, 4, 5, 6}; 
-    int iSoma = 0; 
+    int vet[6] =  {1, 2, 3, 4, 5, 6};  
     int iPar = 0; 
     int iImpar = 0;
     int iContPar = 0;

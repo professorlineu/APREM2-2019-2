@@ -40,7 +40,7 @@ int main()
 
   for (i = 0; i < 6; i++)
   {
-    if (vet[i]%2==0)
+    if (vet[i] % 2 == 0)
     {
        cout << vet[i] << "; ";
     }

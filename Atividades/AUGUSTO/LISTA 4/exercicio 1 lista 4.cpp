@@ -1,0 +1,71 @@
+/**********************************************************
+- Autor: Augusto N Almeida
+- Descrição: exercicio 1 lista 4
+**********************************************************/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int i = 0; // controla o laço
+
+    int vet[6]; // declaração de vetor de 5 posições
+
+    int iSoma = 0; // soma os elementos do vetor
+
+    int iContPar = 0; // contagem de números pares
+
+    int iContimpar = 0;  // contagem de números impares
+
+
+
+
+    cout << "\nElementos do vetor: " << endl;
+    // imprime o vetor
+    for (i = 0; i < 6; i++)
+    {
+        cout<< "valor :"<<i+1<< endl;
+        cin >> vet[i];
+    }
+
+    // vetores par
+
+ for (i = 0; i < 6; i++)
+ {
+     if  (vet[i] % 2 == 0)
+    {
+     cout << "\nElementos par : " << vet[i] << "\t";
+    }
+
+     if  (vet[i] % 2 != 0)
+    {
+     cout << "\nElementos impar : " << vet[i] << "\t";
+    }
+
+
+ }
+
+
+    // verifica existência de números pares no vetor
+    for (i = 0; i < 6; i++)
+    {
+        if (vet[i] % 2 == 0)
+        {
+            iContPar++;
+        }
+
+         if (vet[i] % 2 != 0)
+        {
+            iContimpar++;
+        }
+    }
+
+    cout << "\n\nTotal de pares = " << iContPar << endl;
+    cout << "\n\nTotal de impar = " << iContimpar << endl;
+
+
+
+    return 0;
+}

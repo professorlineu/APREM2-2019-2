@@ -1,5 +1,6 @@
-- Autor:      Vanderlei Natanael
-- Descrição:  Vetor
+/*********************************************************
+ -Autor:      Vanderlei Natanael
+ -Descrição:  Lista 4 - Ex 1
 **********************************************************/
 
 #include <iostream>
@@ -16,6 +17,10 @@ int main()
 
     int iContImpar = 0;
 
+    int iValorPar =0;
+
+    int iValorImpar =0;
+
     // entrada de dados
     for (i = 1; i < 7; i++)
     {
@@ -30,7 +35,6 @@ int main()
     {
         cout << vet[i] << "\t";
 
-        // verifica existência de números pares no vetor
         if (vet[i] % 2 == 0)
         {
             iContPar++;
@@ -45,7 +49,31 @@ int main()
 
 
     cout << "\n\nTotal de pares = " << iContPar << endl;
+
+    cout << "\n\nValor dos vetores pares: " << endl;
+
+    for (i = 1; i < 7; i++)
+        {
+        if (vet[i] % 2 == 0)
+        {
+            cout << vet[i] << " ";
+        }
+
+        }
+
+
     cout << "\n\nTotal de impares = " << iContImpar << endl;
+
+    cout << "\n\nValor dos vetores impares: " << endl;
+
+    for (i = 1; i < 7; i++)
+        {
+        if (vet[i] % 2 != 0)
+        {
+            cout << vet[i] << " ";
+        }
+
+        }
 
     return 0;
 }

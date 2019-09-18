@@ -1,0 +1,48 @@
+/**********************************************************
+- Autor:      clayton
+- Descrição:  lista 4 ex 7
+**********************************************************/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int i = 0;
+    float Vet[10];
+    int iSoma = 0;
+
+
+    // entrada de dados
+
+    cout << "\nElementos do vetor: " << endl;
+
+    // imprime o vetor
+    for (i = 0; i < 10; i++)
+    {
+        cout << "valor:" << i+1<< endl;
+        cin >> Vet[i];
+    }
+    for (i = 0; i< 10; i++)
+    {
+        if (Vet[i] <0 )
+        {
+            cout << Vet[i]<<"\t";
+        }
+    }
+
+ for (i = 0; i< 10; i++)
+    {
+        if (Vet[i] > 0 )
+        {
+            cout << Vet[i]<<"\t";
+        }
+
+    }
+
+    return 0;
+}
+
+
+

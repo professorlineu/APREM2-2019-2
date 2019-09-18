@@ -21,6 +21,7 @@ int main()
 
     for (i = 0; i < 6; i++)
     {
+        cout << vet[i]<<"\t";
         if (vet[i] % 2 == 0)
         {
             iContPar++;

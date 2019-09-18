@@ -44,7 +44,7 @@ int main()
 
     if (iIdade>16 && iIdade<=30)
     {
-    iG2
+    iG2=iG2+1
    //opcao para varificacao do operador se o programa esta funcionando corretamente:///  cout<<"\n op: "<<iG5<<iG4<<iG3<<iG2<<iG1;
     }
 

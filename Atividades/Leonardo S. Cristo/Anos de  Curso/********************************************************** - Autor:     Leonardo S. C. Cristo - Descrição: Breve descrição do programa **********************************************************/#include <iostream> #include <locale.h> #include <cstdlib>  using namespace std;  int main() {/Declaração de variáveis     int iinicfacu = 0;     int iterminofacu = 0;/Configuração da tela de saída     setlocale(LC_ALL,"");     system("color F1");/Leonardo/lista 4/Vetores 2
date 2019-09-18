@@ -1,0 +1,99 @@
+/**********************************************************
+- Autor:      Leonardo Silva
+- Descrição:  Vetor Ex 2
+**********************************************************/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int i = 0; // controla o laço
+
+    int vet[7]; // declaração de vetor de 5 posições
+
+/*
+    int iSoma = 0; // soma os elementos do vetor
+
+    int iContPar = 0; // contagem de números pares
+
+    float fcontimpar = 0;
+    
+    float fcontimpar1 = 0;
+
+    float fcontipar1 = 0;
+*/
+
+
+
+ 
+    // entrada de dados
+    for (i = 0; i < 7; i++)
+    {
+        cout << "Valor " << i << ": ";
+        cin >> vet[i];
+    }
+
+/*
+    cout << "\nElementos do vetor: " << endl;
+    // imprime o vetor
+    for (i = 0; i < 7; i++)
+    {
+        cout << vet[i] << "\t";
+
+        // soma os elementos do vetor
+        iSoma = iSoma + vet[i];
+
+        // verifica existência de números pares no vetor
+        if (vet[i] % 2== 0)
+        {
+            iContPar++;
+        }
+
+        // verifica existência de números pares no vetor
+        if (vet[i] % 2 == 1)
+        {
+            fcontimpar++; 
+        }
+   
+    }
+*/
+
+
+cout << "Multiplo 2: "<< endl;
+   for (i = 0; i < 7; i++)
+    {
+      if (vet[i] % 2 == 0)
+        {
+          cout << vet[i] << ", ";
+        }        
+    }
+cout << "\nMultiplo 3 : "<< endl;
+   for (i = 0; i < 7; i++)
+    {
+      if (vet[i] % 3 == 0)
+        {
+          cout << vet[i] << ", ";
+        }        
+    }
+
+cout << "\nMultiplo 2 e 3 : "<< endl;
+   for (i = 0; i < 7; i++)
+    {
+      if (vet[i] % 2 == 0 and vet[i] % 3 == 0 )
+        {
+          cout << vet[i] << ", ";
+        }        
+    }
+
+
+        
+            
+
+ 
+    
+
+
+    return 0;
+}

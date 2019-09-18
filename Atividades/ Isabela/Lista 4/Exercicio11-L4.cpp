@@ -1,6 +1,6 @@
     //**********************************************************
     //Nome: Isabela ap de souza
-    //Descrição: Exercicio 11 -  L4
+    //DescriÃ§Ã£o: Ex11 Numeros impares e pares - L4
     //**********************************************************
 
     #include <iostream>
@@ -19,17 +19,17 @@
 
     for (i=0; i<10; i+=1)
     {
-    cout << "Digite o " << i+1 << "° número: ";
+    cout << "Digite o " << i+1 << "Â° nÃºmero: ";
     cin  >> iNum[i];
     }
-    cout << "\n\t\tNúmeros pares: \n" << endl;
+    cout << "\n\t\tNÃºmeros pares: \n" << endl;
     for (i=0; i<10; i++)
     {
         if (iNum[i]%2 == 0)
         cout << iNum[i] << "\t";
     }
 
-    cout << "\n\t\tNúmeros impares: \n" << endl;
+    cout << "\n\t\tNÃºmeros impares: \n" << endl;
     for (i=0; i<10; i++)
     {
         if (iNum[i]%2 != 0)

@@ -1,0 +1,52 @@
+/**********************************************************
+- Autor:      clayton
+- Descrição:  lista 4 ex 2
+**********************************************************/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int i = 0;
+    int Vet[7];
+    int iSoma = 0;
+
+
+    // entrada de dados
+
+    cout << "\nElementos do vetor: " << endl;
+
+    // imprime o vetor
+    for (i = 0; i < 7; i++)
+{
+        cout << "valor:" << i+1<< endl;
+        cin >> Vet[i];
+}
+    for (i = 0; i<7; i++)
+{
+    if (Vet[i] % 2 == 0)
+{
+        cout << "\nElementos multiplos de 2 : \n" << Vet[i] <<endl;
+}
+    if (Vet[i] % 3 == 0)
+{
+        cout << "\nElementos multiplos de 3 :\n" << Vet[i] <<endl;
+}
+
+    if (Vet[i] % 2 ==0 && Vet[i] % 3 ==0)
+
+{
+        cout << "\nElementos multiplos de 2 e 3 :\n" << Vet[i] <<endl;
+}
+
+
+}
+
+
+    return 0;
+}
+
+
+

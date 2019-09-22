@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Vitor Kenzo Kikuchi
-- DescriÁ„o: ExercÌcio 06 - Este programa determina a materia em que 15 alunos est„o matriculados
+- Descri√ß√£o: Exerc√≠cio 05 - Este programa determina a materia em que 15 alunos est√£o matriculados
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -16,7 +16,7 @@ main()
     int iSomaLog = 0;
     int iSomaProg = 0;
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
@@ -24,10 +24,10 @@ main()
     {
 
         system("cls");
-    cout << "\nQual È seu nome? ";
+    cout << "\nQual √© seu nome? ";
     cin  >> snome[i];
 
-    cout << "Est· cursando qual matÈria? Linguagem (1) ou LÛgica (2) de programaÁ„o? ";
+    cout << "Est√° cursando qual mat√©ria? Linguagem (1) ou L√≥gica (2) de programa√ß√£o? ";
     cin  >> iOpcao[i];
 
     if (iOpcao[i] == 1)
@@ -45,7 +45,7 @@ main()
 
     system("cls");
 
-    cout << "\n\nOs alunos cursando linguagem de programaÁ„o s„o: \n" << endl;
+    cout << "\n\nOs alunos cursando linguagem de programa√ß√£o s√£o: \n" << endl;
 
     for (i=0; i<15; i++)
     {
@@ -57,7 +57,7 @@ main()
 
     cout << "\n\nTotal: " << iSomaProg << endl;
 
-    cout << "\n\nOs alunos em LÛgica de programaÁ„o s„o: \n" << endl;
+    cout << "\n\nOs alunos em L√≥gica de programa√ß√£o s√£o: \n" << endl;
 
     for (i=0; i<15; i++)
     {

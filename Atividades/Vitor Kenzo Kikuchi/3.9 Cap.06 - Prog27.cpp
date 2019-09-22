@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:      Vitor Kenzo Kikuchi
-- DescriÁ„o:  ExercÌcio 06 - Programa que determina o valor que 10 vendedores recebem com a comiss„o. AlÈm do total de todas as vendas.
+- Descri√ß√£o:  Exerc√≠cio 06 - Programa que determina o valor que 10 vendedores recebem com a comiss√£o. Al√©m do total de todas as vendas.
 **********************************************************/
 
 #include <iostream>
@@ -19,17 +19,17 @@ int main()
  int iComissao[10];
  float ftotal = 0;
 
- //configurÁ„o da tela de saÌda
+ //configur√ß√£o da tela de sa√≠da
 
  setlocale (LC_ALL,"");
  system("color F1");
 
- //CÛdigo do programa
+ //C√≥digo do programa
 
  for (i=0; i<10; i++)
  {
 
- cout << "\nQual È o nome do " << i+1 << "∞ vendedor? ";
+ cout << "\nQual √© o nome do " << i+1 << "¬∞ vendedor? ";
  cin  >> snome[i];
 
  }
@@ -39,7 +39,7 @@ int main()
  for (i=0; i<10; i++)
  {
 
- cout << "\nQual È o valor total das vendas do(a) " << snome[i] << "? ";
+ cout << "\nQual √© o valor total das vendas do(a) " << snome[i] << "? ";
  cin  >> iVendas[i];
 
  }
@@ -49,7 +49,7 @@ int main()
  for (i=0; i<10; i++)
  {
 
- cout << "\nQual È o percentual de comiss„o do(a) " << snome[i] << "? ";
+ cout << "\nQual √© o percentual de comiss√£o do(a) " << snome[i] << "? ";
  cin  >> iComissao[i];
 
  }
@@ -59,7 +59,7 @@ int main()
  for (i=0; i<10; i++)
  {
 
- cout << "\n" << snome[i] << " tem direito a " << iVendas[i]*(iComissao[i]/100.0) << " a mais no sal·rio." << endl;
+ cout << "\n" << snome[i] << " tem direito a " << iVendas[i]*(iComissao[i]/100.0) << " a mais no sal√°rio." << endl;
 
  }
 

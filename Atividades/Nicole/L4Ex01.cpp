@@ -13,12 +13,9 @@ using namespace std;
 int main()
 {
     int i = 0;
-
     int vet[6];
-
     int iContPar = 0;
     int iContImp = 0;
-
 
     // entrada de dados
 
@@ -28,29 +25,32 @@ int main()
         cin >> vet[i];
     }
 
+    system("cls");
+
+    cout << " Os pares sao: ";
 
     for (i = 0; i < 6; i++)
-
     {
         if (vet[i] % 2 == 0)
-
         {
+            cout << vet [i] << "\t";
             iContPar++;
-
         }
     }
+    cout << "\n\nE totalizam " << iContPar << " valores." << endl;
+
+    cout << "\n\n Os vetores impares sao: ";
+
     for (i = 0; i < 6; i++)
     {
-
         if (vet[i] % 2 != 0)
         {
+            cout << vet [i] << "\t";
             iContImp++;
-
         }
     }
 
-        cout << "\n\nTotal de pares = " << iContPar << endl;
-        cout << "\n\nTotal de impares = " << iContImp << endl;
+    cout << "\n\nE totalizam " << iContImp << " valores." << endl;
 
-        return 0;
-    }
+    return 0;
+}

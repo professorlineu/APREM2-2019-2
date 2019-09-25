@@ -8,7 +8,7 @@
 
 using namespace std;
 
-main()
+int main()
 {
     int i = 0;
     int iOpcao[15];

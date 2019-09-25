@@ -1,6 +1,6 @@
 /**********************************************************
 - Autor:     Thomas Nicolas
-- DescriÁ„o: Lista 04 ex 02
+- Descri√ß√£o: Lista 04 ex 02
 **********************************************************/
 #include <iostream>
 #include <locale.h>
@@ -10,20 +10,20 @@ using namespace std;
 
 int main()
 {
-    //DeclaraÁ„o de vari·veis
+    //Declara√ß√£o de vari√°veis
 
     int i = 0;
     int ivet[7];
 
-    //ConfiguraÁ„o da tela de saÌda
+    //Configura√ß√£o da tela de sa√≠da
     setlocale(LC_ALL,"");
     system("color F1");
 
-    //CÛdigo do programa
+    //C√≥digo do programa
 
    for (i=0;i<7;i++)
     {
-        cout << "insira o " << i << " valor: ";
+        cout << "insira o " << i+1 << " valor: ";
         cin >>ivet[i];
     }
 

@@ -1,0 +1,288 @@
+/**********************************************************
+- Autor:     Seu nome
+- Descrição: Breve descrição do programa
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+#include <cmath>  // comandos pow, sqrt, cbrt, etc
+#include <ctype.h> // comando toupper ou tolower
+
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+
+    int iEscolhaAssunto = 1;
+    int iEscolhaNvl = 0;
+    char cResposta;
+    int iPontuacao = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+
+/**********************************************
+
+INTRODUÇÃO:
+
+    cout << endl << endl<< "Bem-vindo ao QUIZ DE FUTEBOL!" << endl << endl;
+    cout << "Pressione qualquer tecla para começar." << endl;
+    system("pause>>null");
+
+    system("cls");
+
+    cout << endl << endl << "O quiz de futebol foi dividido em 3 assuntos diferentes, e cada um com 3 níveis de dificuldade, escolha o assunto e o nível e responda as perguntas. Você terá quantidades de chances diferentes para cada dificuldade." << endl << endl;
+    cout << "Pressione qualquer tecla para continuar" << endl << endl;
+    system("pause>>null");
+
+    system("cls");
+*******************************************************/
+
+
+
+
+
+while (iEscolhaAssunto != 0 )
+{
+/************************************************
+
+    MENU:
+
+    do
+    {
+    cout << "----------------------------------------\n\n";
+    cout << "             Início" << endl << endl;
+    cout << "  Escolha o assunto: " << endl << endl;
+    cout << "1 - Clubes \n\n";
+    cout << "2 - Jogadores \n\n";
+    cout << "3 - Seleções \n\n";
+    cout << "0 - Sair\n\n";
+    cout << "----------------------------------------\n\n";
+    cout << "Digite o número da escolha: ";
+    cin >> iEscolhaAssunto;
+
+    system("cls");
+
+    } while (iEscolhaAssunto > 3 || iEscolhaAssunto < 0);
+
+    ***********************************************************/
+
+
+    switch (iEscolhaAssunto)
+    {
+
+    case 1:// CLUBES
+
+       /***********************************
+        do
+        {
+    cout << "----------------------------------------\n\n";
+    cout << "  Escolha a dificuldade: " << endl << endl;
+    cout << "1 - Fácil \n\n";
+    cout << "2 - Médio \n\n";
+    cout << "3 - Difícil \n\n";
+    cout << "0 - Voltar \n\n";
+    cout << "----------------------------------------\n\n";
+    cout << "Digite o número da dificuldade: ";
+    cin >> iEscolhaNvl;
+
+    system("cls");
+
+        }while (iEscolhaNvl > 3 || iEscolhaNvl < 0);
+**************************************/
+        // FIM SUBMENU
+
+//////////////////////////////////////////////////////////////
+    switch (iEscolhaNvl)
+    {
+
+
+    case 1://facil - clubes
+
+        cout << "Pergunta 1: \n" << endl;
+        cout << " Qual destes clubes abaixo é um clube Paulista: \n\n";
+        cout << " A - Vasco da Gama \n\n";
+        cout << " B - Santos \n\n";
+        cout << " C - Cruzeiro \n\n";
+        cout << " Digite qualquer outra letra para voltar ao menu inicial.\n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+
+        system("cls");
+
+
+        switch (toupper(cResposta)) //pergunta 1 clube facil
+        {
+    case 'A':
+        cout << "\n\n Você errou! A resposta certa era a B.\n\n";
+        break;
+
+    case 'B':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+    case 'C':
+        cout << "\n\n Você errou! A resposta certa era a B.\n\n";
+        break;
+
+        }
+system("pause");
+system("cls");
+
+
+        cout << "Pergunta 2: \n" << endl;
+        cout << " A UEFA Champions League é a maior competição europeia de futebol, em virtude disso, pergunta-se qual o maior campeão desta competição futebolística? \n\n";
+        cout << " A - Barcelona \n\n";
+        cout << " B - Liverpool \n\n";
+        cout << " C - Real Madrid \n\n";
+        cout << " Digite qualquer outra letra para voltar ao menu inicial.\n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+    system("cls");
+
+switch (toupper(cResposta)) //pergunta 2 clube facil
+        {
+    case 'A':
+        cout << "\n\n Você errou! A resposta certa era a C.\n\n";
+        break;
+
+    case 'B':
+        cout << "\n\n Você errou! A resposta certa era a C.\n\n";
+        break;
+
+    case 'C':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+        }
+system("pause");
+system("cls");
+
+
+
+    } // fim do switch escolha do nivel
+
+    break;
+    case 2: // jogadores
+    do
+        {
+    cout << "----------------------------------------\n\n";
+    cout << "  Escolha a dificuldade: " << endl << endl;
+    cout << "1 - Fácil \n\n";
+    cout << "2 - Médio \n\n";
+    cout << "3 - Difícil \n\n";
+    cout << "0 - Sair \n\n";
+    cout << "----------------------------------------\n\n";
+    cout << "Digite o número da dificuldade: ";
+    cin >> iEscolhaNvl;
+
+    system("cls");
+
+        }while (iEscolhaNvl > 3 || iEscolhaNvl < 0);
+
+
+    switch (iEscolhaNvl)
+    {
+
+    case 1://facil - jogadores
+
+        cout << "Pergunta 1: \n" << endl;
+        cout << "peg jogadores /facil \n\n";
+        cout << "A - resp 1 \n\n";
+        cout << "B - resp 2 \n\n";
+        cout << "C - resp 3 \n\n";
+        cout << "D - resp 4 \n\n";
+        cout << "0 - Sair \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+
+        system("cls");
+
+
+
+
+
+        switch (toupper(cResposta)) //pergunta 1
+        {
+    case 'A':
+        cout << "";
+        break;
+
+        }
+
+    break;
+    case 3: // seleções
+    do
+        {
+    cout << "----------------------------------------\n\n";
+    cout << "  Escolha a dificuldade: " << endl << endl;
+    cout << "1 - Fácil \n\n";
+    cout << "2 - Médio \n\n";
+    cout << "3 - Difícil \n\n";
+    cout << "0 - Sair \n\n";
+    cout << "----------------------------------------\n\n";
+    cout << "Digite o número da dificuldade: ";
+    cin >> iEscolhaNvl;
+
+    system("cls");
+
+        }while (iEscolhaNvl > 3 || iEscolhaNvl < 0);
+
+
+    switch (iEscolhaNvl)
+    {
+
+    case 1://facil -seleção
+
+        cout << "Pergunta 1: \n" << endl;
+        cout << "1)	Qual destes clubes abaixo é um clube Paulista: \n\n";
+        cout << "A - Vasco da Gama \n\n";
+        cout << "B - Santos \n\n";
+        cout << "C - Cruzeiro \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+
+        system("cls");
+
+
+        switch (toupper(cResposta)) //pergunta 1
+        {
+    case 'A':
+        cout << "Você errou!";
+
+
+        }
+        }
+         // fim do switch (submenu >> respostas)
+
+
+    break;
+    default: // sair
+
+        cout << "Obrigado por jogar! Espero ter gostado.";
+
+
+
+
+
+
+
+
+
+     }
+     }//fim do switch (menu >> submenu)
+
+
+
+}
+
+    return 0;
+}

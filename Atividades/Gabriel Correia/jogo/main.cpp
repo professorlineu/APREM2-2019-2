@@ -11,12 +11,12 @@
 
 using namespace std;
 
-void creditos(int iEscolha);
-void interfaze(int iEscolha);
-void interfazefacil(int iEscolha);
-void interfazemedio(int iEscolha);
-void interfazedificil(int iEscolha);
-void interfazeplay(int iEscolha);
+void creditos(int iEscolha, char csal);
+void interfaze(int iEscolha, char csal);
+void interfazefacil(int iEscolha, char csal);
+void interfazemedio(int iEscolha, char csal);
+void interfazedificil(int iEscolha, char csal);
+void interfazeplay(int iEscolha, char csal);
 void errou();
 
 int main(){
@@ -57,7 +57,7 @@ int main(){
         cout<<"\t\t\t\t\t\t|                                                                                         |\n";
         cout<<"\t\t\t\t\t\t___________________________________________________________________________________________\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t";
         csal=getch();
-        if(csal==27){interfaze(iEscolha);}
+        if(csal==27){interfaze(iEscolha, csal);}
 
         if(iEscolha==5){
                 return 0;}
@@ -126,8 +126,8 @@ cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t---------------------------------  
         cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t---------------------------------   tenha um otimo jogo ---------------------------------\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t";
         Sleep(itempo2);
         system("cls");
-        interfaze(iEscolha);}
-void interfaze(int iEscolha){
+        interfaze(iEscolha, csal);}
+void interfaze(int iEscolha, char csal){
         system("cls");
         cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t___________________________________________________________________________________________\n"
                                          << "\t\t\t\t\t-------------------------------------------------------------------------\n"
@@ -141,20 +141,15 @@ void interfaze(int iEscolha){
                                          << "\t\t\t\t\t-------------------------------------------------------------------------\n"
                                          << "\t\t\t\t\t                    Escolha uma opcao de jogo: ";
       cin>>iEscolha;
-      if(iEscolha==1){
-                cout<<"adas";
-                interfazeplay(iEscolha);}
-      /*if(iEscolha==3){
-                cout<<"adas";
-                creditos(iEscolha);}*/
-    if(iEscolha==4){
-                cout<<"adas";
-                creditos(iEscolha);}
-                interfaze(iEscolha);
+    if(iEscolha==1){interfazeplay(iEscolha, csal);}
+    /*if(iEscolha==3){creditos(iEscolha);}*/
+    if(iEscolha==4){creditos(iEscolha, csal);}
+    if(iEscolha!=5){interfaze(iEscolha, csal);}
+    if(iEscolha==5){exit(0);}
 
                 }
 
-void creditos(int iEscolha){
+void creditos(int iEscolha, char csal){
         system("cls");
 cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t-------------------------------------------------------------------------\n"
          << "\t\t\t\t-------------------------------------------------------------------------\n"
@@ -166,8 +161,8 @@ cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t---------------------------------
          << "\t\t\t\t-------------------------------------------------------------------------\n"
          << "\t\t\t\t-------------------------------------------------------------------------\n\t\t\t\t";
          system("pause");
-         interfaze(iEscolha);}
-void interfazeplay(int iEscolha){
+         interfaze(iEscolha, csal);}
+void interfazeplay(int iEscolha, char csal){
         system("cls");
 cout     << "\n\n\n\n\n\n\n\n\n\n\t\t-------------------------------------------------------------------------\n"
          << "\t\t-------------------------------------------------------------------------\n"
@@ -181,18 +176,18 @@ cout     << "\n\n\n\n\n\n\n\n\n\n\t\t-------------------------------------------
          cin>>iEscolha;
 
         if(iEscolha==4){
-                interfaze(iEscolha);}
+                interfaze(iEscolha, csal);}
         if(iEscolha==1){
-                interfazefacil(iEscolha);}
+                interfazefacil(iEscolha, csal);}
         if(iEscolha==2){
-                interfazemedio(iEscolha);}
+                interfazemedio(iEscolha,csal);}
         if(iEscolha==3){
-                interfazedificil(iEscolha);}
+                interfazedificil(iEscolha, csal);}
 
 
 
                 }
-void interfazefacil(int iEscolha){
+void interfazefacil(int iEscolha,char csal){
         system("cls");
         int itempo1=100;
 
@@ -264,10 +259,11 @@ cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t___________________________________
           cout<<"\t\t\t\t\t\t|                             |          |                             |\n";
           cout<<"\t\t\t\t\t\t|-----------------------------|          |-----------------------------|\n";
           cout<<"\t\t\t\t\t\t                               respota: ";
-          cin>>iEscolha;
-          if(iEscolha==1||iEscolha==4||iEscolha==3){
+          csal =getche();
+        if(csal==27){interfaze(iEscolha, csal);}
+          if(csal==1||csal==4||csal==3){
           errou();
-          interfaze(iEscolha);}
+          interfaze(iEscolha, csal);}
                   system("cls");
 
 
@@ -288,9 +284,11 @@ cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t___________________________________
           cout<<"\t\t\t\t\t\t|                             |         |                             |\n";
           cout<<"\t\t\t\t\t\t|-----------------------------|         |-----------------------------|\n";
           cout<<"\t\t\t\t\t\t                               respota: ";
-          cin>>iEscolha;
-          if(iEscolha!=12){errou();
-          interfaze(iEscolha);}
+          csal =getche();
+        if(csal==27){interfaze(iEscolha, csal);}
+          if(csal==1||csal==4||csal==3){
+          errou();
+          interfaze(iEscolha, csal);}
                   system("cls");
 
                             cout<<"\n\n\n\n\n\t\t\t\t\t|-----------------------------|\n"
@@ -309,9 +307,11 @@ cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t___________________________________
           cout<<"\t\t\t|                             ||                             |\n";
           cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
           cout<<"\t\t\t                            respota:                      ";
-          cin>>iEscolha;
-          if(iEscolha==2||iEscolha==4||iEscolha==3){errou();
-          interfaze(iEscolha);}
+          csal =getche();
+        if(csal==27){interfaze(iEscolha, csal);}
+          if(csal==1||csal==4||csal==3){
+          errou();
+          interfaze(iEscolha, csal);}
         system("cls");
 
 
@@ -331,9 +331,11 @@ cout<<"\n\n\n\n\n\t\t\t\t\t|----------------------------------------------------
           cout<<"\t\t\t|                             ||                             |\n";
           cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
           cout<<"\t\t\t                            respota:                      ";
-          cin>>iEscolha;
-          if(iEscolha==1||iEscolha==4||iEscolha==3){errou();
-          interfaze(iEscolha);}
+          csal =getche();
+        if(csal==27){interfaze(iEscolha, csal);}
+          if(csal==1||csal==4||csal==3){
+          errou();
+          interfaze(iEscolha, csal);}
         system("cls");
 
           cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t___________________________________________________________________________________________\n";
@@ -358,12 +360,12 @@ cout<<"\n\n\n\n\n\t\t\t\t\t|----------------------------------------------------
         cout<<"\t\t\t\t|                                                                                         |\n";
         cout<<"\t\t\t\t___________________________________________________________________________________________\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t";
         system("pause");
-        interfazemedio(iEscolha);
+        interfazemedio(iEscolha, csal);
         }
 
 
 
-void interfazemedio(int iEscolha){
+void interfazemedio(int iEscolha, char csal){
         system("cls");
         int itempo1=100;
 
@@ -412,9 +414,11 @@ cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t___________________________________
     cout<<"\t\t\t|                                      |   |                                        |\n";
     cout<<"\t\t\t|--------------------------------------|   |----------------------------------------|\n";
     cout<<"\t\t\t                            respota:                      ";
-          cin>>iEscolha;
-          if(iEscolha==1||iEscolha==4||iEscolha==3){errou();
-          interfaze(iEscolha);}
+          csal =getche();
+        if(csal==27){interfaze(iEscolha, csal);}
+          if(csal==1||csal==4||csal==3){
+          errou();
+          interfaze(iEscolha, csal);}
           system("cls");
 
                                       cout<<"\n\n\n\n\n\t\t\t\t\t|-----------------------------|\n"
@@ -433,9 +437,11 @@ cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t___________________________________
           cout<<"\t\t\t|                             ||                             |\n";
           cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
           cout<<"\t\t\t                            respota:                      ";
-          cin>>iEscolha;
-          if(iEscolha==2||iEscolha==4||iEscolha==3){errou();
-          interfaze(iEscolha);}
+          csal =getche();
+        if(csal==27){interfaze(iEscolha, csal);}
+          if(csal==1||csal==4||csal==3){
+          errou();
+          interfaze(iEscolha, csal);}
           system("cls");
 
 
@@ -455,9 +461,11 @@ cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t___________________________________
           cout<<"\t\t\t|                             ||                             |\n";
           cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
           cout<<"\t\t\t                            respota:                      ";
-          cin>>iEscolha;
-          if(iEscolha==1||iEscolha==4||iEscolha==3){errou();
-          interfaze(iEscolha);}
+          csal =getche();
+        if(csal==27){interfaze(iEscolha, csal);}
+          if(csal==1||csal==4||csal==3){
+          errou();
+          interfaze(iEscolha, csal);}
           system("cls");
 
 
@@ -477,12 +485,14 @@ cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t___________________________________
           cout<<"\t\t\t|                             ||                             |\n";
           cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
           cout<<"\t\t\t                            respota:                      ";
-          cin>>iEscolha;
-          if(iEscolha==1||iEscolha==4||iEscolha==3){errou();
-          interfaze(iEscolha);}
+          csal =getche();
+        if(csal==27){interfaze(iEscolha, csal);}
+          if(csal==1||csal==4||csal==3){
+          errou();
+          interfaze(iEscolha, csal);}
         system("cls");}
 
-void interfazedificil(int iEscolha){
+void interfazedificil(int iEscolha, char csal){
         system("cls");
         int itempo1=100;
         setlocale(LC_ALL,"");
@@ -536,3 +546,4 @@ cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t___________________________________
         cout<<"\t\t\t\t|                                                                                         |\n";
         cout<<"\t\t\t\t___________________________________________________________________________________________\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t";
         system("pause");}
+

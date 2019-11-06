@@ -17,6 +17,7 @@ void interfazefacil(int iEscolha);
 void interfazemedio(int iEscolha);
 void interfazedificil(int iEscolha);
 void interfazeplay(int iEscolha);
+void errou();
 
 int main(){
 
@@ -246,30 +247,118 @@ cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t___________________________________
         system("pause");
         system("cls");
 
-        cout<<"\n\n\n\n\n\t\t\t\t\t|-----------------------------|\n"
+        cout<<"\n\n\n\n\n|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n"
+                        "|                                                                                                                                                                      |\n"
+                        "|      Uma menina, um Espantalho, o Homem de Lata e o Leão Covarde. Quem diria que assistir esses personagens no filme O Mágico de Oz pudesse nos transportar realmente|\n"
+                        "|               para esse incrível mundo. Complete a famosa frase dita por Dorothy: “Tenho a sensação de que não estamos mais no___________”.                          |\n"
+                        "|                                                                                                                                                                      |\n"
+                        "|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n";
+          cout<<"\t\t\t\t\t\t|-----------------------------|          |-----------------------------|\n";
+          cout<<"\t\t\t\t\t\t|                             |          |                             |\n";
+          cout<<"\t\t\t\t\t\t|           1-Texas           |          |          2-Kansas           |\n";
+          cout<<"\t\t\t\t\t\t|                             |          |                             |\n";
+          cout<<"\t\t\t\t\t\t|-----------------------------|          |-----------------------------|\n";
+          cout<<"\t\t\t\t\t\t|-----------------------------|          |-----------------------------|\n";
+          cout<<"\t\t\t\t\t\t|                             |          |                             |\n";
+          cout<<"\t\t\t\t\t\t|          3-Arizona          |          |          4-Colorado         |\n";
+          cout<<"\t\t\t\t\t\t|                             |          |                             |\n";
+          cout<<"\t\t\t\t\t\t|-----------------------------|          |-----------------------------|\n";
+          cout<<"\t\t\t\t\t\t                               respota: ";
+          cin>>iEscolha;
+          if(iEscolha==1||iEscolha==4||iEscolha==3){
+          errou();
+          interfaze(iEscolha);}
+                  system("cls");
+
+
+
+ cout<<"\n\n\n\n\n\t\t\t\t\t|-------------------------------------------------------------------|\n"
+                 "\t\t\t\t\t|                                                                   |\n"
+                 "\t\t\t\t\t|  Quantas notas musicais existem no nosso sistema tonal ocidental  |\n"
+                 "\t\t\t\t\t|                                                                   |\n"
+                 "\t\t\t\t\t|-------------------------------------------------------------------|\n";
+          cout<<"\t\t\t\t\t\t|-----------------------------|         |-----------------------------|\n";
+          cout<<"\t\t\t\t\t\t|                             |         |                             |\n";
+          cout<<"\t\t\t\t\t\t|           6                 |         |            8                |\n";
+          cout<<"\t\t\t\t\t\t|                             |         |                             |\n";
+          cout<<"\t\t\t\t\t\t|-----------------------------|         |-----------------------------|\n";
+          cout<<"\t\t\t\t\t\t|-----------------------------|         |-----------------------------|\n";
+          cout<<"\t\t\t\t\t\t|                             |         |                             |\n";
+          cout<<"\t\t\t\t\t\t|           7                 |         |            12               |\n";
+          cout<<"\t\t\t\t\t\t|                             |         |                             |\n";
+          cout<<"\t\t\t\t\t\t|-----------------------------|         |-----------------------------|\n";
+          cout<<"\t\t\t\t\t\t                               respota: ";
+          cin>>iEscolha;
+          if(iEscolha!=12){errou();
+          interfaze(iEscolha);}
+                  system("cls");
+
+                            cout<<"\n\n\n\n\n\t\t\t\t\t|-----------------------------|\n"
           "\t\t\t\t\t|                             |\n"
-          "\t\t\t\t\t|            texto            |\n"
+          "\t\t\t\t\t|  Qual o principal EPI de laboratório?                         |\n"
           "\t\t\t\t\t|                             |\n"
           "\t\t\t\t\t|-----------------------------|\n";
     cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
           cout<<"\t\t\t|                             ||                             |\n";
-          cout<<"\t\t\t|            texto            ||            texto            |\n";
+          cout<<"\t\t\t|           1-Jaleco          ||  2-  Relogio de bolso       |\n";
           cout<<"\t\t\t|                             ||                             |\n";
           cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
           cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
           cout<<"\t\t\t|                             ||                             |\n";
-          cout<<"\t\t\t|            texto            ||            texto            |\n";
+          cout<<"\t\t\t|       4-Oculos de grau      ||   3-  Chave de fenda        |\n";
           cout<<"\t\t\t|                             ||                             |\n";
           cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
-          cout<<"\t\t\t                            respota:                      \n";
+          cout<<"\t\t\t                            respota:                      ";
           cin>>iEscolha;
-          if(iEscolha==1||iEscolha==4||iEscolha==3){interfaze(iEscolha);}
+          if(iEscolha==2||iEscolha==4||iEscolha==3){errou();
+          interfaze(iEscolha);}
+        system("cls");
 
 
+cout<<"\n\n\n\n\n\t\t\t\t\t|-----------------------------------------------------------|\n"
+                "\t\t\t\t\t|                                                           |\n"
+                "\t\t\t\t\t|  Qual time fez a maior goleada da historia do Brasil      |\n"
+                "\t\t\t\t\t|                                                           |\n"
+                "\t\t\t\t\t|-----------------------------------------------------------|\n";
+    cout<<      "\t\t\t|-----------------------------||-----------------------------|\n";
+          cout<<"\t\t\t|                             ||                             |\n";
+          cout<<"\t\t\t|           1-Bota Fogo       ||           3-Flamengo        |\n";
+          cout<<"\t\t\t|                             ||                             |\n";
+          cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
+          cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
+          cout<<"\t\t\t|                             ||                             |\n";
+          cout<<"\t\t\t|           2-Gremio          ||      4-Atletico Mineiro     |\n";
+          cout<<"\t\t\t|                             ||                             |\n";
+          cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
+          cout<<"\t\t\t                            respota:                      ";
+          cin>>iEscolha;
+          if(iEscolha==1||iEscolha==4||iEscolha==3){errou();
+          interfaze(iEscolha);}
+        system("cls");
 
-
-
-
+          cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t___________________________________________________________________________________________\n";
+        Sleep(itempo1);
+        cout<<"\t\t\t\t|                                                                                         |\n";
+        Sleep(itempo1);
+        cout<<"\t\t\t\t|                                                                                         |\n";
+        Sleep(itempo1);
+        cout<<"\t\t\t\t|                                                                                         |\n";
+        Sleep(itempo1);
+        cout<<"\t\t\t\t|                                                                                         |\n";
+        Sleep(itempo1);
+        cout<<"\t\t\t\t|                                                                                         |\n";
+        Sleep(itempo1);
+        cout<<"\t\t\t\t|                       parabens, voce acertou todas!!! :D,                               |\n";
+        Sleep(itempo1);
+        cout<<"\t\t\t\t|                                  proximo nivel.                                         |\n";
+        Sleep(itempo1);
+        cout<<"\t\t\t\t|                                                                                         |\n";
+        Sleep(itempo1);
+        cout<<"\t\t\t\t|                                                                                         |\n";
+        cout<<"\t\t\t\t|                                                                                         |\n";
+        cout<<"\t\t\t\t___________________________________________________________________________________________\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t";
+        system("pause");
+        interfazemedio(iEscolha);
         }
 
 
@@ -293,7 +382,7 @@ cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t___________________________________
         Sleep(itempo1);
         cout<<"\t\t\t\t|                                                                                         |\n";
         Sleep(itempo1);
-        cout<<"\t\t\t\t|                          VOCE ESCOLHEU A OPCAO media                                    |\n";
+        cout<<"\t\t\t\t|                                    FASE MEDIA                                           |\n";
         Sleep(itempo1);
         cout<<"\t\t\t\t|                                                                                         |\n";
         Sleep(itempo1);
@@ -303,6 +392,94 @@ cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t___________________________________
         cout<<"\t\t\t\t|                                                                                         |\n";
         cout<<"\t\t\t\t___________________________________________________________________________________________\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t";
         system("pause");
+        system("cls");
+
+
+
+    cout<<"\n\n\n\n\n\t\t\t\t\t|---------------------------------|\n"
+                    "\t\t\t\t\t|                                 |\n"
+                    "\t\t\t\t\t|  Qual o nome cientifico da urina|\n"
+                    "\t\t\t\t\t|                                 |\n"
+                    "\t\t\t\t\t|---------------------------------|\n";
+    cout<<"\t\t\t|--------------------------------------|   |----------------------------------------|\n";
+    cout<<"\t\t\t|                                      |   |                                        |\n";
+    cout<<"\t\t\t| 1-Ultra filtrado Glomerular dos rins |   |  2-  Super filtrado Glomerular dos rins|\n";
+    cout<<"\t\t\t|                                      |   |                                        |\n";
+    cout<<"\t\t\t|--------------------------------------|   |----------------------------------------|\n\n";
+    cout<<"\t\t\t|--------------------------------------|   |----------------------------------------|\n";
+    cout<<"\t\t\t|                                      |   |                                        |\n";
+    cout<<"\t\t\t| 4-Super filtrado Glomerular do figado|   |             3-  Robson                 |\n";
+    cout<<"\t\t\t|                                      |   |                                        |\n";
+    cout<<"\t\t\t|--------------------------------------|   |----------------------------------------|\n";
+    cout<<"\t\t\t                            respota:                      ";
+          cin>>iEscolha;
+          if(iEscolha==1||iEscolha==4||iEscolha==3){errou();
+          interfaze(iEscolha);}
+          system("cls");
+
+                                      cout<<"\n\n\n\n\n\t\t\t\t\t|-----------------------------|\n"
+          "\t\t\t\t\t|                             |\n"
+          "\t\t\t\t\t|  Qual o jogo em que um ouriço azul foge de um doutor maluco      |\n"
+          "\t\t\t\t\t|                             |\n"
+          "\t\t\t\t\t|-----------------------------|\n";
+    cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
+          cout<<"\t\t\t|                             ||                             |\n";
+          cout<<"\t\t\t|          Sonic              ||           Flash             |\n";
+          cout<<"\t\t\t|                             ||                             |\n";
+          cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
+          cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
+          cout<<"\t\t\t|                             ||                             |\n";
+          cout<<"\t\t\t|           Crash             ||     Pacman                  |\n";
+          cout<<"\t\t\t|                             ||                             |\n";
+          cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
+          cout<<"\t\t\t                            respota:                      ";
+          cin>>iEscolha;
+          if(iEscolha==1||iEscolha==4||iEscolha==3){errou();
+          interfaze(iEscolha);}
+          system("cls");
+
+
+                                                cout<<"\n\n\n\n\n\t\t\t\t\t|-----------------------------|\n"
+          "\t\t\t\t\t|                             |\n"
+          "\t\t\t\t\t|  Qual destes jogos era comum em fliperamas:      |\n"
+          "\t\t\t\t\t|                             |\n"
+          "\t\t\t\t\t|-----------------------------|\n";
+    cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
+          cout<<"\t\t\t|                             ||                             |\n";
+          cout<<"\t\t\t|        Space Invaders       ||   Shadow of the colossus    |\n";
+          cout<<"\t\t\t|                             ||                             |\n";
+          cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
+          cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
+          cout<<"\t\t\t|                             ||                             |\n";
+          cout<<"\t\t\t|         Mario Bros          ||            Minecraft        |\n";
+          cout<<"\t\t\t|                             ||                             |\n";
+          cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
+          cout<<"\t\t\t                            respota:                      ";
+          cin>>iEscolha;
+          if(iEscolha==1||iEscolha==4||iEscolha==3){errou();
+          interfaze(iEscolha);}
+          system("cls");
+
+
+                                                          cout<<"\n\n\n\n\n\t\t\t\t\t|-----------------------------|\n"
+          "\t\t\t\t\t|                             |\n"
+          "\t\t\t\t\t|  Alguns meses têm 30 dias e outros, 31. Quantos meses têm 28 dias durante um período de três anos?:      |\n"
+          "\t\t\t\t\t|                             |\n"
+          "\t\t\t\t\t|-----------------------------|\n";
+    cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
+          cout<<"\t\t\t|                             ||                             |\n";
+          cout<<"\t\t\t|               5             ||              3              |\n";
+          cout<<"\t\t\t|                             ||                             |\n";
+          cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
+          cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
+          cout<<"\t\t\t|                             ||                             |\n";
+          cout<<"\t\t\t|               2             ||              6              |\n";
+          cout<<"\t\t\t|                             ||                             |\n";
+          cout<<"\t\t\t|-----------------------------||-----------------------------|\n";
+          cout<<"\t\t\t                            respota:                      ";
+          cin>>iEscolha;
+          if(iEscolha==1||iEscolha==4||iEscolha==3){errou();
+          interfaze(iEscolha);}
         system("cls");}
 
 void interfazedificil(int iEscolha){
@@ -322,7 +499,7 @@ cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t___________________________________
         Sleep(itempo1);
         cout<<"\t\t\t\t|                                                                                         |\n";
         Sleep(itempo1);
-        cout<<"\t\t\t\t|                        VOCE ESCOLHEU A OPCAO dificil                                    |\n";
+        cout<<"\t\t\t\t|                                     FASE DIFICL                                         |\n";
         Sleep(itempo1);
         cout<<"\t\t\t\t|                                                                                         |\n";
         Sleep(itempo1);
@@ -333,3 +510,29 @@ cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t___________________________________
         cout<<"\t\t\t\t___________________________________________________________________________________________\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t";
         system("pause");
         system("cls");}
+
+void errou(){
+    system("cls");
+    int itempo1=100;
+cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t___________________________________________________________________________________________\n";
+        Sleep(itempo1);
+        cout<<"\t\t\t\t|                                                                                         |\n";
+        Sleep(itempo1);
+        cout<<"\t\t\t\t|                                                                                         |\n";
+        Sleep(itempo1);
+        cout<<"\t\t\t\t|                                                                                         |\n";
+        Sleep(itempo1);
+        cout<<"\t\t\t\t|                                                                                         |\n";
+        Sleep(itempo1);
+        cout<<"\t\t\t\t|                                                                                         |\n";
+        Sleep(itempo1);
+        cout<<"\t\t\t\t|                                   voce errou sorry :(                                     |\n";
+        Sleep(itempo1);
+        cout<<"\t\t\t\t|                                                                                         |\n";
+        Sleep(itempo1);
+        cout<<"\t\t\t\t|                                                                                         |\n";
+        Sleep(itempo1);
+        cout<<"\t\t\t\t|                                                                                         |\n";
+        cout<<"\t\t\t\t|                                                                                         |\n";
+        cout<<"\t\t\t\t___________________________________________________________________________________________\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t";
+        system("pause");}

@@ -39,7 +39,7 @@ for ( i = 0; i < 5; i ++)
     iAleatorio2 = rand() % 100 + 1;
     iAleatorio3 = rand() % 100 + 1;
     cout << "\n\n\n\tSua pontuação atual é de: " << iPontos << endl << endl <<endl;
-    cout << "\n\t\t\t\t\t Qual é o valor de X: " << endl;
+    cout << "\n\t\t\t\t\t Qual é o valor de X? " << endl;
     iAleatorio3 = (iAleatorio3 /10) +1;
 
     iCompa = (iAleatorio * iAleatorio3)  + iAleatorio2;

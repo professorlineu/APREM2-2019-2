@@ -1,0 +1,430 @@
+#include <iostream>
+#include <cstdlib>
+#include <locale.h>
+#include <time.h>
+#include <stdlib.h>
+#include <conio.h>
+using namespace std;
+
+
+int main(void)
+{
+
+    int opcao1=0;
+    int opcao2=0;
+    string svet1[5]= {"dog","cat","house","square","woman"};
+    string svet12[5]= {"cachorro","gato","casa","quadrado","mulher"};
+    string svet13[5]= {"fera","galo","sala","faca","lua"};
+    string svet14[5]= {"feira","jogo","filho","trabalho","macho"};
+    string svet2[10]= {"number","water","first","deep","monster","soul","dream","heart","key","secret"};
+    string svet22[10]= {"numero","agua","primeiro","fundo","monstro","alma","sonho","coração","chave","segredo"};
+    string svet23[10]= {"namorados","fonte","ultimo","raso","anjo","lacre","pesadelo","cabeça","portao","promessa"};
+    string svet24[10]= {"livro","vinho","meidiano","poço","nozes","lama","chato","pé","gasolina","desejo"};
+    string svet3[15]= {"skin","indestructible","power","explanation","unfortunate","enemy","regret","young man","forward","sheet","neck","meant","range","steam","degree"};
+    string svet32[15]= {"pele","indestrutível","poder","explicação","infeliz","inimigo","arrepender","mancebo","frente","folha","pescoço","significar","alcance","vapor","grau"};
+    string svet33[15]= {"caveira","invencível","pó","explanação","sem fortuna","anemia","regresso","carinha","distante","merda","cotovelo","menta","ranger","grade","degrau"};
+    string svet34[15]= {"busto","incorrigível","poeira","extrusão","miserável","fraqueza","extraditado","mano","longe de casa","bilhete","lombar","hortelã","triturar","time","degredo"};
+    int iAle=0;
+    int iAle2=0;
+    int iAle3=0;
+    int inum1=0;
+    int inum2=0;
+    int inum3=0;
+
+    setlocale(LC_ALL,"");
+    system("color 30");
+
+
+    cout << "Bem vindo ao tradutor!!\n\n ";
+    cout << "O seu objetivo é acertar o maior numero de traduções das palavras em inglês que forem mostradas.\n\n";
+
+    while (opcao1!=4)
+   {
+
+    cout << "Escolha um nível para começar o jogo\n\n";
+    cout << "----------------------------------------\n\n";
+    cout << "1.Facil\n\n";
+    cout << "2.Medio\n\n";
+    cout << "3.Dificil\n\n";
+    cout << "4.Sair\n\n";
+    cout << "----------------------------------------\n\n";
+    cout << "Opção: ";
+    cin >> opcao1;
+
+    switch(opcao1)
+    {
+    case 1:
+        while (inum1 >=0 && inum1 <=3)
+        {
+            inum1 = 0;
+            system("cls");
+
+            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nVOCE ESTA NO NIVEL 'FACIL'\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
+            cout << "Vamos começar então!!\n\n";
+            cout << "\n\nQual a tradução de: " <<svet1[0]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet13[0];
+            cout <<"\n 2- " << svet12[0];
+            cout <<"\n 3- " << svet14[0]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle;
+            if(iAle==2)
+            {
+                inum1++;
+            }
+
+            cout << "\n\nQual a tradução de: " <<svet1[1]<< endl ;
+            cout <<"\n 1- " <<svet12[1];
+            cout <<"\n 2- " << svet13[1];
+            cout <<"\n 3- " << svet14[1]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle;
+            if(iAle==1)
+            {
+                inum1++;
+            }
+
+            cout << "\n\nQual a tradução de: " <<svet1[2]<< endl ;
+            cout <<"\n 1- " <<svet14[2];
+            cout <<"\n 2- " << svet13[2];
+            cout <<"\n 3- " << svet12[2]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle;
+            if(iAle==3)
+            {
+                inum1++;
+            }
+
+            cout << "\n\nQual a tradução de: " <<svet1[3]<< endl ;
+            cout <<"\n 1- " <<svet13[3];
+            cout <<"\n 2- " << svet12[3];
+            cout <<"\n 3- " << svet14[3]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle;
+
+            if(iAle==2)
+            {
+                inum1++;
+            }
+
+            cout << "\n\nQual a tradução de: " <<svet1[4]<< endl ;
+            cout <<"\n 1- " <<svet14[4];
+            cout <<"\n 2- " << svet13[4];
+            cout <<"\n 3- " << svet12[4]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle;
+            if(iAle==3)
+            {
+                inum1++;
+            }
+
+            cout<<"\n\n Total de acertos: "<<inum1<<endl<<endl<<endl;
+            getch();
+        }
+
+    case 2:
+        while (inum2>=0 && inum2<=6)
+        {
+            inum2 = 0;
+
+            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nVOCE ESTA NO NIVEL 'MEDIO'\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
+            cout<<"\n\nVamos começar!!"<<endl;
+            cout << "\n\nQual a tradução de: " <<svet2[0]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet23[0];
+            cout <<"\n 2- " << svet22[0];
+            cout <<"\n 3- " << svet24[0]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle2;
+
+            if(iAle2==2)
+            {
+                inum2++;
+            }
+            cout << "\n\nQual a tradução de: " <<svet2[1]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet24[1];
+            cout <<"\n 2- " << svet23[1];
+            cout <<"\n 3- " << svet22[1]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle2;
+
+            if(iAle2==3)
+            {
+                inum2++;
+            }
+            cout << "\n\nQual a tradução de: " <<svet2[2]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet22[2];
+            cout <<"\n 2- " << svet23[2];
+            cout <<"\n 3- " << svet24[2]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle2;
+
+            if(iAle2==1)
+            {
+                inum2++;
+            }
+
+            cout << "\n\nQual a tradução de: " <<svet2[3]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet23[3];
+            cout <<"\n 2- " << svet22[3];
+            cout <<"\n 3- " << svet24[3]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle2;
+
+            if(iAle2==2)
+            {
+                inum2++;
+            }
+            cout << "\n\nQual a tradução de: " <<svet2[4]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet22[4];
+            cout <<"\n 2- " << svet23[4];
+            cout <<"\n 3- " << svet24[4]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle2;
+
+            if(iAle2==1)
+            {
+                inum2++;
+            }
+            cout << "\n\nQual a tradução de: " <<svet2[5]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet24[5];
+            cout <<"\n 2- " << svet23[5];
+            cout <<"\n 3- " << svet22[5]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle2;
+
+            if(iAle2==3)
+            {
+                inum2++;
+            }
+            cout << "\n\nQual a tradução de: " <<svet2[6]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet23[6];
+            cout <<"\n 2- " << svet24[6];
+            cout <<"\n 3- " << svet22[6]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle2;
+
+            if(iAle2==3)
+            {
+                inum2++;
+            }
+            cout << "\n\nQual a tradução de: " <<svet2[7]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet23[7];
+            cout <<"\n 2- " << svet24[7];
+            cout <<"\n 3- " << svet22[7]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle2;
+
+            if(iAle2==3)
+            {
+                inum2++;
+            }
+
+            cout << "\n\nQual a tradução de: " <<svet2[8]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet23[8];
+            cout <<"\n 2- " << svet22[8];
+            cout <<"\n 3- " << svet24[8]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle2;
+
+            if(iAle2==2)
+            {
+                inum2++;
+            }
+
+            cout << "\n\nQual a tradução de: " <<svet2[9]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet22[9];
+            cout <<"\n 2- " << svet23[9];
+            cout <<"\n 3- " << svet24[9]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle2;
+
+            if(iAle2==1)
+            {
+                inum2++;
+            }
+            cout<<"total de acertos: "<<inum2<< endl;
+
+        }
+
+    case 3:{
+        while (inum3 <=0 && inum3 >=10)
+
+            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nVOCE ESTA NO NIVEL 'DIFICIL'\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
+            cout<<"\n\nVamos começar!!"<<endl;
+            cout << "\n\nQual a tradução de: " <<svet3[0]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet33[0];
+            cout <<"\n 2- " << svet32[0];
+            cout <<"\n 3- " << svet34[0]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle3;
+
+            if(iAle3==2)
+            {
+                inum3++;
+            }
+            cout << "\n\nQual a tradução de: " <<svet3[1]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet34[1];
+            cout <<"\n 2- " << svet33[1];
+            cout <<"\n 3- " << svet32[1]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle3;
+
+            if(iAle3==3)
+            {
+                inum3++;
+            }
+            cout << "\n\nQual a tradução de: " <<svet3[2]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet32[2];
+            cout <<"\n 2- " << svet33[2];
+            cout <<"\n 3- " << svet34[2]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle3;
+
+            if(iAle3==1)
+            {
+                inum3++;
+            }
+
+            cout << "\n\nQual a tradução de: " <<svet3[3]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet33[3];
+            cout <<"\n 2- " << svet32[3];
+            cout <<"\n 3- " << svet34[3]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle3;
+
+            if(iAle3==2)
+            {
+                inum3++;
+            }
+            cout << "\n\nQual a tradução de: " <<svet3[4]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet32[4];
+            cout <<"\n 2- " << svet33[4];
+            cout <<"\n 3- " << svet34[4]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle3;
+
+            if(iAle3==1)
+            {
+                inum3++;
+            }
+            cout << "\n\nQual a tradução de: " <<svet3[5]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet34[5];
+            cout <<"\n 2- " << svet33[5];
+            cout <<"\n 3- " << svet32[5]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle3;
+
+            if(iAle3==3)
+            {
+                inum3++;
+            }
+            cout << "\n\nQual a tradução de: " <<svet3[6]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet33[6];
+            cout <<"\n 2- " << svet34[6];
+            cout <<"\n 3- " << svet32[6]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle3;
+
+            if(iAle3==3)
+            {
+                inum3++;
+            }
+            cout << "\n\nQual a tradução de: " <<svet3[7]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet33[7];
+            cout <<"\n 2- " << svet34[7];
+            cout <<"\n 3- " << svet32[7]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle3;
+
+            if(iAle3==3)
+            {
+                inum3++;
+            }
+
+            cout << "\n\nQual a tradução de: " <<svet3[8]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet33[8];
+            cout <<"\n 2- " << svet32[8];
+            cout <<"\n 3- " << svet34[8]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle3;
+
+            if(iAle3==2)
+            {
+                inum3++;
+            }
+
+            cout << "\n\nQual a tradução de: " <<svet3[9]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet32[9];
+            cout <<"\n 2- " << svet33[9];
+            cout <<"\n 3- " << svet34[9]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle3;
+
+            if(iAle3==1)
+            {
+                inum3++;
+            }
+
+
+            cout << "\n\nQual a tradução de: " <<svet3[10]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet33[10];
+            cout <<"\n 2- " << svet34[10];
+            cout <<"\n 3- " << svet32[10]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle3;
+
+            if(iAle3==3)
+            {
+                inum3++;
+            }
+            cout << "\n\nQual a tradução de: " <<svet3[11]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet33[11];
+            cout <<"\n 2- " << svet34[11];
+            cout <<"\n 3- " << svet32[11]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle3;
+
+            if(iAle3==3)
+            {
+                inum3++;
+            }
+
+            cout << "\n\nQual a tradução de: " <<svet3[12]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet33[12];
+            cout <<"\n 2- " << svet32[12];
+            cout <<"\n 3- " << svet34[12]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle3;
+
+            if(iAle3==2)
+            {
+                inum3++;
+            }
+
+            cout << "\n\nQual a tradução de: " <<svet3[13]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet32[13];
+            cout <<"\n 2- " << svet33[13];
+            cout <<"\n 3- " << svet34[13]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle3;
+
+            if(iAle3==1)
+            {
+                inum3++;
+            }
+
+            cout << "\n\nQual a tradução de: " <<svet3[14]<< " ?"<<endl ;
+            cout <<"\n 1- " <<svet32[14];
+            cout <<"\n 2- " << svet33[14];
+            cout <<"\n 3- " << svet34[14]<<"\n";
+            cout<<"\nResposta: ";
+            cin>>iAle3;
+
+            if(iAle3==1)
+            {
+                inum3++;
+            }
+            cout<<"total de acertos: "<<inum3;
+        } // fim do while 3
+    } // fim do switch
+} // fim laço
+} //fim do main

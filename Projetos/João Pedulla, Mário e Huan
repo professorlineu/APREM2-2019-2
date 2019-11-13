@@ -1,0 +1,1176 @@
+/**********************************************************
+- Autor:     Seu nome
+- Descrição: Breve descrição do programa
+**********************************************************/
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+#include <cmath>  // comandos pow, sqrt, cbrt, etc
+#include <ctype.h> // comando toupper ou tolower
+
+
+using namespace std;
+
+int main()
+{
+    //Declaração de variáveis
+
+    int iEscolhaAssunto = 1;
+    int iEscolhaNvl = 0;
+    char cResposta;
+    int iPontuacao = 0;
+
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+
+        cout << endl << endl<< "Bem-vindo ao QUIZ DE FUTEBOL!" << endl << endl;
+    cout << "Pressione qualquer tecla para começar." << endl;
+    system("pause>>null");
+
+    system("cls");
+
+    cout << endl << endl << "O quiz de futebol foi dividido em 3 assuntos diferentes, e cada um com 3 níveis de dificuldade, escolha o assunto e o nível e responda as perguntas. As perguntas estarão de acordo com o nível escolhido." << endl << endl;
+    cout << "Pressione qualquer tecla para continuar!" << endl << endl;
+    system("pause>>null");
+
+    system("cls");
+
+
+    while (iEscolhaAssunto != 0 )
+    {
+
+    do
+    {
+    cout << "----------------------------------------\n\n";
+    cout << "             Início" << endl << endl;
+    cout << "  Escolha o assunto: " << endl << endl;
+    cout << "1 - Clubes \n\n";
+    cout << "2 - Jogadores \n\n";
+    cout << "3 - Seleções \n\n";
+    cout << "0 - Sair\n\n";
+    cout << "----------------------------------------\n\n";
+    cout << "Digite o número da escolha: ";
+    cin >> iEscolhaAssunto;
+
+    system("cls");
+
+    } while (iEscolhaAssunto > 3 || iEscolhaAssunto < 0);
+
+        switch (iEscolhaAssunto)
+            {
+            case 1:// CLUBES
+
+   do
+        {
+    cout << "----------------------------------------\n\n";
+    cout << "  Escolha a dificuldade: " << endl << endl;
+    cout << "1 - Fácil \n\n";
+    cout << "2 - Médio \n\n";
+    cout << "3 - Difícil \n\n";
+    cout << "0 - Voltar \n\n";
+    cout << "----------------------------------------\n\n";
+    cout << "Digite o número da dificuldade: ";
+    cin >> iEscolhaNvl;
+
+    system("cls");
+
+        }while (iEscolhaNvl > 3 || iEscolhaNvl < 0);
+
+            switch (iEscolhaNvl)
+            {
+                case 1://facil - clubes
+
+                 cout << "Pergunta 1: \n" << endl;
+        cout << " Qual destes clubes abaixo é um clube Paulista: \n\n";
+        cout << " A - Vasco da Gama \n\n";
+        cout << " B - Santos \n\n";
+        cout << " C - Cruzeiro \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+
+        system("cls");
+
+
+        switch (toupper(cResposta)) //pergunta 1 clube facil
+        {
+    case 'A':
+        cout << "\n\n Você errou! A resposta certa era a B.\n\n";
+        break;
+
+    case 'B':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+    case 'C':
+        cout << "\n\n Você errou! A resposta certa era a B.\n\n";
+        break;
+
+        }
+system("pause");
+system("cls");
+/////////////////////////////////////////////////////////////////////////////////////////
+
+        cout << "Pergunta 2: \n" << endl;
+        cout << " A UEFA Champions League é a maior competição europeia de futebol, em virtude disso, pergunta-se qual o maior campeão desta competição futebolística? \n\n";
+        cout << " A - Barcelona \n\n";
+        cout << " B - Liverpool \n\n";
+        cout << " C - Real Madrid \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+    system("cls");
+
+switch (toupper(cResposta)) //pergunta 2 clube facil
+        {
+    case 'A':
+        cout << "\n\n Você errou! A resposta certa era a C.\n\n";
+        break;
+
+    case 'B':
+        cout << "\n\n Você errou! A resposta certa era a C.\n\n";
+        break;
+
+    case 'C':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+        }
+system("pause");
+system("cls");
+/////////////////////////////////////////////////////////////////////////////////////////
+
+ cout << "Pergunta 3: \n" << endl;
+        cout << " Qual dos continentes possui mais mundiais de clubes? \n\n";
+        cout << " A - Europa \n\n";
+        cout << " B - América do Sul \n\n";
+        cout << " C - Oceania  \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+    system("cls");
+
+switch (toupper(cResposta)) //pergunta 2 clube facil
+        {
+    case 'A':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+    case 'B':
+        cout << "\n\n Você errou! A resposta certa era a A.\n\n";
+        break;
+
+    case 'C':
+        cout << "\n\n Você errou! A resposta certa era a A.\n\n";
+        break;
+
+        }
+system("pause");
+system("cls");
+
+
+cout << "\n\n O número de acertos foi: ";
+cout << iPontuacao;
+ if (iPontuacao == 3)
+ {
+     cout << "\n\n Parabéns você acertou todas!! Seu desempenho nesse nível foi muito bom, tente um nível mais difícil.";
+ }
+
+ if (iPontuacao == 2)
+ {
+     cout << "\n\n Quase lá! Faltou uma para acertar todas, mas acho que você está pronto para o próximo nível.";
+ }
+
+ if (iPontuacao < 2)
+ {
+     cout << "\n\n O desempenho não fui muito bom, arrisque o próximo nível ou tente um outro assunto, talvez você se saia melhor.";
+ }
+ iPontuacao = 0;
+
+cout << "\n\n Pressione qualquer tecla para voltar ao menu inicial.";
+
+
+
+system("pause>>null");
+system("cls");
+break;
+
+                case 2: //medio - clube
+
+               cout << "Pergunta 1: \n" << endl;
+        cout << " Qual destes times brasileiros é o maior campeão do Campeonato Brasileiro? \n\n";
+        cout << " A - Santos \n\n";
+        cout << " B - Flamengo \n\n";
+        cout << " C - Palmeiras \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+
+        system("cls");
+
+
+        switch (toupper(cResposta)) //pergunta 1 clube facil
+        {
+    case 'A':
+        cout << "\n\n Você errou! A resposta certa era a C.\n\n";
+        break;
+
+    case 'B':
+       cout << "\n\n Você errou! A resposta certa era a C.\n\n";
+        break;
+
+    case 'C':
+         cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+        }
+system("pause");
+system("cls");
+/////////////////////////////////////////////////////////////////////////////////////////
+
+        cout << "Pergunta 2: \n" << endl;
+        cout << " Qual destes clubes brasileiros nunca foi rebaixado? \n\n";
+        cout << " A - São Paulo \n\n";
+        cout << " B - Grêmio\n\n";
+        cout << " C - Corinthians\n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+    system("cls");
+
+switch (toupper(cResposta)) //pergunta 2 clube facil
+        {
+    case 'A':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+    case 'B':
+        cout << "\n\n Você errou! A resposta certa era a A.\n\n";
+        break;
+
+    case 'C':
+        cout << "\n\n Você errou! A resposta certa era a A.\n\n";
+        break;
+
+        }
+system("pause");
+system("cls");
+/////////////////////////////////////////////////////////////////////////////////////////
+
+ cout << "Pergunta 3: \n" << endl;
+        cout << " Qual destes times brasileiros não é campeão da Copa do Brasil? \n\n";
+        cout << " A - Paulista \n\n";
+        cout << " B - Santo André \n\n";
+        cout << " C - Botafogo  \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+    system("cls");
+
+switch (toupper(cResposta)) //pergunta 2 clube facil
+        {
+    case 'A':
+      cout << "\n\n Você errou! A resposta certa era a C.\n\n";
+        break;
+
+    case 'B':
+        cout << "\n\n Você errou! A resposta certa era a C.\n\n";
+        break;
+
+    case 'C':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+        }
+system("pause");
+system("cls");
+
+cout << "\n\n O número de acertos foi: ";
+cout << iPontuacao;
+
+ if (iPontuacao == 3)
+ {
+     cout << "\n\n Parabéns você acertou todas!! Seu desempenho nesse nível foi muito bom, tente o último nível.";
+ }
+
+ if (iPontuacao == 2)
+ {
+     cout << "\n\n Quase lá! Faltou uma para acertar todas, mas acho que você está pronto para o último nível.";
+ }
+
+ if (iPontuacao < 2)
+ {
+     cout << "\n\n O desempenho não fui muito bom, arrique no próximo nível ou tente um outro assunto, talvez você se saia melhor.";
+ }
+ iPontuacao = 0;
+
+cout << "\n\n Pressione qualquer tecla para voltar ao menu inicial.";
+
+
+
+system("pause>>null");
+system("cls");
+break;
+                case 3: // dificil - clube
+
+                        cout << "Pergunta 1: \n" << endl;
+        cout << " Qual foi o primeiro time de futebol fundado no mundo? \n\n";
+        cout << " A - A C Milan  \n\n";
+        cout << " B - Sheffield F.C. \n\n";
+        cout << " C - Notts County F.C. \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+
+        system("cls");
+
+
+        switch (toupper(cResposta)) //pergunta 1 clube facil
+        {
+    case 'A':
+        cout << "\n\n Você errou! A resposta certa era a B.\n\n";
+        break;
+
+    case 'B':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+    case 'C':
+        cout << "\n\n Você errou! A resposta certa era a B.\n\n";
+        break;
+
+        }
+system("pause");
+system("cls");
+/////////////////////////////////////////////////////////////////////////////////////////
+
+        cout << "Pergunta 2: \n" << endl;
+        cout << " Qual destes times foi o primeiro campeão inglês ? \n\n";
+        cout << " A - Preston North End  \n\n";
+        cout << " B - Aston Villa  \n\n";
+        cout << " C - Manchester United   \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+    system("cls");
+
+switch (toupper(cResposta)) //pergunta 2 clube facil
+        {
+    case 'A':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+    case 'B':
+        cout << "\n\n Você errou! A resposta certa era a A.\n\n";
+        break;
+
+    case 'C':
+        cout << "\n\n Você errou! A resposta certa era a A.\n\n";
+        break;
+
+        }
+system("pause");
+system("cls");
+/////////////////////////////////////////////////////////////////////////////////////////
+
+ cout << "Pergunta 3: \n" << endl;
+        cout << " Qual destes é o primeiro campeão do Campeonato Brasileiro ? \n\n";
+        cout << " A - Fluminense \n\n";
+        cout << " B - Bahia  \n\n";
+        cout << " C - Santos \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+    system("cls");
+
+switch (toupper(cResposta)) //pergunta 2 clube facil
+        {
+    case 'A':
+        cout << "\n\n Você errou! A resposta certa era a B.\n\n";
+        break;
+
+    case 'B':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+    case 'C':
+        cout << "\n\n Você errou! A resposta certa era a B.\n\n";
+        break;
+
+        }
+system("pause");
+system("cls");
+
+
+cout << "\n\n O número de acertos foi: ";
+cout << iPontuacao;
+
+ if (iPontuacao == 3)
+ {
+     cout << "\n\n Parabéns você acertou todas!! Você concluiu o último nível. Tente outro assunto para saber se você sabe mesmo de futebol.";
+ }
+
+ if (iPontuacao == 2)
+ {
+     cout << "\n\n Quase lá! Faltou uma para acertar todas, será que você consegue acertar todas em outro assunto?.";
+ }
+
+ if (iPontuacao < 2)
+ {
+     cout << "\n\n O desempenho não fui muito bom, esse nível é desafiador não desanime! Tente um outro assunto.";
+ }
+
+iPontuacao = 0;
+
+cout << "\n\n Pressione qualquer tecla para voltar ao menu inicial.";
+
+
+
+system("pause>>null");
+system("cls");
+break;
+            }
+
+break;
+            case 2: //jogador
+
+    do
+        {
+    cout << "----------------------------------------\n\n";
+    cout << "  Escolha a dificuldade: " << endl << endl;
+    cout << "1 - Fácil \n\n";
+    cout << "2 - Médio \n\n";
+    cout << "3 - Difícil \n\n";
+    cout << "0 - Voltar \n\n";
+    cout << "----------------------------------------\n\n";
+    cout << "Digite o número da dificuldade: ";
+    cin >> iEscolhaNvl;
+
+    system("cls");
+
+        }while (iEscolhaNvl > 3 || iEscolhaNvl < 0);
+
+            switch (iEscolhaNvl)
+            {
+                case 1://facil - jogador
+
+ cout << "Pergunta 1: \n" << endl;
+        cout << " Qual destes jogadores é português? \n\n";
+        cout << " A - Messi\n\n";
+        cout << " B - Neymar JR \n\n";
+        cout << " C - Cristiano Ronaldo \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+
+        system("cls");
+
+
+        switch (toupper(cResposta)) //pergunta 1 clube facil
+        {
+    case 'A':
+        cout << "\n\n Você errou! A resposta certa era a C.\n\n";
+        break;
+
+    case 'B':
+        cout << "\n\n Você errou! A resposta certa era a C.\n\n";
+        break;
+
+    case 'C':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+        }
+system("pause");
+system("cls");
+/////////////////////////////////////////////////////////////////////////////////////////
+
+        cout << "Pergunta 2: \n" << endl;
+        cout << " Qual jogador é famoso por ser chamado de “cai-cai”? \n\n";
+        cout << " A - Felipe Melo  \n\n";
+        cout << " B - Neymar JR \n\n";
+        cout << " C - Gabigol  \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+    system("cls");
+
+switch (toupper(cResposta)) //pergunta 2 clube facil
+        {
+    case 'A':
+        cout << "\n\n Você errou! A resposta certa era a B.\n\n";
+        break;
+
+    case 'B':
+         cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+    case 'C':
+       cout << "\n\n Você errou! A resposta certa era a B.\n\n";
+        break;
+
+        }
+system("pause");
+system("cls");
+/////////////////////////////////////////////////////////////////////////////////////////
+
+ cout << "Pergunta 3: \n" << endl;
+        cout << " Qual destes jogadores recebeu mais bolas de ouro? \n\n";
+        cout << " A - Lionel Messi \n\n";
+        cout << " B - Pelé  \n\n";
+        cout << " C - Cristiano Ronaldo  \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+    system("cls");
+
+switch (toupper(cResposta)) //pergunta 2 clube facil
+        {
+    case 'A':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+    case 'B':
+        cout << "\n\n Você errou! A resposta certa era a A.\n\n";
+        break;
+
+    case 'C':
+        cout << "\n\n Você errou! A resposta certa era a A.\n\n";
+        break;
+
+        }
+system("pause");
+system("cls");
+
+
+cout << "\n\n O número de acertos foi: ";
+cout << iPontuacao;
+ if (iPontuacao == 3)
+ {
+     cout << "\n\n Parabéns você acertou todas!! Seu desempenho nesse nível foi muito bom, tente um nível mais difícil.";
+ }
+
+ if (iPontuacao == 2)
+ {
+     cout << "\n\n Quase lá! Faltou uma para acertar todas, mas acho que você está pronto para o próximo nível.";
+ }
+
+ if (iPontuacao < 2)
+ {
+     cout << "\n\n O desempenho não fui muito bom, arrisque o próximo nível ou tente um outro assunto, talvez você se saia melhor.";
+ }
+cout << "\n\n Pressione qualquer tecla para voltar ao menu inicial.";
+
+iPontuacao = 0;
+
+system("pause>>null");
+system("cls");
+break;
+                case 2: //medio - jogador
+
+                   cout << "Pergunta 1: \n" << endl;
+        cout << " Qual o maior artilheiro das copas de todos os tempos? \n\n";
+        cout << " A - Ronaldo  \n\n";
+        cout << " B - Johan Cruijff   \n\n";
+        cout << " C - Miruslav Klose   \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+
+        system("cls");
+
+
+        switch (toupper(cResposta)) //pergunta 1 clube facil
+        {
+    case 'A':
+        cout << "\n\n Você errou! A resposta certa era a C.\n\n";
+        break;
+
+    case 'B':
+       cout << "\n\n Você errou! A resposta certa era a C.\n\n";
+        break;
+
+    case 'C':
+         cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+        }
+system("pause");
+system("cls");
+/////////////////////////////////////////////////////////////////////////////////////////
+
+        cout << "Pergunta 2: \n" << endl;
+        cout << " Qual destes jogadores abaixo foi eleito o melhor jogador da Copa de 2010? \n\n";
+        cout << " A - Lionel Messi da Argentina  \n\n";
+        cout << " B - Diego Forlan do Uruguai  \n\n";
+        cout << " C - Thomas Muller da Alemanha  \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+    system("cls");
+
+switch (toupper(cResposta)) //pergunta 2 clube facil
+        {
+    case 'A':
+        cout << "\n\n Você errou! A resposta certa era a B.\n\n";
+        break;
+
+    case 'B':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+    case 'C':
+        cout << "\n\n Você errou! A resposta certa era a B.\n\n";
+        break;
+
+        }
+system("pause");
+system("cls");
+/////////////////////////////////////////////////////////////////////////////////////////
+
+ cout << "Pergunta 3: \n" << endl;
+        cout << " Qual destes jogadores abaixo jogou exclusivamente no mesmo clube desde de 1992 até se aposentar? \n\n";
+        cout << " A - Francesco Totti da Roma \n\n";
+        cout << " B - Casillas do Real Madrid  \n\n";
+        cout << " C - Romário do Vasco \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+    system("cls");
+
+switch (toupper(cResposta)) //pergunta 2 clube facil
+        {
+    case 'A':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+    case 'B':
+        cout << "\n\n Você errou! A resposta certa era a A.\n\n";
+        break;
+
+    case 'C':
+        cout << "\n\n Você errou! A resposta certa era a A.\n\n";
+        break;
+
+        }
+system("pause");
+system("cls");
+
+
+cout << "\n\n O número de acertos foi: ";
+cout << iPontuacao;
+
+ if (iPontuacao == 3)
+ {
+     cout << "\n\n Parabéns você acertou todas!! Seu desempenho nesse nível foi muito bom, tente o último nível.";
+ }
+
+ if (iPontuacao == 2)
+ {
+     cout << "\n\n Quase lá! Faltou uma para acertar todas, mas acho que você está pronto para o último nível.";
+ }
+
+ if (iPontuacao < 2)
+ {
+     cout << "\n\n O desempenho não fui muito bom, arrique no próximo nível ou tente um outro assunto, talvez você se saia melhor.";
+ }
+cout << "\n\n Pressione qualquer tecla para voltar ao menu inicial.";
+
+iPontuacao = 0;
+
+system("pause>>null");
+system("cls");
+break;
+
+                case 3: // dificil - jogador
+
+                     cout << "Pergunta 1: \n" << endl;
+        cout << " Qual destes jogadores abaixo ganhou o prêmio Puskás da FIFA, como marcador do gol mais bonito de 2015? \n\n";
+        cout << " A - Neymar Jr  \n\n";
+        cout << " B - Wendel Lira   \n\n";
+        cout << " C - Leandro Damião   \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+
+        system("cls");
+
+
+        switch (toupper(cResposta)) //pergunta 1 clube facil
+        {
+    case 'A':
+        cout << "\n\n Você errou! A resposta certa era a B.\n\n";
+        break;
+
+    case 'B':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+    case 'C':
+        cout << "\n\n Você errou! A resposta certa era a B.\n\n";
+        break;
+
+        }
+system("pause");
+system("cls");
+/////////////////////////////////////////////////////////////////////////////////////////
+
+        cout << "Pergunta 2: \n" << endl;
+        cout << " Qual destes jogadores abaixo tem suas origens no interior do Ceará? \n\n";
+        cout << " A - Everton Cebolinha  \n\n";
+        cout << " B - Eduardo Sasha  \n\n";
+        cout << " C - Paulo Henrique Ganso   \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+    system("cls");
+
+switch (toupper(cResposta)) //pergunta 2 clube facil
+        {
+    case 'A':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+    case 'B':
+        cout << "\n\n Você errou! A resposta certa era a A.\n\n";
+        break;
+
+    case 'C':
+        cout << "\n\n Você errou! A resposta certa era a A.\n\n";
+        break;
+
+        }
+system("pause");
+system("cls");
+/////////////////////////////////////////////////////////////////////////////////////////
+
+ cout << "Pergunta 3: \n" << endl;
+        cout << " O maior artilheiro da história dos Libertadores da América foi: \n\n";
+        cout << " A - Zico \n\n";
+        cout << " B - Alberto Spencer  \n\n";
+        cout << " C - Pedro Rocha \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+    system("cls");
+
+switch (toupper(cResposta)) //pergunta 2 clube facil
+        {
+    case 'A':
+        cout << "\n\n Você errou! A resposta certa era a B.\n\n";
+        break;
+
+    case 'B':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+    case 'C':
+        cout << "\n\n Você errou! A resposta certa era a B.\n\n";
+        break;
+
+        }
+system("pause");
+system("cls");
+
+
+cout << "\n\n O número de acertos foi: ";
+cout << iPontuacao;
+
+ if (iPontuacao == 3)
+ {
+     cout << "\n\n Parabéns você acertou todas!! Você concluiu o último nível. Tente outro assunto para saber se você sabe mesmo de futebol.";
+ }
+
+ if (iPontuacao == 2)
+ {
+     cout << "\n\n Quase lá! Faltou uma para acertar todas, será que você consegue acertar todas em outro assunto?.";
+ }
+
+ if (iPontuacao < 2)
+ {
+     cout << "\n\n O desempenho não fui muito bom, esse nível é desafiador não desanime! Tente um outro assunto.";
+ }
+cout << "\n\n Pressione qualquer tecla para voltar ao menu inicial.";
+
+iPontuacao = 0;
+
+system("pause>>null");
+system("cls");
+break;
+            }
+break;
+            case 3:// seleção
+
+    do
+        {
+    cout << "----------------------------------------\n\n";
+    cout << "  Escolha a dificuldade: " << endl << endl;
+    cout << "1 - Fácil \n\n";
+    cout << "2 - Médio \n\n";
+    cout << "3 - Difícil \n\n";
+    cout << "0 - Voltar \n\n";
+    cout << "----------------------------------------\n\n";
+    cout << "Digite o número da dificuldade: ";
+    cin >> iEscolhaNvl;
+
+    system("cls");
+
+        }while (iEscolhaNvl > 3 || iEscolhaNvl < 0);
+
+            switch (iEscolhaNvl)
+            {
+                case 1://facil - seleção
+
+        cout << "Pergunta 1: \n" << endl;
+        cout << " Qual destas seleções é a única que conquistou 5 copas do mundo? \n\n";
+        cout << " A - Itália\n\n";
+        cout << " B - Alemanha \n\n";
+        cout << " C - Brasil \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+
+        system("cls");
+
+
+        switch (toupper(cResposta)) //pergunta 1 clube facil
+        {
+    case 'A':
+        cout << "\n\n Você errou! A resposta certa era a C.\n\n";
+        break;
+
+    case 'B':
+        cout << "\n\n Você errou! A resposta certa era a C.\n\n";
+        break;
+
+    case 'C':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+        }
+system("pause");
+system("cls");
+/////////////////////////////////////////////////////////////////////////////////////////
+
+        cout << "Pergunta 2: \n" << endl;
+        cout << " A seleção que venceu a última edição da Copa do Mundo (2018) foi? \n\n";
+        cout << " A - França  \n\n";
+        cout << " B - Espanha \n\n";
+        cout << " C - Alemanha  \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+    system("cls");
+
+switch (toupper(cResposta)) //pergunta 2 clube facil
+        {
+    case 'A':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+    case 'B':
+         cout << "\n\n Você errou! A resposta certa era a A.\n\n";
+        break;
+
+    case 'C':
+       cout << "\n\n Você errou! A resposta certa era a A.\n\n";
+        break;
+
+        }
+system("pause");
+system("cls");
+/////////////////////////////////////////////////////////////////////////////////////////
+
+ cout << "Pergunta 3: \n" << endl;
+        cout << " Diego Maradona jogou por qual seleção? \n\n";
+        cout << " A - Chile \n\n";
+        cout << " B - Bolívia \n\n";
+        cout << " C - Argentina  \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+    system("cls");
+
+switch (toupper(cResposta)) //pergunta 2 clube facil
+        {
+    case 'A':
+        cout << "\n\n Você errou! A resposta certa era a C.\n\n";
+        break;
+
+    case 'B':
+        cout << "\n\n Você errou! A resposta certa era a C.\n\n";
+        break;
+
+    case 'C':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+        }
+system("pause");
+system("cls");
+
+
+cout << "\n\n O número de acertos foi: ";
+cout << iPontuacao;
+ if (iPontuacao == 3)
+ {
+     cout << "\n\n Parabéns você acertou todas!! Seu desempenho nesse nível foi muito bom, tente um nível mais difícil.";
+ }
+
+ if (iPontuacao == 2)
+ {
+     cout << "\n\n Quase lá! Faltou uma para acertar todas, mas acho que você está pronto para o próximo nível.";
+ }
+
+ if (iPontuacao < 2)
+ {
+     cout << "\n\n O desempenho não fui muito bom, arrisque o próximo nível ou tente um outro assunto, talvez você se saia melhor.";
+ }
+cout << "\n\n Pressione qualquer tecla para voltar ao menu inicial.";
+
+iPontuacao = 0;
+
+system("pause>>null");
+system("cls");
+break;
+                case 2: //medio - seleção
+
+  cout << "Pergunta 1: \n" << endl;
+        cout << " A primeira seleção que venceu a primeira edição da Copa do Mundo foi? \n\n";
+        cout << " A - Brasil\n\n";
+        cout << " B - Uruguai \n\n";
+        cout << " C - Inglaterra \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+
+        system("cls");
+
+
+        switch (toupper(cResposta)) //pergunta 1 clube facil
+        {
+    case 'A':
+        cout << "\n\n Você errou! A resposta certa era a B.\n\n";
+        break;
+
+    case 'B':
+         cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+    case 'C':
+       cout << "\n\n Você errou! A resposta certa era a B.\n\n";
+        break;
+
+        }
+system("pause");
+system("cls");
+/////////////////////////////////////////////////////////////////////////////////////////
+
+        cout << "Pergunta 2: \n" << endl;
+        cout << " A seleção brasileira em 1970 conquistou o tricampeonato da competição e marcou 4 gols na final sobre qual seleção? \n\n";
+        cout << " A - México   \n\n";
+        cout << " B - Bélgica \n\n";
+        cout << " C - Itália  \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+    system("cls");
+
+switch (toupper(cResposta)) //pergunta 2 clube facil
+        {
+    case 'A':
+       cout << "\n\n Você errou! A resposta certa era a C.\n\n";
+        break;
+
+    case 'B':
+         cout << "\n\n Você errou! A resposta certa era a C.\n\n";
+        break;
+
+    case 'C':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+        }
+system("pause");
+system("cls");
+/////////////////////////////////////////////////////////////////////////////////////////
+
+ cout << "Pergunta 3: \n" << endl;
+        cout << " A primeira Copa América disputada em 1916 teve como campeão qual seleção? \n\n";
+        cout << " A - Uruguai \n\n";
+        cout << " B - Brasil \n\n";
+        cout << " C - Argentina  \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+    system("cls");
+
+switch (toupper(cResposta)) //pergunta 2 clube facil
+        {
+    case 'A':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+    case 'B':
+        cout << "\n\n Você errou! A resposta certa era a A.\n\n";
+        break;
+
+    case 'C':
+        cout << "\n\n Você errou! A resposta certa era a A.\n\n";
+        break;
+
+        }
+system("pause");
+system("cls");
+
+
+cout << "O número de acertos foi: ";
+cout << "\n\n O número de acertos foi: ";
+cout << iPontuacao;
+
+ if (iPontuacao == 3)
+ {
+     cout << "\n\n Parabéns você acertou todas!! Seu desempenho nesse nível foi muito bom, tente o último nível.";
+ }
+
+ if (iPontuacao == 2)
+ {
+     cout << "\n\n Quase lá! Faltou uma para acertar todas, mas acho que você está pronto para o último nível.";
+ }
+
+ if (iPontuacao < 2)
+ {
+     cout << "\n\n O desempenho não fui muito bom, arrique no próximo nível ou tente um outro assunto, talvez você se saia melhor.";
+ }
+cout << "\n\n Pressione qualquer tecla para voltar ao menu inicial.";
+
+iPontuacao = 0;
+
+system("pause>>null");
+system("cls");
+break;
+                case 3: // dificil - seleção
+
+        cout << "Pergunta 1: \n" << endl;
+        cout << " A seleção brasileira ao disputar o terceiro lugar na Copa do Mundo de 2014 perdeu para qual seleção? \n\n";
+        cout << " A - Alemanha de 7x1\n\n";
+        cout << " B - Holanda de 3x0 \n\n";
+        cout << " C - Espanha de 2x0 \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+
+        system("cls");
+
+
+        switch (toupper(cResposta)) //pergunta 1 clube facil
+        {
+    case 'A':
+        cout << "\n\n Você errou! A resposta certa era a B.\n\n";
+        break;
+
+    case 'B':
+        cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+    case 'C':
+        cout << "\n\n Você errou! A resposta certa era a B.\n\n";
+        break;
+
+        }
+system("pause");
+system("cls");
+/////////////////////////////////////////////////////////////////////////////////////////
+
+        cout << "Pergunta 2: \n" << endl;
+        cout << " Em 2002 a seleção francesa de futebol caiu na fase de grupos após perder para quais seleções? \n\n";
+        cout << " A - Portugal e Inglaterra  \n\n";
+        cout << " B - Bulgária e Suíça \n\n";
+        cout << " C - Senegal e Dinamarca  \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+    system("cls");
+
+switch (toupper(cResposta)) //pergunta 2 clube facil
+        {
+    case 'A':
+        cout << "\n\n Você errou! A resposta certa era a C.\n\n";
+        break;
+
+    case 'B':
+         cout << "\n\n Você errou! A resposta certa era a C.\n\n";
+        break;
+
+    case 'C':
+       cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+        }
+system("pause");
+system("cls");
+/////////////////////////////////////////////////////////////////////////////////////////
+
+ cout << "Pergunta 3: \n" << endl;
+        cout << " Em 2002 o Brasil venceu a Copa do mundo e derrotou quais seleções nas oitavas, quartas e semi –final e final? \n\n";
+        cout << " A - Bélgica, Inglaterra, Turquia e Alemanha \n\n";
+        cout << " B - Espanha, Itália, Holanda e Alemanha \n\n";
+        cout << " C - Camarões, Suécia, Argentina e Uruguai  \n\n";
+        cout << "Digite a letra da resposta: ";
+        cin >> cResposta;
+    system("cls");
+
+switch (toupper(cResposta)) //pergunta 2 clube facil
+        {
+    case 'A':
+         cout << "\n\n Parabéns você acertou!\n\n";
+        iPontuacao = iPontuacao + 1;
+        break;
+
+    case 'B':
+        cout << "\n\n Você errou! A resposta certa era a A.\n\n";
+        break;
+
+    case 'C':
+       cout << "\n\n Você errou! A resposta certa era a A.\n\n";
+        break;
+
+        }
+system("pause");
+system("cls");
+
+
+cout << "\n\n O número de acertos foi: ";
+cout << iPontuacao;
+
+ if (iPontuacao == 3)
+ {
+     cout << "\n\n Parabéns você acertou todas!! Você concluiu o último nível. Tente outro assunto para saber se você sabe mesmo de futebol.";
+ }
+
+ if (iPontuacao == 2)
+ {
+     cout << "\n\n Quase lá! Faltou uma para acertar todas, será que você consegue acertar todas em outro assunto?.";
+ }
+
+ if (iPontuacao < 2)
+ {
+     cout << "\n\n O desempenho não fui muito bom, esse nível é desafiador não desanime! Tente um outro assunto.";
+ }
+cout << "\n\n Pressione qualquer tecla para voltar ao menu inicial.";
+
+iPontuacao = 0;
+
+system("pause>>null");
+system("cls");
+break;
+            }
+break;
+            } // switch assunto
+    } //while
+
+    return 0;
+}

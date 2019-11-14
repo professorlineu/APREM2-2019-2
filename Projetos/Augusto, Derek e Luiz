@@ -1,3 +1,9 @@
+//VOCE PODE BAIXAR O PROTOTIPO DESSE JOGO ACESSANDO O LINK:https://mega.nz/#!xfIj0IqA!OVXgeO3SFDeB1fzwWWq5R-q0H5b21FrdipcDayMAsTA//
+//ESSE CODIGO FONTE ESTARA DENTRO DO ARQUIVO BAIXADO, VC PODE DESCARTA-LO E USAR SOMENTE OS ARQUIVOS DO LINK//
+//PARA JOGAR ABRA O CODE BLOCKS E CLIQUE EM FILE > OPEN > Allegro.cbp (dentro da pasta baixada)//
+//O CODE BLOCKS ABRIRÁ ESSE CODIGO FONTE, DEPOIS EH SOH COMPILAR//
+
+
 #include <allegro5/allegro5.h>
 #include <allegro5/allegro_native_dialog.h>
 #include <allegro5/allegro_font.h>

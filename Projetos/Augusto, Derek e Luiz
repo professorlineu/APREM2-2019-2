@@ -1,8 +1,7 @@
-//VOCE PODE BAIXAR O PROTOTIPO DESSE JOGO ACESSANDO O LINK:https://mega.nz/#!xfIj0IqA!OVXgeO3SFDeB1fzwWWq5R-q0H5b21FrdipcDayMAsTA//
+//VOCE PODE BAIXAR O PROTOTIPO DESSE JOGO ACESSANDO O LINK:https://mega.nz/#!kKJ1ECDL!nCAPHvg0VyxpJv22VJCB8gsoaWoIk55wxq1vJASLgLQ  
 //O CODIGO FONTE JA ESTARA DENTRO DO ARQUIVO BAIXADO, ENTAO VC N PRECISA COPIAR ESTE DO SITE. SIGA OS PASSOS ABAIXO//
 //PARA JOGAR ABRA O CODE BLOCKS E CLIQUE EM FILE > OPEN > Allegro.cbp (dentro da pasta baixada)//
 //O CODE BLOCKS ABRIRÁ ESSE CODIGO FONTE, DEPOIS EH SOH COMPILAR//
-
 
 #include <allegro5/allegro5.h>
 #include <allegro5/allegro_native_dialog.h>
@@ -28,21 +27,27 @@ bool Colisao (float x, float y, float ex, float ey, int width, int height)
     }
     return true;
 }
-bool Colisao2 (float x, float y, bool condicaox, bool condicaoy)
+
+bool Colisao2 (float x, float y, float ex, float ey, float width, float height, float width2, float height2)
 {
-    if(x < condicaox || condicaox < x || y < condicaoy || y > condicaoy)
+    if(x + width <= ex || ex + width2 <= x || y + height <= ey || y >= ey + height2)
     {
      return false;
     }
-    return true;
+    else
+    {
+       return true;
+    }
+
 }
+
 
 void cameraUpdate(float *cameraPosition, float x, float y, int width, int height)
 {
     cameraPosition[0] = -(ScreenWidth/2) + (x+width/2);
     cameraPosition[1] = -(600) + (y+height/2);
     if(cameraPosition[0]<=0)
-                        cameraPosition[0]=0;
+    cameraPosition[0]=0;
     if(cameraPosition[1]<=0)
         cameraPosition[1] = 0;
 }
@@ -53,15 +58,17 @@ int main()
 
     float posicaocamerax;
     float velcamera = 10;
-
 enum Direction {DOWN, UP, LEFT, RIGHT};
-bool ie = false;
+bool rebobina = true;
+bool pressenter = true;
+bool OPEN = !false;
+bool ie =  true;
 bool done = true;
 bool done2 = true;
 bool boat = true;
 bool ilha = true;
 bool ilha2 = true;
-bool done3 = true;
+bool done3 = !true;
 bool done4 = true;
 bool done5 = true;
 bool draw = true;
@@ -139,6 +146,8 @@ bool vuneravel = true;
 bool noar = true;
 bool historia = false;
 bool fade = false;
+bool bat[5] = {1,1,1,1,1};
+bool pisca[4] = {1,0,1,0};
 float x = 100,y = 100, movespeed=10, jumpspeed=15;
 float iAleatorio;
 float iAleatorio2;
@@ -151,8 +160,11 @@ int dir = DOWN;
 int sourceX = NULL;
 int sourceY = NULL;
 int sair = 0;
-int posx=350;
-int posy=100;
+float bolax[12] = {121,242,363,484,605,726,847,968,1089,1200,1350,0};
+float bolay[12] = {-100,-200,-300,-400,-500,-600,-700,-800,-900,-1000,-1100,-1200};
+float velbola = 1;
+float posx=800;
+float posy=-250;
 float lobox = 400;
 int loboy=480;
 int ratox = 500;
@@ -175,6 +187,8 @@ float velfog = 1.0;
 float velhikari = 0.3;
 float zoiox[3] = {900,2700,2700};
 float zoioy[3] = {500,330,310};
+float batx[5] = {500,1000,1500,2000,2500};
+float baty[5] = {300,300,300,300,300};
 float velzoio[3] = {0,0.1,0.1};
 int velobox = 20;
 int velobox2 = 20;
@@ -226,6 +240,10 @@ int altura_sprite_oracao[7] = {64,64,64,64,64,64,64} , largura_sprite_oracao[7] 
 int altura_sprite_zombie = 64, largura_sprite_zombie = 48;
 int altura_sprite_planta = 32, largura_sprite_planta = 32;
 int altura_sprite_olho = 32, largura_sprite_olho = 32;
+int altura_sprite_HP = 21, largura_sprite_HP = 0;
+int altura_sprite_BOSS1HP = 25, largura_sprite_BOSS1HP = 0;
+int altura_sprite_MP = 21, largura_sprite_MP = 0;
+int altura_sprite_bat = 64, largura_sprite_bat = 48;
 int colunas_pulo=3, coluna_atual_pulo=0;
 int colunas_moedas=1, coluna_atual_moedas = 0;
 int colunas_tiro = 6, coluna_atual_tiro = 0;
@@ -245,6 +263,10 @@ int coluna_atual_zombie[3] = {0,0,0}, colunas_zombie[3] = {3,3,3};
 int colunas_planta = 8, coluna_atual_planta = 0;
 int colunas_olho = 8, coluna_atual_olho = 0;
 int colunas_hikari = 3, coluna_atual_hikari = 0;
+int colunas_HP = 12, coluna_atual_HP = 12;
+int colunas_BOSS1HP = 23, coluna_atual_BOSS1HP = 23;
+int colunas_MP = 12, coluna_atual_MP = 12;
+int colunas_bat = 3, coluna_atual_bat = 0;
 int linhas_moedas=4, linha_atual_moeda = 0;
 int linha_atual_pulo=4;
 int linhas_porta = 3;
@@ -256,7 +278,7 @@ int linha_atual_boss1 = 0;
 int linhas_vampmoca1 = 4, linha_atual_vampmoca1 = 0;
 int linhas_homemvamp1 = 4, linha_atual_homemvamp1 =0;
 int linhas_rato = 4, linha_atual_rato = 0;
-int linhas_oracao[7] = {7,7,7,7,7,7,7}, linha_atual_oracao[7] = {6,6,6,6,6,6,6};
+int linhas_oracao[7] = {5,5,5,5,5,5,5}, linha_atual_oracao[7] = {0,0,0,0,0,0,0};
 int linhas_zombie[3] = {3,3,3}, linha_atual_zombie[3] = {1,3,1};
 int linhas_olho = 3, linha_atual_olho = 0;
 int linhas_hikari = 4, linha_atual_hikari = 0;
@@ -279,6 +301,10 @@ int regiao_x_folha_zombie[3] = {0,0,0}, regiao_y_folha_zombie[3] = {0,0,0};
 int regiao_x_folha_planta = 0, regiao_y_folha_planta = 0;
 int regiao_x_folha_olho = 0, regiao_y_folha_olho = 0;
 int regiao_x_folha_hikari = 0, regiao_y_folha_hikari =0;
+int regiao_x_folha_HP = 0, regiao_y_folha_HP =0;
+int regiao_x_folha_BOSS1HP = 0, regiao_y_folha_BOSS1HP =0;
+int regiao_x_folha_MP = 0, regiao_y_folha_MP =0;
+int regiao_x_folha_bat = 0, regiao_y_folha_bat =0;
 int frames_sprite_pulo=6, cont_frames_pulo=0;
 int frames_sprite_moedas=2, cont_frames_moedas=0;
 int frames_sprite_tiro = 1, cont_frames_tiro = 0;
@@ -297,6 +323,7 @@ int frames_sprite_zombie = 6, cont_frames_zombie = 0;
 int frames_sprite_planta = 12, cont_frames_planta = 0;
 int frames_sprite_olho = 12, cont_frames_olho = 0;
 int frames_sprite_hikari = 4, cont_frames_hikari = 0;
+int frames_sprite_bat = 3, cont_frame_bat =0;
 int cont_passos_vampmoca1 = 0 ;
 int cont_passos_homemvamp1 = 0;
 int cont_tempo_vampqueima = 0;
@@ -308,19 +335,30 @@ int cont_horas = 0;
 int cont_frames_fase = 0;
 int cont_frames_item = 0;
 int cont_moedas_prata = 0;
-int cont_vidas = 1;
+int cont_vidas = 10;
 int cont_dano = 0;
 int score = 0 ;
 int cont_frames_boss_morre = 0;
+int cont_passos_boss_inicio = 0;
 int cont_frames_done5 = 0;
 int cont_frames_socorro = 0;
 int cont_frames_cutscene2 = 0;
+int cont_frames_dano = 0;
+int cont_frames_MP = 0;
+int cont_frames_morto = 0;
+int cont_frames_open = 0;
+int cont_frames_pisca;
+int cont_frames_pisca2;
+
+
 
 if(!al_init())
 {
     al_show_native_message_box(NULL,"ERROR",NULL,"Allegro couldnt initialize",NULL,NULL);
 }
+al_set_new_display_flags(ALLEGRO_FULLSCREEN_WINDOW);
       display = al_create_display(ScreenWidth,ScreenHeight);
+
 
 if(!display)
 {
@@ -328,15 +366,25 @@ if(!display)
 }
 
 
-al_set_window_position(display,200,100);
+al_set_window_position(display,0,0);
 al_init_font_addon();
 al_init_ttf_addon();
 al_init_image_addon();
 al_install_keyboard();
 
 
-ALLEGRO_FONT* font = al_load_font("arial.ttf",36,NULL);
-ALLEGRO_FONT* font2 = al_load_font("arial.ttf",16,NULL);
+ALLEGRO_FONT* font = al_load_font("atari.ttf",36,NULL);
+ALLEGRO_FONT* font2 = al_load_font("atari.ttf",16,NULL);
+ALLEGRO_FONT* font3 = al_load_font("atari.ttf",25,NULL);
+ALLEGRO_FONT* font4 = al_load_font("atari.ttf",100,NULL);
+ALLEGRO_BITMAP* KEENOP = al_load_bitmap("keenop.png");
+ALLEGRO_BITMAP* BAT = al_load_bitmap("bat48x64.png");
+ALLEGRO_BITMAP* ESFERA1 = al_load_bitmap("esfera1.png");
+ALLEGRO_BITMAP* BOSS1INICIO = al_load_bitmap("boss1inicio.png");
+ALLEGRO_BITMAP* BOSS1HP = al_load_bitmap("boss1hp.png");
+ALLEGRO_BITMAP* DEADTREE = al_load_bitmap("deadtree.png");
+ALLEGRO_BITMAP* HP = al_load_bitmap("HP.png");
+ALLEGRO_BITMAP* MP = al_load_bitmap("MP.png");
 ALLEGRO_BITMAP* KAGESHIMA = al_load_bitmap("ilhadasombras.png");
 ALLEGRO_BITMAP* FADE = al_load_bitmap("fade.png");
 ALLEGRO_BITMAP* DEAMON = al_load_bitmap("deamon.png");
@@ -551,14 +599,197 @@ al_convert_mask_to_alpha(YUYA, al_map_rgb(0,0,0));
 al_convert_mask_to_alpha(YUYA2, al_map_rgb(0,0,0));
 al_convert_mask_to_alpha(DEAMON, al_map_rgb(136,0,255));
 al_convert_mask_to_alpha(KAGESHIMA, al_map_rgb(255,255,255));
+al_convert_mask_to_alpha(HP, al_map_rgb(255,0,255));
+al_convert_mask_to_alpha(MP, al_map_rgb(255,0,255));
+al_convert_mask_to_alpha(BOSS1INICIO, al_map_rgb(255,0,255));
+al_convert_mask_to_alpha(BOSS1HP, al_map_rgb(255,0,255));
+al_convert_mask_to_alpha(DEADTREE, al_map_rgb(255,255,255));
+al_convert_mask_to_alpha(ESFERA1, al_map_rgb(0,0,0));
+al_convert_mask_to_alpha(BAT, al_map_rgb(255,0,255));
+al_convert_mask_to_alpha(KEENOP, al_map_rgb(0,0,0));
+
 
 al_start_timer(timer);
 al_start_timer(BOLAtimer);
 al_start_timer(timercomando);
 
+while(!OPEN)
+{
+ALLEGRO_EVENT events;
+al_wait_for_event(event_queue, &events);
+al_get_keyboard_state(&keyState);
+cameraUpdate(cameraPosition,x,y,35,200);
+al_identity_transform(&camera);
+al_translate_transform(&camera, -cameraPosition[0],-cameraPosition[1]);
+al_use_transform(&camera);
+
+    if(events.type == ALLEGRO_EVENT_KEY_DOWN)
+    {
+
+        switch (events.keyboard.keycode)
+        {
+        case ALLEGRO_KEY_ESCAPE:
+            OPEN = true;
+        case ALLEGRO_KEY_ENTER:
+            if(cont_frames_open<1980)
+            {
+            cont_frames_open = 1980;
+            break;
+            }
+            pressenter = false;
+            if (!pressenter)
+            {
+                OPEN = true;
+                ie = false;
+            }
+        }
+    }
+
+    else if (events.type == ALLEGRO_EVENT_TIMER)
+    {
+
+
+        if(events.timer.source == timer)
+        {
+
+
+            if(al_key_down(&keyState,ALLEGRO_KEY_RIGHT))
+            {
+           //POR HORA N TEM FUNÇAO
+            }
+
+            else if(al_key_down(&keyState,ALLEGRO_KEY_UP))
+            {
+             //POR HORA N TEM FUNÇAO
+            }
+            else if(al_key_down(&keyState,ALLEGRO_KEY_DOWN))
+            {
+          //POR HORA N TEM FUNÇAO
+            }
+
+            else if(al_key_down(&keyState,ALLEGRO_KEY_LEFT))
+            {
+            //POR HORA N TEM FUNÇAO
+            }
+            else if(al_key_down(&keyState,ALLEGRO_KEY_C))
+            {
+            //POR HORA N TEM FUNÇAO
+            }
+
+           if (pisca[0])
+           {
+               cont_frames_pisca += 8;
+               if (cont_frames_pisca >= 255)
+               {
+                   pisca[0] = false;
+                   pisca[1] = true;
+               }
+           }
+           if (pisca[1])
+           {
+               cont_frames_pisca -=8;
+               if (cont_frames_pisca <= 0)
+               {
+                   pisca[1] = false;
+                   pisca[0] = true;
+               }
+           }
+
+           if (pisca[2])
+           {
+               cont_frames_pisca2 += 15;
+               if (cont_frames_pisca2 >= 250)
+               {
+                   pisca[2] = false;
+                   pisca[3] = true;
+               }
+           }
+           if (pisca[3])
+           {
+               cont_frames_pisca2 -=15;
+               if (cont_frames_pisca2 <= 10)
+               {
+                   pisca[3] = false;
+                   pisca[2] = true;
+               }
+           }
+        }
+
+else if(events.timer.source == BOLAtimer)
+{
+cont_frames_open++;
+}
+
+
+
+if(draw)
+{
+
+if(cont_frames_open>=300 && cont_frames_open < 420)
+{
+   al_draw_text(font3,al_map_rgb(255,255,255),700,350,ALLEGRO_ALIGN_CENTER || ALLEGRO_ALIGN_CENTRE, "Ela era tudo para mim");
+}
+if(cont_frames_open>=480 && cont_frames_open < 540)
+{
+     al_draw_text(font3,al_map_rgb(255,255,255),700,350,ALLEGRO_ALIGN_CENTER || ALLEGRO_ALIGN_CENTRE, "Mas eles a levaram");
+}
+if(cont_frames_open>=540 && cont_frames_open < 780)
+{
+    al_draw_text(font3,al_map_rgb(255,255,255),700,350,ALLEGRO_ALIGN_CENTER || ALLEGRO_ALIGN_CENTRE, "e com ela levaram tambem minha bondade e compaixao");
+}
+if(cont_frames_open>=840 && cont_frames_open < 900)
+{
+    al_draw_text(font3,al_map_rgb(255,255,255),700,350,ALLEGRO_ALIGN_CENTER || ALLEGRO_ALIGN_CENTRE, "esse foi o erro deles");
+}
+if(cont_frames_open>=900 && cont_frames_open < 1140)
+{
+    al_draw_text(font3,al_map_rgb(255,255,255),700,350,ALLEGRO_ALIGN_CENTER || ALLEGRO_ALIGN_CENTRE, "porque agora, tudo o que me sobrou foi um coracao gelado");
+}
+if(cont_frames_open>=1200 && cont_frames_open < 1260)
+{
+    al_draw_text(font3,al_map_rgb(255,255,255),700,350,ALLEGRO_ALIGN_CENTER || ALLEGRO_ALIGN_CENTRE, "Eles prosperam em duvida");
+}
+if(cont_frames_open>=1320 && cont_frames_open < 1380)
+{
+    al_draw_text(font3,al_map_rgb(255,255,255),700,350,ALLEGRO_ALIGN_CENTER || ALLEGRO_ALIGN_CENTRE, "Seu banquete e o medo");
+}
+if(cont_frames_open>=1380 && cont_frames_open < 1500)
+{
+    al_draw_text(font3,al_map_rgb(255,255,255),700,350,ALLEGRO_ALIGN_CENTER || ALLEGRO_ALIGN_CENTRE, "Estas abominacoes contaminam este mundo");
+}
+
+  if(cont_frames_open>=1560 && cont_frames_open < 1740)
+{
+    al_draw_text(font3,al_map_rgb(255,255,255),700,350,ALLEGRO_ALIGN_CENTER || ALLEGRO_ALIGN_CENTRE, "e cada uma delas perecera em minhas maos");
+}
+if(cont_frames_open>=1740 && cont_frames_open < 1860)
+{
+    al_draw_text(font3,al_map_rgb(255,255,255),700,350,ALLEGRO_ALIGN_CENTER || ALLEGRO_ALIGN_CENTRE, "e se alguem ficar no meu caminho");
+}
+if(cont_frames_open>=1860 && cont_frames_open < 1980)
+{
+     al_draw_text(font3,al_map_rgb(255,255,255),700,350,ALLEGRO_ALIGN_CENTER || ALLEGRO_ALIGN_CENTRE, "eu os mandarei para a cova");
+}
+if(cont_frames_open>=1980)
+{
+    al_draw_tinted_bitmap(KEENOP,al_map_rgb(0,0,cont_frames_pisca),300,0,NULL);
+     al_draw_text(font4,al_map_rgb(255,255,255),700,150,ALLEGRO_ALIGN_CENTER || ALLEGRO_ALIGN_CENTRE, "LIGHT BURY");
+     al_draw_text(font3,al_map_rgb(cont_frames_pisca2,cont_frames_pisca2,cont_frames_pisca2),700,350,ALLEGRO_ALIGN_CENTER || ALLEGRO_ALIGN_CENTRE, "PRESS ENTER");
+}
+if(cont_frames_open>=1980 && pressenter)
+{
+   al_draw_text(font3,al_map_rgb(cont_frames_pisca2,cont_frames_pisca2,cont_frames_pisca2),700,350,ALLEGRO_ALIGN_CENTER || ALLEGRO_ALIGN_CENTRE, "PRESS ENTER");
+}
+    al_flip_display();
+    al_clear_to_color(al_map_rgb(0,0,0));
+
+}
+    }
+        }
 
 while(!ie)
 {
+
 ALLEGRO_EVENT events;
 al_wait_for_event(event_queue, &events);
 al_get_keyboard_state(&keyState);
@@ -567,7 +798,15 @@ al_identity_transform(&camera);
 al_translate_transform(&camera, -cameraPosition[0],-cameraPosition[1]);
 al_use_transform(&camera);
 
+ if(events.type == ALLEGRO_EVENT_KEY_UP)
+    {
 
+        switch (events.keyboard.keycode)
+        {
+        case ALLEGRO_KEY_Z:
+        dir = 0;
+        }
+    }
 
     if(events.type == ALLEGRO_EVENT_KEY_DOWN)
     {
@@ -642,7 +881,6 @@ al_use_transform(&camera);
              {
                  fala1_2 = true;
              }
-
          }
          if(fala1_3)
          {
@@ -681,10 +919,10 @@ al_use_transform(&camera);
             draw = true;
             cont_horas++;
 
-        if(al_key_down(&keyState,ALLEGRO_KEY_DOWN))
+        if(al_key_down(&keyState,ALLEGRO_KEY_DOWN) && !historia)
         {
             if(y>655 && x!=500 || y>=210 && y<=250 && x>=100 && x<=363 || y>=210 && y<=250 && x>=380 && x<=550 || x>=90 && x<=650 && y>= 370 && y<=380 || x>=491 && x<=535 && y>=110 && y<=120
-               || x>=580 && x<740 && y>=180 && y<=230 || x>=500 && x<=515 && y>=665  )
+               || x>=580 && x<740 && y>=180 && y<=230 || x>=500 && x<=515 && y>=665 || x>=140 && x<=220 && y>=520 && y<=530  )
             {
                 y-=movespeed;
             }
@@ -706,12 +944,13 @@ al_use_transform(&camera);
             dir = DOWN;
             pistola = false;
         }
-        else if(al_key_down(&keyState,ALLEGRO_KEY_UP))
+        else if(al_key_down(&keyState,ALLEGRO_KEY_UP) && !historia)
         {
            if(x>=100 && x<=250 && y<=100 || y<=75 || x>=375 && x<=520 && y<=100 || y>=211 && y<=300 && x>=100 && x<=360
                ||y>=211 && y<=300 && x>=380 && x<=550 || x >= 590 && x <=645 && y<=160 || x>=300 && x<=340 && y<=90
                ||  x>=90 && x<=170 && y>=300 && y<=360 || x>=90 && x<=650 && y>=440 && y<=460 || x>=491 && x<=535 && y>=120 && y<=210 ||  x>=580 && x<740 && y>=190 && y<=240
-               || x>=675&& x<=750 && y<=110 && y>=85 || x>=800 && x<=1100 && y>=450 && y<=460)
+               || x>=675&& x<=750 && y<=110 && y>=85 || x>=800 && x<=1100 && y>=450 && y<=460 || x>=100 && x<=440 && y>=490 && y<=495
+               ||x>=140 && x<=220 && y>=600 && y<=610)
             {
                 y += movespeed;
             }
@@ -719,11 +958,12 @@ al_use_transform(&camera);
             dir = UP;
             fala1_2 = false;
         }
-          else if(al_key_down(&keyState,ALLEGRO_KEY_RIGHT))
+          else if(al_key_down(&keyState,ALLEGRO_KEY_RIGHT) && !historia)
         {
             if( x>=380 && x<=530 && y<=95|| x>=580 && x<=635 && y>=70 && y<=150 || x>=530 && x<=535 && y<=295 ||  x>=490 && x<=500 && y>=120 && y<=200 || x>=290 && x<=291 && y<=85
             || y>=211 && y<=295 && x>=360 && x<=540 || x<=635 && x>=630 && y>=375 && y <=555 || x<=635 && x>=630 && y>=610 || x>=570 && x<580 && y>=190 && y<=240
-            || x>=675&& x<=680 && y<=85 && y>=50 || x>=780 && x<=781 && y<=550 || x>=1080 || x>=780 && x<=781 && y>=610 && y<=700)
+            || x>=675&& x<=680 && y<=85 && y>=50 || x>=780 && x<=781 && y<=550 || x>=1080 || x>=780 && x<=781 && y>=610 && y<=700
+            || x>=130 && x<=150 && y>=530 && y<=605)
             {
                 x-=movespeed;
             }
@@ -732,12 +972,12 @@ al_use_transform(&camera);
             pistola = false;
             fala1_2 = false;
         }
-          else if(al_key_down(&keyState,ALLEGRO_KEY_LEFT))
+          else if(al_key_down(&keyState,ALLEGRO_KEY_LEFT)&& !historia)
         {
            if(x>=255 && x<= 260 && y<=95 || x<=100 || x>=395 && x<=530 && y<=95 || y>=211 && y<=290 && x>=100 && x<=375 ||
-               y<=295 && x>=558 && x<=560 || x>=645 && x<=650 && y>=70 && y<=150 || x<=350 && x>=345 && y<=85 || x>=170 && x<=180 && y>=300 && y<=350
+               y<=295 && x>=558 && x<=560 || x>=645 && x<=650 && y>=70 && y<=150|| x>=760 && x<=761 && y>=190 && y<=230 || x<=350 && x>=345 && y<=85 || x>=170 && x<=180 && y>=300 && y<=350
                || x<=660 && x>=659 && y>=375 && y <=555 || x<=660 && x>=659 && y>=610 || x>=760&& x<=765 && y<=85 && y>=50 || x>=800 && x<=805 && y<= 550
-               ||x>=810 && x<=811 && y>=610 && y<=700 )
+               ||x>=810 && x<=811 && y>=610 && y<=700 ||  x>=438 && x<=440 && y>=450 && y<=495 || x>=220 && x<=230 && y>=530 && y<=600)
             {
                 x += movespeed;
             }
@@ -768,10 +1008,16 @@ al_use_transform(&camera);
              {
                 fala1_3 = true;
              }
-            else if(al_key_down(&keyState,ALLEGRO_KEY_Z) && x >= cruzx-20 && x<= cruzx+30 && y >= cruzy-20 && y<= cruzy+30)
+            else if(al_key_down(&keyState,ALLEGRO_KEY_Z) && x >= cruzx-20 && x<= cruzx+30 && y >= cruzy-20 && y<= cruzy+30 && coluna_atual_MP>2)
                     {
                         oracao = true;
                         dir = 5;
+                        cont_frames_MP++;
+                        if (cont_frames_MP>=15)
+                        {
+                            cont_frames_MP = 0;
+                            coluna_atual_MP--;
+                        }
 
                     }
 
@@ -780,9 +1026,12 @@ al_use_transform(&camera);
             active = false;
             oracao = false;
             dir = 0;
+            historia = false;
 
         }
-if (cont_horas < 2000)
+
+
+if (cont_horas < 1000)
 {
      cont_frames_vampmoca1++;
          if (cont_frames_vampmoca1 >= frames_sprite_vampmoca1)
@@ -897,12 +1146,12 @@ regiao_x_folha_homemvamp1 = coluna_atual_homemvamp1 * largura_sprite_homemvamp1;
         }
 
 }
- if (cont_horas > 2000 && cont_horas < 2100)
+ if (cont_horas > 1000 && cont_horas < 1100)
         {
             homemvamp1x = 1000;
             homemvamp1y = 640;
         }
-if (cont_horas > 2100 && vampvive)
+if (cont_horas > 1100 && vampvive)
 {
      cont_frames_vampmoca1++;
          if (cont_frames_vampmoca1 >= frames_sprite_vampmoca1)
@@ -983,7 +1232,7 @@ regiao_x_folha_vampmoca1 = coluna_atual_vampmoca1 * largura_sprite_vampmoca1;
 
 }
 
-if (cont_horas > 2100 && vampvive2)
+if (cont_horas > 1100 && vampvive2)
 
 {
 
@@ -1031,58 +1280,82 @@ regiao_x_folha_homemvamp1 = coluna_atual_homemvamp1 * largura_sprite_homemvamp1;
 
 }
 
-        if (Colisao(cruzx,cruzy,mocavamp1x,mocavamp1y,largura_sprite_vampmoca1,altura_sprite_vampmoca1) && vampvive && cont_horas > 2100)
+        if (Colisao(cruzx,cruzy,mocavamp1x,mocavamp1y,largura_sprite_vampmoca1,altura_sprite_vampmoca1) && vampvive && cont_horas > 1100)
         {
             vampvive = false;
             score +=2000;
 
         }
 
-          if (Colisao(cruzx,cruzy,homemvamp1x,homemvamp1y,largura_sprite_vampmoca1,altura_sprite_vampmoca1) && vampvive2 && cont_horas > 2100)
+          if (Colisao(cruzx,cruzy,homemvamp1x,homemvamp1y,largura_sprite_vampmoca1,altura_sprite_vampmoca1) && vampvive2 && cont_horas > 1100)
         {
             vampvive2 = false;
             score +=2000;
         }
-         if (Colisao(x,y,homemvamp1x,homemvamp1y,150,150) && vampvive2 && cont_horas > 2100 && oracao)
+         if (Colisao(x,y,homemvamp1x,homemvamp1y,150,150) && vampvive2 && cont_horas > 1100 && oracao)
         {
             vampvive2 = false;
             score +=2000;
         }
-        if (Colisao(x,y,mocavamp1x,mocavamp1y,150,150) && vampvive && cont_horas > 2100 && oracao)
+        if (Colisao(x,y,mocavamp1x,mocavamp1y,150,150) && vampvive && cont_horas > 1100 && oracao)
         {
             vampvive = false;
             score +=2000;
         }
 
-        if(linha_atual_oracao[1]>=6 && oracao)
-        {
-            vuneravel = true;
-        }
-        if(linha_atual_oracao[1]<6 && oracao)
-        {
-            vuneravel = false;
-        }
+     if (oracao)
+{
+    vuneravel = false;
+}
 
-     if (Colisao(x,y,mocavamp1x,mocavamp1y,largura_sprite_vampmoca1,altura_sprite_vampmoca1) && cont_horas > 2100 && vampvive && vuneravel)
-        {
-            movespeed == 0;
-                cont_vidas--;
-                morte = true;
-                if(cont_vidas == 0)
-                    {
-                        ie = true;
-                    }
-        }
+    largura_sprite_HP = 9*coluna_atual_HP;
+    largura_sprite_MP = 9*coluna_atual_MP;
 
-          if (Colisao(x,y,homemvamp1x,homemvamp1y,largura_sprite_vampmoca1,altura_sprite_vampmoca1) && cont_horas > 2100 && vampvive2 && vuneravel )
+     if (Colisao(x,y,mocavamp1x,mocavamp1y,largura_sprite_vampmoca1,altura_sprite_vampmoca1) && cont_horas > 1100  && vampvive && vuneravel)
         {
-            movespeed == 0;
-                cont_vidas--;
+            cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
+
+        }
+         if (coluna_atual_HP <= 2)
+            {
+                historia = true;
                 morte = true;
-                if(cont_vidas == 0)
+                vuneravel = false;
+                cont_frames_morto++;
+                if(cont_frames_morto>=12)
+                {
+                morte = false;
+                    if(cont_frames_morto>=24)
                     {
-                        ie = true;
+                    coluna_atual_HP = 12;
+                    cont_frames_morto = 0;
+                    vuneravel = true;
                     }
+                }
+                if(cont_frames_morto == 6)
+                {
+                    cont_vidas--;
+                       if(cont_vidas<0)
+                        {
+                        ie = true;
+                        }
+                }
+            }
+
+
+          if (Colisao(x,y,homemvamp1x,homemvamp1y,largura_sprite_vampmoca1,altura_sprite_vampmoca1) && cont_horas > 1100 && vampvive2 && vuneravel )
+        {
+           cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
         }
 
     if (Colisao(cruzx,cruzy,olhox,olhoy,largura_sprite_vampmoca1,altura_sprite_vampmoca1) && olhovive)
@@ -1392,8 +1665,8 @@ else if(events.timer.source == BOLAtimer)
 if(draw)
 {
     al_draw_bitmap(CHAOCASA,100,100,NULL);
+    al_draw_bitmap(ESPELHO,1050,420,NULL);
     al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,60),100,100,NULL);
-    al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,60),945,450,NULL);
     al_draw_bitmap_region(RATO,regiao_x_folha_rato,regiao_y_folha_rato,largura_sprite_rato,altura_sprite_rato,ratox,ratoy,NULL);
     al_draw_bitmap(CAMA,500,150,NULL);
     al_draw_bitmap(JANELA2,325,20,NULL);
@@ -1407,7 +1680,6 @@ if(draw)
     al_draw_bitmap(ARMARIO,400,50,NULL);
     al_draw_bitmap(BELICHE,810,410,NULL);
     al_draw_bitmap(TSUKUE,910,440,NULL);
-    al_draw_bitmap(ESPELHO,1050,420,NULL);
     al_draw_bitmap(CARPET,910,550,NULL);
     al_draw_bitmap(TAPETE,500,700,NULL);
     al_draw_bitmap(MESA3,150,560,NULL);
@@ -1440,17 +1712,17 @@ if(draw)
 
     al_draw_bitmap_region(TAKARABAKO,regiao_x_folha_bau,regiao_y_folha_bau,largura_sprite_bau,altura_sprite_bau,317,90,NULL);
     al_draw_bitmap_region(keen,sourceX,sourceY*al_get_bitmap_height(keen)/7,30,50,x,y,NULL);
-   if (cont_horas < 2000)
+   if (cont_horas < 1000)
    {
            al_draw_bitmap_region(VAMPMOCA1, regiao_x_folha_vampmoca1, regiao_y_folha_vampmoca1, largura_sprite_vampmoca1, altura_sprite_vampmoca1,mocavamp1x,mocavamp1y,NULL);
            al_draw_bitmap_region(HOMEMVAMP1, regiao_x_folha_homemvamp1, regiao_y_folha_homemvamp1, largura_sprite_homemvamp1, altura_sprite_homemvamp1,homemvamp1x,homemvamp1y,NULL);
 
    }
-   if (cont_horas > 2100 && cont_tempo_vampqueima < 60)
+   if (cont_horas > 1100 && cont_tempo_vampqueima < 60)
    {
         al_draw_bitmap_region(VAMPMOCA2, regiao_x_folha_vampmoca1, regiao_y_folha_vampmoca1, largura_sprite_vampmoca1, altura_sprite_vampmoca1,mocavamp1x,mocavamp1y,NULL);
    }
-   if (cont_horas > 2100 && cont_tempo_vampqueima2 < 60)
+   if (cont_horas > 1100 && cont_tempo_vampqueima2 < 60)
    {
         al_draw_bitmap_region(HOMEMVAMP2, regiao_x_folha_homemvamp1, regiao_y_folha_homemvamp1, largura_sprite_homemvamp1, altura_sprite_homemvamp1,homemvamp1x,homemvamp1y,NULL);
    }
@@ -1487,79 +1759,79 @@ if(draw)
 
     }
     al_draw_bitmap(ACIMAPORTA,371,257,NULL);
-    al_draw_textf(font,al_map_rgb(255,255,255),cameraPosition[0]+600,cameraPosition[1],ALLEGRO_ALIGN_CENTER, "SCORE: %i", 1000 + score);
+    al_draw_textf(font,al_map_rgb(255,255,255),cameraPosition[0]+1100,cameraPosition[1],ALLEGRO_ALIGN_CENTER, "SCORE: %i", 1000 + score);
     al_draw_textf(font2,al_map_rgb(255,255,255),cameraPosition[0]+50,cameraPosition[1]+10,ALLEGRO_ALIGN_CENTER, "X %i", cont_moedas_prata);
-    al_draw_textf(font2,al_map_rgb(255,255,255),cameraPosition[0]+120,cameraPosition[1]+10,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
+    al_draw_textf(font2,al_map_rgb(255,255,255),cameraPosition[0]+150,cameraPosition[1]+10,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
     al_draw_bitmap_region(keen,5,300,21,21,cameraPosition[0]+80,cameraPosition[1]+8,0);
     al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,cameraPosition[0]+10,cameraPosition[1]+10,0);
     if(fala1)
     {
         al_draw_bitmap(FALA1,cameraPosition[0]+200,cameraPosition[1]+200,NULL);
-         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+275,cameraPosition[1]+210, ALLEGRO_ALIGN_LEFT, "  Os moradores desta cabana sao");
-         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+270,cameraPosition[1]+225, ALLEGRO_ALIGN_LEFT, " um  tanto  estranhos.  Melhor  eu");
-         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+270,cameraPosition[1]+240, ALLEGRO_ALIGN_LEFT, " terminar de investigar este local");
-         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+270,cameraPosition[1]+255, ALLEGRO_ALIGN_LEFT, " antes que o pior aconteca");
+         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+275,cameraPosition[1]+210, ALLEGRO_ALIGN_LEFT, " Os moradores desta cabana sao");
+         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+275,cameraPosition[1]+225, ALLEGRO_ALIGN_LEFT, " um  tanto  estranhos. Eu devo");
+         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+275,cameraPosition[1]+240, ALLEGRO_ALIGN_LEFT, " terminar de investigar este local");
+         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+275,cameraPosition[1]+255, ALLEGRO_ALIGN_LEFT, " o quanto antes.");
     }
     if(fala1_1)
     {
          al_draw_bitmap(FALA1,cameraPosition[0]+200,cameraPosition[1]+200,NULL);
-         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+275,cameraPosition[1]+210, ALLEGRO_ALIGN_LEFT, "  Como eu suspeitava, as pessoas");
-         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+270,cameraPosition[1]+225, ALLEGRO_ALIGN_LEFT, "que  moram  aqui  fazem  parte de");
-         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+270,cameraPosition[1]+240, ALLEGRO_ALIGN_LEFT, " algum  tipo  de  seita  satanica");
-         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+270,cameraPosition[1]+255, ALLEGRO_ALIGN_LEFT, "adoradora de sangue de criancas.");
+         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+275,cameraPosition[1]+210, ALLEGRO_ALIGN_LEFT, "Como eu suspeitava, essas pessoas");
+         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+275,cameraPosition[1]+225, ALLEGRO_ALIGN_LEFT, "que  moram  aqui  fazem  parte de");
+         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+275,cameraPosition[1]+240, ALLEGRO_ALIGN_LEFT, "algum  tipo  de  seita  satanica");
+         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+275,cameraPosition[1]+255, ALLEGRO_ALIGN_LEFT, "adoradora de sangue.");
     }
     if(fala1_2)
     {
         al_draw_bitmap(FALA1,cameraPosition[0]+200,cameraPosition[1]+200,NULL);
-         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+275,cameraPosition[1]+210, ALLEGRO_ALIGN_LEFT, "  Aqui diz que as trevas ira con-");
-         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+270,cameraPosition[1]+225, ALLEGRO_ALIGN_LEFT, "sumir seus coracoes toda meia-.");
-         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+270,cameraPosition[1]+240, ALLEGRO_ALIGN_LEFT, "noite. Preciso dar o fora daqui,");
-        al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+270,cameraPosition[1]+255, ALLEGRO_ALIGN_LEFT, "ja passam das 23:50.");
+         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+275,cameraPosition[1]+210, ALLEGRO_ALIGN_LEFT, "Aqui diz que seus corpos metamorficos");
+         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+275,cameraPosition[1]+225, ALLEGRO_ALIGN_LEFT, "mudam de forma toda meia-noite.");
+         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+275,cameraPosition[1]+240, ALLEGRO_ALIGN_LEFT, "Preciso dar o fora daqui, ja");
+        al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+275,cameraPosition[1]+255, ALLEGRO_ALIGN_LEFT, "passam das 23:50.");
     }
     if(fala1_3)
     {
         al_draw_bitmap(FALA3,cameraPosition[0]+200,cameraPosition[1]+200,NULL);
-         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+275,cameraPosition[1]+210, ALLEGRO_ALIGN_LEFT, " Uma cruz crista, eu posso deixa-la");
-         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+270,cameraPosition[1]+225, ALLEGRO_ALIGN_LEFT, "no  caminho  de  criaturas  impuras");
-         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+270,cameraPosition[1]+240, ALLEGRO_ALIGN_LEFT, "para expurga-las.");
+         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+275,cameraPosition[1]+210, ALLEGRO_ALIGN_LEFT, "Uma cruz crista, eu posso deixa-la");
+         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+275,cameraPosition[1]+225, ALLEGRO_ALIGN_LEFT, "no  caminho  de criaturas impuras");
+         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+275,cameraPosition[1]+240, ALLEGRO_ALIGN_LEFT, "para expurga-las.");
     }
     if(fala1_4)
     {
         al_draw_bitmap(FALA2,cameraPosition[0]+200,cameraPosition[1]+200,NULL);
-         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+275,cameraPosition[1]+225, ALLEGRO_ALIGN_LEFT, " Agora podemos sair desse lugar");
+         al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+275,cameraPosition[1]+225, ALLEGRO_ALIGN_LEFT, "Vamos dar o fora desse lugar.");
 
     }
 if (cont_horas < 1)
 {
     al_clear_to_color(al_map_rgb(0,0,0));
 
-    al_draw_text(font2, al_map_rgb(255,255,255),400,120, ALLEGRO_ALIGN_CENTRE, "Sua irma desapareceu a cerca de 1 mes.");
-    al_draw_text(font2, al_map_rgb(255,255,255),400,150, ALLEGRO_ALIGN_CENTRE, "Todas as evidencias levaram voce a uma cabana em meio a floresta.");
-    al_draw_text(font2, al_map_rgb(255,255,255),400,180, ALLEGRO_ALIGN_CENTRE, "Moradores do vilarejo vizinho acreditam que coisas ruins tem ocorrido");
-    al_draw_text(font2, al_map_rgb(255,255,255),400,210, ALLEGRO_ALIGN_CENTRE, "nessa regiao. Voce deve tomar cuidado com as criaturas malignas");
-    al_draw_text(font2, al_map_rgb(255,255,255),400,240, ALLEGRO_ALIGN_CENTRE, "que surgem a noite. Se for tocado por alguma dessas criaturas");
-    al_draw_text(font2, al_map_rgb(255,255,255),400,270, ALLEGRO_ALIGN_CENTRE, "voce morrera instantaneamente. Criaturas satanicas sao vuneraveis a");
-    al_draw_text(font2, al_map_rgb(255,255,255),400,300, ALLEGRO_ALIGN_CENTRE, "Trindade. Animais e Insetos sao vuneraveis a armas comuns.");
-    al_draw_text(font2, al_map_rgb(255,255,255),400,330, ALLEGRO_ALIGN_CENTRE, "Para coletar equipamentos voce deve precionar a TECLA C.");
-    al_draw_text(font2, al_map_rgb(255,255,255),400,360, ALLEGRO_ALIGN_CENTRE, "Equipamentos abencoados sao utilizados precionando a TECLA S");
-    al_draw_text(font2, al_map_rgb(255,255,255),400,390, ALLEGRO_ALIGN_CENTRE, "Equipamentos comuns sao utilizados precionando a TECLA X");
-    al_draw_text(font2, al_map_rgb(255,255,255),400,420, ALLEGRO_ALIGN_CENTRE, "Voce podera saltar em espacos abertos precionando a TECLA ESPACO");
+    al_draw_text(font2, al_map_rgb(255,255,255),700,120, ALLEGRO_ALIGN_CENTRE, "Sua mulher desapareceu a cerca de 1 mes.");
+    al_draw_text(font2, al_map_rgb(255,255,255),700,150, ALLEGRO_ALIGN_CENTRE, "Todas as evidencias levaram voce a uma cabana em meio a floresta.");
+    al_draw_text(font2, al_map_rgb(255,255,255),700,180, ALLEGRO_ALIGN_CENTRE, "Moradores do vilarejo vizinho acreditam que coisas ruins tem ocorrido");
+    al_draw_text(font2, al_map_rgb(255,255,255),700,210, ALLEGRO_ALIGN_CENTRE, "nessa regiao. Voce deve tomar cuidado com as criaturas malignas");
+    al_draw_text(font2, al_map_rgb(255,255,255),700,240, ALLEGRO_ALIGN_CENTRE, "que surgem a noite. Se for tocado por alguma dessas criaturas");
+    al_draw_text(font2, al_map_rgb(255,255,255),700,270, ALLEGRO_ALIGN_CENTRE, "voce sofrera danos. Criaturas satanicas sao vuneraveis a CRUZ");
+    al_draw_text(font2, al_map_rgb(255,255,255),700,300, ALLEGRO_ALIGN_CENTRE, "CRISTA. Animais e Insetos sao vuneraveis a ARMAS COMUNS.");
+    al_draw_text(font2, al_map_rgb(255,255,255),700,330, ALLEGRO_ALIGN_CENTRE, "Para coletar equipamentos voce deve precionar a TECLA C.");
+    al_draw_text(font2, al_map_rgb(255,255,255),700,360, ALLEGRO_ALIGN_CENTRE, "Equipamentos abencoados sao utilizados precionando a TECLA S");
+    al_draw_text(font2, al_map_rgb(255,255,255),700,390, ALLEGRO_ALIGN_CENTRE, "Equipamentos comuns sao utilizados precionando a TECLA X");
+    al_draw_text(font2, al_map_rgb(255,255,255),700,420, ALLEGRO_ALIGN_CENTRE, "Voce podera saltar em espacos abertos precionando a TECLA ESPACO");
 }
 if (ler)
 {
-    al_draw_bitmap(BBMASAGE,cameraPosition[0]+200,cameraPosition[1]+200,NULL);
+    al_draw_bitmap(BBMASAGE,cameraPosition[0],cameraPosition[1]+200,NULL);
     al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+490,cameraPosition[1]+230, ALLEGRO_ALIGN_CENTRE, "ESCRITO POR UM EXORCISTA");
-    al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+490,cameraPosition[1]+260, ALLEGRO_ALIGN_CENTRE, "Ha cerca de um mes tenho investigado o paradeiro da");
-    al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+490,cameraPosition[1]+290, ALLEGRO_ALIGN_CENTRE, "crianca levada pela criatura. Hoje, encontrei uma");
+    al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+490,cameraPosition[1]+260, ALLEGRO_ALIGN_CENTRE, "Ha cerca de um mes tenho investigado o paradeiro das");
+    al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+490,cameraPosition[1]+290, ALLEGRO_ALIGN_CENTRE, "criaturas satanicas. Hoje, encontrei uma");
     al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+490,cameraPosition[1]+320, ALLEGRO_ALIGN_CENTRE, "cabana em meio a floresta. Tenho motivos para crer");
-    al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+490,cameraPosition[1]+350, ALLEGRO_ALIGN_CENTRE, "que a crianca foi trazida para este lugar e daqui");
+    al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+490,cameraPosition[1]+350, ALLEGRO_ALIGN_CENTRE, "que uma mulher foi trazida para este lugar e daqui");
     al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+490,cameraPosition[1]+380, ALLEGRO_ALIGN_CENTRE, "tenha sido levada para a ilha ao LESTE");
     al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+490,cameraPosition[1]+410, ALLEGRO_ALIGN_CENTRE, ".");
     al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+490,cameraPosition[1]+420, ALLEGRO_ALIGN_CENTRE, ".");
     al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+490,cameraPosition[1]+430, ALLEGRO_ALIGN_CENTRE, ".");
     al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+490,cameraPosition[1]+460, ALLEGRO_ALIGN_CENTRE, "ESCRITO POR UM EXORCISTA");
-    al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+490,cameraPosition[1]+490, ALLEGRO_ALIGN_CENTRE, "Poderes espirituais sao fortificados durante a oracao");
-    al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+490,cameraPosition[1]+520, ALLEGRO_ALIGN_CENTRE, "Segure a TECLA Z para afastar o mal");
+    al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+490,cameraPosition[1]+490, ALLEGRO_ALIGN_CENTRE, "Poderes espirituais aumentam durante a oracao");
+    al_draw_text(font2, al_map_rgb(255,255,255),cameraPosition[0]+490,cameraPosition[1]+520, ALLEGRO_ALIGN_CENTRE, "Segure a TECLA Z sobre uma cruz para afastar o mal.");
 }
 if (pistola)
 {
@@ -1568,10 +1840,6 @@ if (pistola)
     al_draw_text(font2, al_map_rgb(255,255,255),300,220, ALLEGRO_ALIGN_LEFT, "Arma comum:");
     al_draw_text(font2, al_map_rgb(255,255,255),300,240, ALLEGRO_ALIGN_LEFT, "Pistola de plasma venenoso.");
 }
-
-    al_flip_display();
-    al_clear_to_color(al_map_rgb(0,0,0));
-}
 if (morte)
 {
     al_clear_to_color(al_map_rgb(0,0,0));
@@ -1579,7 +1847,13 @@ if (morte)
     al_draw_textf(font2,al_map_rgb(255,255,255),120,10,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
     al_draw_bitmap_region(keen,5,300,21,21,80,8,0);
     al_flip_display();
-    al_rest(2.0);
+
+}
+
+    al_draw_bitmap_region(HP,regiao_x_folha_HP,regiao_y_folha_HP,largura_sprite_HP,altura_sprite_HP,cameraPosition[0]+50,cameraPosition[1]+30,NULL);
+    al_draw_bitmap_region(MP,regiao_x_folha_MP,regiao_y_folha_MP,largura_sprite_MP,altura_sprite_MP,cameraPosition[0]+50,cameraPosition[1]+60,NULL);
+    al_flip_display();
+    al_clear_to_color(al_map_rgb(0,0,0));
 }
 } //fim do timer
 }//fim do while
@@ -1590,6 +1864,16 @@ while(!done)
 ALLEGRO_EVENT events;
 al_wait_for_event(event_queue, &events);
 al_get_keyboard_state(&keyState);
+
+ if(events.type == ALLEGRO_EVENT_KEY_UP)
+    {
+
+        switch (events.keyboard.keycode)
+        {
+        case ALLEGRO_KEY_Z:
+        dir = 0;
+        }
+    }
 
     if(events.type == ALLEGRO_EVENT_KEY_DOWN)
     {
@@ -1753,7 +2037,7 @@ if(y>472)
                 posy_tiro +=0;
             }
 
-            if(al_key_down(&keyState,ALLEGRO_KEY_RIGHT))
+            if(al_key_down(&keyState,ALLEGRO_KEY_RIGHT) && !historia)
             {
 
                 if (x >= 800 - al_get_bitmap_width(keen)/5)
@@ -1785,17 +2069,17 @@ if(y>472)
                 dir = RIGHT;
             }
 
-            else if(al_key_down(&keyState,ALLEGRO_KEY_UP))
+            else if(al_key_down(&keyState,ALLEGRO_KEY_UP) && !historia)
             {
                 dir = UP;
                 velx = 0;
             }
-            else if(al_key_down(&keyState,ALLEGRO_KEY_DOWN))
+            else if(al_key_down(&keyState,ALLEGRO_KEY_DOWN) && !historia)
             {
                 dir = DOWN;
                 velx = 0;
             }
-            else if(al_key_down(&keyState,ALLEGRO_KEY_LEFT))
+            else if(al_key_down(&keyState,ALLEGRO_KEY_LEFT) && !historia)
             {
 
                 if (x<=0)
@@ -1813,12 +2097,18 @@ if(y>472)
                     cruz = false;
                     pegou = true;
             }
-             else if(al_key_down(&keyState,ALLEGRO_KEY_Z) && x >= cruzx-20 && x<= cruzx+30 && y >= cruzy-20 && y<= cruzy+30)
-            {
+             else if(al_key_down(&keyState,ALLEGRO_KEY_Z) && x >= cruzx-20 && x<= cruzx+30 && y >= cruzy-20 && y<= cruzy+30 && coluna_atual_MP>2)
+                    {
                         oracao = true;
                         dir = 5;
+                        cont_frames_MP++;
+                        if (cont_frames_MP>=15)
+                        {
+                            cont_frames_MP = 0;
+                            coluna_atual_MP--;
+                        }
 
-            }
+                    }
 
 
             else
@@ -1826,64 +2116,61 @@ if(y>472)
                 velx = 0;
                 active = false;
                 oracao = false;
-                dir = 0;
+                historia = false;
             }
 
             if (Colisao(x,y,posx,posy,32,42) && Ebolavive)
             {
-                movespeed == 0;
-                cont_vidas--;
-                morte = true;
-                if(cont_vidas == 0)
-                    {
-                        done = true;
-                    }
+                cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
             }
 
-               if(linha_atual_oracao[1]>=6 && oracao)
-            {
-                vuneravel = true;
-            }
-              if(linha_atual_oracao[1]<6 && oracao)
-            {
-                vuneravel = false;
-            }
+if (oracao)
+{
+    vuneravel = false;
+}
+largura_sprite_HP = 9*coluna_atual_HP;
+largura_sprite_MP = 9*coluna_atual_MP;
 
             if (Colisao(x,y,zombiex[0],zombiey[0],10,10) && zombie1vive && vuneravel)
             {
-                movespeed == 0;
-                cont_vidas--;
-                morte = true;
-                if(cont_vidas == 0)
-                    {
-                        done = true;
-                    }
+                cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
             }
               if (Colisao(x,y,zombiex[1],zombiey[1],10,10) && zombie2vive && vuneravel)
             {
-                movespeed == 0;
-                cont_vidas--;
-                morte = true;
-                if(cont_vidas == 0)
-                    {
-                        done = true;
-                    }
+               cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
             }
               if (Colisao(x,y,zombiex[2],zombiey[2],10,10) && zombie3vive && vuneravel)
             {
-                movespeed == 0;
-                cont_vidas--;
-                morte = true;
-                if(cont_vidas == 0)
-                    {
-                        done = true;
-                    }
+                 cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
             }
 
             if (Colisao(posx_tiro,posy_tiro,posx,posy,30,30) && tiro)
             {
                 Ebola = false;
-                score += 500;
+                if(Ebolavive)
+                {
+                   score += 500;
+                }
                 tiro = false;
                 Ebolavive = false;
             }
@@ -1919,6 +2206,32 @@ if(y>472)
             zombie3vive = false;
             score +=2000;
         }
+
+if (coluna_atual_HP <= 2)
+            {
+                historia = true;
+                morte = true;
+                vuneravel = false;
+                cont_frames_morto++;
+                if(cont_frames_morto>=12)
+                {
+                morte = false;
+                    if(cont_frames_morto>=24)
+                    {
+                    coluna_atual_HP = 12;
+                    cont_frames_morto = 0;
+                    vuneravel = true;
+                    }
+                }
+                if(cont_frames_morto == 6)
+                {
+                    cont_vidas--;
+                       if(cont_vidas<0)
+                        {
+                        done = true;
+                        }
+                }
+            }
             if(active)
             {
                 sourceX += al_get_bitmap_width(keen)/5;
@@ -2159,10 +2472,10 @@ if(draw)
     al_draw_bitmap(ARVOREF,500,250,NULL);
     al_draw_bitmap(CASA,300,350,NULL);
     al_draw_bitmap(ARVOREF,400,250,NULL);
-       al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,60),0,0,NULL);
-    al_draw_textf(font,al_map_rgb(255,255,255),600,0,ALLEGRO_ALIGN_CENTER, "SCORE: %i", 1000 + score);
-    al_draw_textf(font2,al_map_rgb(255,255,255),50,10,ALLEGRO_ALIGN_CENTER, "X %i", cont_moedas_prata);
-    al_draw_textf(font2,al_map_rgb(255,255,255),120,10,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
+    al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,60),0,0,NULL);
+    al_draw_textf(font,al_map_rgb(255,255,255),cameraPosition[0]+1100,cameraPosition[1],ALLEGRO_ALIGN_CENTER, "SCORE: %i", 1000 + score);
+    al_draw_textf(font2,al_map_rgb(255,255,255),cameraPosition[0]+50,cameraPosition[1]+10,ALLEGRO_ALIGN_CENTER, "X %i", cont_moedas_prata);
+    al_draw_textf(font2,al_map_rgb(255,255,255),cameraPosition[0]+150,cameraPosition[1]+10,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
         if(pulo)
         {
             al_draw_bitmap_region(keen,regiao_x_folha_pulo,regiao_y_folha_pulo,largura_sprite_pulo,altura_sprite_pulo,x,y,0);
@@ -2176,7 +2489,9 @@ if(draw)
         {
             if(!pulo)
             {
-               al_draw_bitmap_region(ATIRA,0,0,40,50,x,y,NULL);
+            al_draw_bitmap_region(keen,sourceX,RIGHT*al_get_bitmap_height(keen)/7,30,50,x,y,NULL);
+            al_draw_bitmap_region(ATIRA,0,0,40,30,x,y,NULL);
+
             }
             al_draw_bitmap_region(TIRO,regiao_x_tiro,0,largura_sprite_tiro,altura_sprite_tiro,posx_tiro,posy_tiro+10,0);
         }
@@ -2194,8 +2509,8 @@ if(draw)
     }
     al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,moeda1x,moeda1y,0);
     al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,moeda2x,moeda2y,0);
-    al_draw_bitmap_region(keen,5,300,21,21,80,8,0);
-    al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,10,10,0);
+    al_draw_bitmap_region(keen,5,300,21,21,cameraPosition[0]+80,cameraPosition[1]+8,0);
+    al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,cameraPosition[0]+10,cameraPosition[1]+10,0);
     if(Ebola)
     {
          al_draw_bitmap_region(BOLA,0,0,76,76, posx, posy, 0);
@@ -2219,22 +2534,22 @@ if(draw)
         al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[6],regiao_y_folha_oracao[6],largura_sprite_oracao[6], altura_sprite_oracao[6], x-30,y-60,NULL);
 
     }
-    al_draw_bitmap_region(INU,0,0,32,42,300,480,NULL);
-    al_flip_display();
-    al_clear_to_color(al_map_rgb(0,0,0));
-
-}
-
-if (morte)
+    if (morte)
 {
     al_clear_to_color(al_map_rgb(0,0,0));
     al_draw_bitmap(morto,x,y,NULL);
     al_draw_textf(font2,al_map_rgb(255,255,255),120,10,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
     al_draw_bitmap_region(keen,5,300,21,21,80,8,0);
     al_flip_display();
-    al_rest(2.0);
-}
 
+}
+    al_draw_bitmap_region(HP,regiao_x_folha_HP,regiao_y_folha_HP,largura_sprite_HP,altura_sprite_HP,cameraPosition[0]+50,cameraPosition[1]+30,NULL);
+    al_draw_bitmap_region(MP,regiao_x_folha_MP,regiao_y_folha_MP,largura_sprite_MP,altura_sprite_MP,cameraPosition[0]+50,cameraPosition[1]+60,NULL);
+    al_draw_bitmap_region(INU,0,0,32,42,300,480,NULL);
+    al_flip_display();
+    al_clear_to_color(al_map_rgb(0,0,0));
+
+}
 }
 while(!done2)
 {
@@ -2243,17 +2558,27 @@ ALLEGRO_EVENT events;
 al_wait_for_event(event_queue, &events);
 al_get_keyboard_state(&keyState);
 cameraUpdate(cameraPosition,x,y,35,200);
-            if ( x>= 1550 && cont_frames_socorro > 0 && cont_frames_socorro < 300 && posicaocamerax < 2695)
+            if ( x>= 1550 && cont_frames_socorro > 0 && cont_frames_socorro < 300 && posicaocamerax < 2395)
             {
                 cameraUpdate(cameraPosition,posicaocamerax,zoioy[2],35,200);
             }
-             if (posicaocamerax > 2695)
+             if (posicaocamerax > 2395)
             {
-                cameraUpdate(cameraPosition,zoiox[2],zoioy[2],35,200);
+                cameraUpdate(cameraPosition,zoiox[2]-300,zoioy[2],35,200);
             }
 al_identity_transform(&camera);
 al_translate_transform(&camera, -cameraPosition[0],-cameraPosition[1]);
 al_use_transform(&camera);
+
+ if(events.type == ALLEGRO_EVENT_KEY_UP)
+    {
+
+        switch (events.keyboard.keycode)
+        {
+        case ALLEGRO_KEY_Z:
+        dir = 0;
+        }
+    }
 
     if(events.type == ALLEGRO_EVENT_KEY_DOWN)
     {
@@ -2278,7 +2603,9 @@ al_use_transform(&camera);
             if(!zoiovive[1] && !zoiovive[2] && x>=hikarix && x<=hikarix+100)
             {
                 fala3_1 = true;
+                dir = LEFT;
                 historia = true;
+
             }
 
 
@@ -2374,13 +2701,34 @@ al_use_transform(&camera);
 
             if (y>=700)
             {
-             movespeed == 0;
-                cont_vidas--;
+                vely = 0;
+                historia = true;
                 morte = true;
-                if(cont_vidas == 0)
+                vuneravel = false;
+                cont_frames_morto++;
+                if(cont_frames_morto>=12)
+                {
+                morte = false;
+                    if(cont_frames_morto>=24)
                     {
-                        done2 = true;
+                    coluna_atual_HP = 12;
+                    cont_frames_morto = 0;
+                    vuneravel = true;
+                    y = 350;
+                    x = 1300;
+                    historia = false;
                     }
+                }
+                if(cont_frames_morto == 6)
+                {
+                    cont_vidas--;
+                       if(cont_vidas<0)
+                        {
+                        done2 = true;
+                        }
+                }
+
+
             }
 
             if(noar)
@@ -2608,12 +2956,18 @@ al_use_transform(&camera);
                     cruz = false;
                     pegou = true;
             }
-             else if(al_key_down(&keyState,ALLEGRO_KEY_Z) && x >= cruzx-20 && x<= cruzx+30 && y >= cruzy-20 && y<= cruzy+30)
-            {
+            else if(al_key_down(&keyState,ALLEGRO_KEY_Z) && x >= cruzx-20 && x<= cruzx+30 && y >= cruzy-20 && y<= cruzy+30 && coluna_atual_MP>2)
+                    {
                         oracao = true;
                         dir = 5;
+                        cont_frames_MP++;
+                        if (cont_frames_MP>=15)
+                        {
+                            cont_frames_MP = 0;
+                            coluna_atual_MP--;
+                        }
 
-            }
+                    }
 
             else if(al_key_down(&keyState,ALLEGRO_KEY_C) && x >= 700 && x<=760 && y >=450)
             {
@@ -2653,7 +3007,7 @@ al_use_transform(&camera);
                 velx = 0;
                 active = false;
                 oracao = false;
-                dir = 0;
+
 
             }
 
@@ -2661,95 +3015,87 @@ al_use_transform(&camera);
 
            if (Colisao(x,y,posx,posy,32,42) && Ebolavive)
             {
-                movespeed == 0;
-                cont_vidas--;
-                morte = true;
-                if(cont_vidas == 0)
-                    {
-                        done2 = true;
-                    }
-            }
-               if(linha_atual_oracao[1]>=6 && oracao)
+            cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
             {
-                vuneravel = true;
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
             }
-              if(linha_atual_oracao[1]<6 && oracao)
-            {
-                vuneravel = false;
             }
+          if(oracao)
+          {
+              vuneravel = false;
+          }
+
+          largura_sprite_HP = 9*coluna_atual_HP;
+          largura_sprite_MP = 9*coluna_atual_MP;
+
              if (Colisao(x,y,zoiox[0],zoioy[0],10,10) && zoiovive[0] && vuneravel)
             {
-                movespeed == 0;
-                cont_vidas--;
-                morte = true;
-                if(cont_vidas == 0)
-                    {
-                        done2 = true;
-                    }
+               cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
             }
               if (Colisao(x,y,zoiox[1],zoioy[1],10,10) && zoiovive[1] && vuneravel)
             {
-                movespeed == 0;
-                cont_vidas--;
-                morte = true;
-                if(cont_vidas == 0)
-                    {
-                        done2 = true;
-                    }
+                cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
             }
              if (Colisao(x,y,zoiox[2],zoioy[2],10,10) && zoiovive[2] && vuneravel)
             {
-                movespeed == 0;
-                cont_vidas--;
-                morte = true;
-                if(cont_vidas == 0)
-                    {
-                        done2 = true;
-                    }
+                cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
             }
             if (Colisao(x,y,zombiex[0],zombiey[0],10,10) && zombie1vive && vuneravel)
             {
-                movespeed == 0;
-                cont_vidas--;
-                morte = true;
-                if(cont_vidas == 0)
-                    {
-                        done2 = true;
-                    }
+                cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
             }
 
               if (Colisao(x,y,zombiex[2],zombiey[2],10,10) && zombie3vive && vuneravel)
             {
-                movespeed == 0;
-                cont_vidas--;
-                morte = true;
-                if(cont_vidas == 0)
-                    {
-                        done2 = true;
-                    }
+               cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
             }
 
 
 
               if (Colisao(x,y,540,500,0,0))
             {
-                movespeed == 0;
-                cont_vidas--;
-                morte = true;
-                if(cont_vidas == 0)
-                    {
-                        done2 = true;
-                    }
+               cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
             }
              if (Colisao(x,y,575,500,0,0))
             {
-                movespeed == 0;
-                cont_vidas--;
-                morte = true;
-                if(cont_vidas == 0)
-                    {
-                        done2 = true;
-                    }
+                cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
             }
             if (Colisao(posx_tiro,posy_tiro,posx,posy,30,30) && tiro)
             {
@@ -2816,6 +3162,32 @@ al_use_transform(&camera);
             zoiovive[2] = false;
             score +=1000;
         }
+
+        if (coluna_atual_HP <= 2)
+            {
+                historia = true;
+                morte = true;
+                vuneravel = false;
+                cont_frames_morto++;
+                if(cont_frames_morto>=12)
+                {
+                morte = false;
+                    if(cont_frames_morto>=24)
+                    {
+                    coluna_atual_HP = 12;
+                    cont_frames_morto = 0;
+                    vuneravel = true;
+                    }
+                }
+                if(cont_frames_morto == 6)
+                {
+                    cont_vidas--;
+                       if(cont_vidas<0)
+                        {
+                        done2 = true;
+                        }
+                }
+            }
 
 
             if(active)
@@ -3215,14 +3587,15 @@ if(draw)
     al_draw_bitmap(TRONCO, 800, 400, NULL);
     al_draw_bitmap(ESPIRITOS,900,450,NULL);
     al_draw_bitmap(KINOKO,330,380,NULL);
-    al_draw_textf(font,al_map_rgb(255,255,255),600,0,ALLEGRO_ALIGN_CENTER, "SCORE: %i", 1000 + score);
-    al_draw_textf(font2,al_map_rgb(255,255,255),50,10,ALLEGRO_ALIGN_CENTER, "X %i", cont_moedas_prata);
-    al_draw_textf(font2,al_map_rgb(255,255,255),120,10,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
+     al_draw_textf(font,al_map_rgb(255,255,255),cameraPosition[0]+1100,cameraPosition[1],ALLEGRO_ALIGN_CENTER, "SCORE: %i", 1000 + score);
+    al_draw_textf(font2,al_map_rgb(255,255,255),cameraPosition[0]+50,cameraPosition[1]+10,ALLEGRO_ALIGN_CENTER, "X %i", cont_moedas_prata);
+    al_draw_textf(font2,al_map_rgb(255,255,255),cameraPosition[0]+150,cameraPosition[1]+10,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
     al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,60),0,0,NULL);
     al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,60),al_get_bitmap_width(FADE),0,NULL);
     al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,60),2*al_get_bitmap_width(FADE),0,NULL);
     al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,60),3*al_get_bitmap_width(FADE),0,NULL);
     al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,60),4*al_get_bitmap_width(FADE),0,NULL);
+
     if (pulo)
     {
         al_draw_bitmap_region(keen,regiao_x_folha_pulo,regiao_y_folha_pulo,largura_sprite_pulo,altura_sprite_pulo,x,y,0);
@@ -3235,6 +3608,7 @@ if(draw)
         {
             if(!pulo)
             {
+                al_draw_bitmap_region(keen,sourceX,RIGHT*al_get_bitmap_height(keen)/7,30,50,x,y,NULL);
                al_draw_bitmap_region(ATIRA,0,0,40,50,x,y,NULL);
             }
             al_draw_bitmap_region(TIRO,regiao_x_tiro,0,largura_sprite_tiro,altura_sprite_tiro,posx_tiro,posy_tiro+10,0);
@@ -3242,8 +3616,8 @@ if(draw)
 
     al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,moeda1x,moeda1y,0);
     al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,moeda2x,moeda2y,0);
-    al_draw_bitmap_region(keen,5,300,21,21,80,8,0);
-    al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,10,10,0);
+   al_draw_bitmap_region(keen,5,300,21,21,cameraPosition[0]+80,cameraPosition[1]+8,0);
+    al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,cameraPosition[0]+10,cameraPosition[1]+10,0);
    if(Ebola)
     {
          al_draw_bitmap_region(BOLA,0,0,76,76, posx, posy, 0);
@@ -3338,7 +3712,7 @@ if (zoiovive[2])
     if (cont_frames_socorro < 600)
     {
         al_draw_bitmap(MENSAGEMITEM, 2300, 380,NULL);
-        al_draw_text(font,al_map_rgb(255,255,255),2465,400,ALLEGRO_ALIGN_CENTRE,"SOCORRO!!");
+        al_draw_text(font,al_map_rgb(255,255,255),2565,400,ALLEGRO_ALIGN_CENTRE,"SOCORRO!!");
     }
       if (fala3_1)
     {
@@ -3374,7 +3748,7 @@ if (zoiovive[2])
         al_draw_bitmap(FALA2, 2300, 380,NULL);
         al_draw_text(font2,al_map_rgb(255,255,255),2392,385,ALLEGRO_ALIGN_LEFT,"Muito bem Hikari, eu aceitarei");
         al_draw_text(font2,al_map_rgb(255,255,255),2375,400,ALLEGRO_ALIGN_LEFT,"sua ajuda. Meu nome e Claudio");
-        al_draw_text(font2,al_map_rgb(255,255,255),2375,415,ALLEGRO_ALIGN_LEFT,"e estou procurando por minha irma.");
+        al_draw_text(font2,al_map_rgb(255,255,255),2375,415,ALLEGRO_ALIGN_LEFT,"e estou procurando por minha esposa.");
     }
       if (fala3_6)
     {
@@ -3397,21 +3771,22 @@ if (zoiovive[2])
         al_draw_text(font2,al_map_rgb(255,255,255),2392,410,ALLEGRO_ALIGN_LEFT,"Hikari juntou-se ao grupo.");
 
     }
-    al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,fading1),3*al_get_bitmap_width(FADE),0,NULL);
-    al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,fading1),2*al_get_bitmap_width(FADE),0,NULL);
-    al_flip_display();
-    al_clear_to_color(al_map_rgb(0,0,0));
-
-}
-
-if (morte)
+    if (morte)
 {
     al_clear_to_color(al_map_rgb(0,0,0));
     al_draw_bitmap(morto,x,y,NULL);
     al_draw_textf(font2,al_map_rgb(255,255,255),120,10,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
     al_draw_bitmap_region(keen,5,300,21,21,80,8,0);
     al_flip_display();
-    al_rest(2.0);
+
+}
+    al_draw_bitmap_region(HP,regiao_x_folha_HP,regiao_y_folha_HP,largura_sprite_HP,altura_sprite_HP,cameraPosition[0]+50,cameraPosition[1]+30,NULL);
+    al_draw_bitmap_region(MP,regiao_x_folha_MP,regiao_y_folha_MP,largura_sprite_MP,altura_sprite_MP,cameraPosition[0]+50,cameraPosition[1]+60,NULL);
+    al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,fading1),2*al_get_bitmap_width(FADE),0,NULL);
+    al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,fading1),al_get_bitmap_width(FADE),0,NULL);
+    al_flip_display();
+    al_clear_to_color(al_map_rgb(0,0,0));
+
 }
 }
 
@@ -3426,8 +3801,27 @@ al_identity_transform(&camera);
 al_translate_transform(&camera, -cameraPosition[0],-cameraPosition[1]);
 al_use_transform(&camera);
 
+ if(events.type == ALLEGRO_EVENT_KEY_UP && !historia)
+    {
 
-    if(events.type == ALLEGRO_EVENT_KEY_DOWN)
+        switch (events.keyboard.keycode)
+        {
+        case ALLEGRO_KEY_Z:
+        dir = 0;
+        }
+    }
+
+     if(events.type == ALLEGRO_EVENT_KEY_DOWN)
+    {
+    switch (events.keyboard.keycode)
+        {
+        case ALLEGRO_KEY_ESCAPE:
+            boat = true;
+        }
+    }
+
+
+    if(events.type == ALLEGRO_EVENT_KEY_DOWN && !historia)
     {
         switch (events.keyboard.keycode)
         {
@@ -3471,7 +3865,7 @@ al_use_transform(&camera);
 
     }
     }
-    if(events.type == ALLEGRO_EVENT_KEY_UP)
+    if(events.type == ALLEGRO_EVENT_KEY_UP && !historia)
     {
         switch (events.keyboard.keycode)
         {
@@ -3590,17 +3984,24 @@ al_use_transform(&camera);
                 dir = DOWN;
                 velx = 0;
             }
-               else if(al_key_down(&keyState,ALLEGRO_KEY_C) && x>=cruzx-30 && x<=cruzx+30)
+               else if(al_key_down(&keyState,ALLEGRO_KEY_C) && x>=cruzx-30 && x<=cruzx+30 && !historia)
             {
                     cruz = false;
                     pegou = true;
             }
 
-             else if(al_key_down(&keyState,ALLEGRO_KEY_Z) && x >= cruzx-20 && x<= cruzx+30 && y >= cruzy-20 && y<= cruzy+30)
-            {
+            else if(al_key_down(&keyState,ALLEGRO_KEY_Z) && x >= cruzx-20 && x<= cruzx+30 && y >= cruzy-20 && y<= cruzy+30 && coluna_atual_MP>2 && !historia)
+                    {
                         oracao = true;
                         dir = 5;
-            }
+                        cont_frames_MP++;
+                        if (cont_frames_MP>=15)
+                        {
+                            cont_frames_MP = 0;
+                            coluna_atual_MP--;
+                        }
+
+                    }
 
              else
             {
@@ -3608,16 +4009,16 @@ al_use_transform(&camera);
                 active = false;
                 oracao = false;
                 dir = 3;
+                historia = false;
             }
 
-               if(linha_atual_oracao[1]>=6 && oracao)
-            {
-                vuneravel = true;
-            }
-              if(linha_atual_oracao[1]<6 && oracao)
-            {
-                vuneravel = false;
-            }
+           if (oracao)
+           {
+               vuneravel = false;
+           }
+
+           largura_sprite_HP = 9*coluna_atual_HP;
+           largura_sprite_MP = 9*coluna_atual_MP;
 
             if (cutscene2)
             {
@@ -3979,11 +4380,11 @@ if (pulo)
         {
             if(!pulo)
             {
+                al_draw_bitmap_region(keen,sourceX,RIGHT*al_get_bitmap_height(keen)/7,30,50,x,y,NULL);
                al_draw_bitmap_region(ATIRA,0,0,40,50,x,y,NULL);
             }
             al_draw_bitmap_region(TIRO,regiao_x_tiro,0,largura_sprite_tiro,altura_sprite_tiro,posx_tiro,posy_tiro+10,0);
         }
-al_draw_bitmap_region(keen,5,300,21,21,80,8,0);
 
  if (cruz)
     {
@@ -3991,11 +4392,8 @@ al_draw_bitmap_region(keen,5,300,21,21,80,8,0);
     }
       if (oracao)
     {
-        if (linha_atual_oracao[1] < 6)
-        {
-            al_draw_bitmap(ESCUDO,x-113,y-130,NULL);
-        }
 
+        al_draw_bitmap(ESCUDO,x-113,y-130,NULL);
         al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[1],regiao_y_folha_oracao[1],largura_sprite_oracao[1], altura_sprite_oracao[1], x+15, y+15, NULL);
         al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[2],regiao_y_folha_oracao[2],largura_sprite_oracao[2], altura_sprite_oracao[2], x-30, y+30, NULL);
         al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[3],regiao_y_folha_oracao[3],largura_sprite_oracao[3], altura_sprite_oracao[3], x-70, y, NULL);
@@ -4085,7 +4483,7 @@ al_draw_bitmap_region(keen,5,300,21,21,80,8,0);
     if(fala4_4)
     {
        al_draw_bitmap(FALA4,cameraPosition[0]+300,cameraPosition[1]+380,NULL);
-        al_draw_text(font2,al_map_rgb(255,255,255),cameraPosition[0]+370,cameraPosition[1]+385,ALLEGRO_ALIGN_LEFT,"Uma vez minha mae me contou");
+        al_draw_text(font2,al_map_rgb(255,255,255),cameraPosition[0]+370,cameraPosition[1]+385,ALLEGRO_ALIGN_LEFT,"Uma vez uma velha me contou");
         al_draw_text(font2,al_map_rgb(255,255,255),cameraPosition[0]+370,cameraPosition[1]+400,ALLEGRO_ALIGN_LEFT,"uma historia antiga sobre");
         al_draw_text(font2,al_map_rgb(255,255,255),cameraPosition[0]+370,cameraPosition[1]+415,ALLEGRO_ALIGN_LEFT,"um ritual, mas eu nao");
         al_draw_text(font2,al_map_rgb(255,255,255),cameraPosition[0]+370,cameraPosition[1]+430,ALLEGRO_ALIGN_LEFT,"me recordo mais.");
@@ -4110,7 +4508,7 @@ al_draw_bitmap_region(keen,5,300,21,21,80,8,0);
     {
        al_draw_bitmap(FALA5,cameraPosition[0]+300,cameraPosition[1]+380,NULL);
         al_draw_text(font2,al_map_rgb(255,255,255),cameraPosition[0]+370,cameraPosition[1]+400,ALLEGRO_ALIGN_LEFT,"Voce acha que essa inocente");
-        al_draw_text(font2,al_map_rgb(255,255,255),cameraPosition[0]+370,cameraPosition[1]+415,ALLEGRO_ALIGN_LEFT,"pode ser minha irma?");
+        al_draw_text(font2,al_map_rgb(255,255,255),cameraPosition[0]+370,cameraPosition[1]+415,ALLEGRO_ALIGN_LEFT,"pode ser minha esposa?");
     }
      if(fala4_8)
     {
@@ -4132,26 +4530,34 @@ al_draw_bitmap_region(keen,5,300,21,21,80,8,0);
        al_draw_bitmap(MENSAGEMHIKARI,cameraPosition[0]+300,cameraPosition[1]+380,NULL);
 
         al_draw_text(font2,al_map_rgb(255,255,255),cameraPosition[0]+380,cameraPosition[1]+395,ALLEGRO_ALIGN_LEFT,"Chegaremos em uma hora, ate");
-        al_draw_text(font2,al_map_rgb(255,255,255),cameraPosition[0]+380,cameraPosition[1]+410,ALLEGRO_ALIGN_LEFT,"la descanse bem.");
+        al_draw_text(font2,al_map_rgb(255,255,255),cameraPosition[0]+380,cameraPosition[1]+410,ALLEGRO_ALIGN_LEFT,"la descanse.");
 
     }
-    al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,fading),x-400,y-500,NULL);
-    al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,fading1),0,0,NULL);
-    al_flip_display();
-    al_clear_to_color(al_map_rgb(0,0,0));
 
-}
-
-if (morte)
+    if (morte)
 {
     al_clear_to_color(al_map_rgb(0,0,0));
     al_draw_bitmap(morto,x,y,NULL);
     al_draw_textf(font2,al_map_rgb(255,255,255),120,10,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
     al_draw_bitmap_region(keen,5,300,21,21,80,8,0);
     al_flip_display();
-    al_rest(2.0);
-}
 
+}
+ al_draw_textf(font,al_map_rgb(255,255,255),cameraPosition[0]+1100,cameraPosition[1],ALLEGRO_ALIGN_CENTER, "SCORE: %i", 1000 + score);
+    al_draw_textf(font2,al_map_rgb(255,255,255),cameraPosition[0]+50,cameraPosition[1]+10,ALLEGRO_ALIGN_CENTER, "X %i", cont_moedas_prata);
+    al_draw_textf(font2,al_map_rgb(255,255,255),cameraPosition[0]+150,cameraPosition[1]+10,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
+    al_draw_bitmap_region(keen,5,300,21,21,cameraPosition[0]+80,cameraPosition[1]+8,0);
+    al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,cameraPosition[0]+10,cameraPosition[1]+10,0);
+    al_draw_bitmap_region(HP,regiao_x_folha_HP,regiao_y_folha_HP,largura_sprite_HP,altura_sprite_HP,cameraPosition[0]+50,cameraPosition[1]+30,NULL);
+    al_draw_bitmap_region(MP,regiao_x_folha_MP,regiao_y_folha_MP,largura_sprite_MP,altura_sprite_MP,cameraPosition[0]+50,cameraPosition[1]+60,NULL);
+    al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,fading),x-400,y-500,NULL);
+    al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,fading),x-400+al_get_bitmap_width(FADE),y-500,NULL);
+    al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,fading1),0,0,NULL);
+    al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,fading1),al_get_bitmap_width(FADE),0,NULL);
+    al_flip_display();
+    al_clear_to_color(al_map_rgb(0,0,0));
+
+}
 }
 
 while(!ilha)
@@ -4208,6 +4614,7 @@ al_use_transform(&camera);
                     y = 470;
                      ilha2 = false;
                      fading = 0;
+                     historia = false;
                  }
              }
              }
@@ -4220,16 +4627,16 @@ al_use_transform(&camera);
          }
     }
 
-    al_draw_bitmap(YUKIYAMA,0,0,NULL);
-    al_draw_bitmap_region(HIKARI,0,0,20,30,485,605,NULL);
-    al_draw_bitmap_region(keen,0,50,30,50,500,590,NULL);
+    al_draw_bitmap(YUKIYAMA,200,0,NULL);
+    al_draw_bitmap_region(HIKARI,0,0,20,30,610,605,NULL);
+    al_draw_bitmap_region(keen,0,50,30,50,625,590,NULL);
     al_draw_bitmap(FOG,fogx,130,NULL);
     al_draw_bitmap(FOG,fogx - al_get_bitmap_width(FOG),130,NULL);
     al_draw_rotated_bitmap(FOG,fogx,500,0,0,3.1415,NULL);
     al_draw_rotated_bitmap(FOG,fogx+al_get_bitmap_width(FOG),500,0,0,3.1415,NULL);
-    al_draw_bitmap(KAGESHIMA,350,150,NULL);
-    al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,fading),0,0,NULL);
-    al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,fading1),0,0,NULL);
+    al_draw_bitmap(KAGESHIMA,500,150,NULL);
+    al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,fading),200,0,NULL);
+    al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,fading1),200,0,NULL);
     al_flip_display();
     al_clear_to_color(al_map_rgb(0,0,0));
 }
@@ -4404,27 +4811,61 @@ al_use_transform(&camera);
                     pegou = true;
             }
 
-             else if(al_key_down(&keyState,ALLEGRO_KEY_Z) && x >= cruzx-20 && x<= cruzx+30 && y >= cruzy-20 && y<= cruzy+30)
-            {
+            else if(al_key_down(&keyState,ALLEGRO_KEY_Z) && x >= cruzx-20 && x<= cruzx+30 && y >= cruzy-20 && y<= cruzy+30 && coluna_atual_MP>2)
+                    {
                         oracao = true;
                         dir = 5;
-            }
+                        cont_frames_MP++;
+                        if (cont_frames_MP>=15)
+                        {
+                            cont_frames_MP = 0;
+                            coluna_atual_MP--;
+                        }
+
+                    }
 
              else
             {
                 velx = 0;
                 active = false;
                 oracao = false;
+                historia = false;
 
             }
 
-               if(linha_atual_oracao[1]>=6 && oracao)
+          if (oracao)
+           {
+               vuneravel = false;
+           }
+
+           largura_sprite_HP = 9*coluna_atual_HP;
+           largura_sprite_MP = 9*coluna_atual_MP;
+
+
+if (coluna_atual_HP <= 2)
             {
-                vuneravel = true;
-            }
-              if(linha_atual_oracao[1]<6 && oracao)
-            {
+                historia = true;
+                morte = true;
                 vuneravel = false;
+                cont_frames_morto++;
+                if(cont_frames_morto>=12)
+                {
+                morte = false;
+                    if(cont_frames_morto>=24)
+                    {
+                    coluna_atual_HP = 12;
+                    cont_frames_morto = 0;
+                    vuneravel = true;
+                    }
+                }
+                if(cont_frames_morto == 6)
+                {
+                    cont_vidas--;
+                       if(cont_vidas<0)
+                        {
+                        ilha2 = true;
+                        }
+                }
             }
 
             if(active)
@@ -4623,11 +5064,11 @@ if (pulo)
         {
             if(!pulo)
             {
+                al_draw_bitmap_region(keen,sourceX,RIGHT*al_get_bitmap_height(keen)/7,30,50,x,y,NULL);
                al_draw_bitmap_region(ATIRA,0,0,40,50,x,y,NULL);
             }
             al_draw_bitmap_region(TIRO,regiao_x_tiro,0,largura_sprite_tiro,altura_sprite_tiro,posx_tiro,posy_tiro+10,0);
         }
-al_draw_bitmap_region(keen,5,300,21,21,80,8,0);
 
  if (cruz)
     {
@@ -4635,19 +5076,15 @@ al_draw_bitmap_region(keen,5,300,21,21,80,8,0);
     }
       if (oracao)
     {
-        if (linha_atual_oracao[1] < 6)
-        {
-            al_draw_bitmap(ESCUDO,x-113,y-130,NULL);
-        }
-
+        al_draw_bitmap(ESCUDO,x-113,y-130,NULL);
         al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[1],regiao_y_folha_oracao[1],largura_sprite_oracao[1], altura_sprite_oracao[1], x+15, y+15, NULL);
         al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[2],regiao_y_folha_oracao[2],largura_sprite_oracao[2], altura_sprite_oracao[2], x-30, y+30, NULL);
         al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[3],regiao_y_folha_oracao[3],largura_sprite_oracao[3], altura_sprite_oracao[3], x-70, y, NULL);
         al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[4],regiao_y_folha_oracao[4],largura_sprite_oracao[4], altura_sprite_oracao[4], x-70, y-45, NULL);
         al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[5],regiao_y_folha_oracao[5],largura_sprite_oracao[5], altura_sprite_oracao[5], x+15, y-45, NULL);
         al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[6],regiao_y_folha_oracao[6],largura_sprite_oracao[6], altura_sprite_oracao[6], x-30,y-60,NULL);
-
     }
+
     al_draw_bitmap(PINHO3,1500,-100,NULL);
     al_draw_bitmap(PINHO3,1400,100,NULL);
     al_draw_bitmap(FOG,fogx,100,NULL);
@@ -4656,11 +5093,6 @@ al_draw_bitmap_region(keen,5,300,21,21,80,8,0);
     al_draw_bitmap(FOG,fogx+3072,100,NULL);
     al_draw_bitmap(FOG,fogx-1024,100,NULL);
 
-
-    al_flip_display();
-    al_clear_to_color(al_map_rgb(0,0,0));
-}
-
 if (morte)
 {
     al_clear_to_color(al_map_rgb(0,0,0));
@@ -4668,9 +5100,19 @@ if (morte)
     al_draw_textf(font2,al_map_rgb(255,255,255),120,10,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
     al_draw_bitmap_region(keen,5,300,21,21,80,8,0);
     al_flip_display();
-    al_rest(2.0);
+
 }
-    }
+ al_draw_textf(font,al_map_rgb(255,255,255),cameraPosition[0]+1100,cameraPosition[1],ALLEGRO_ALIGN_CENTER, "SCORE: %i", 1000 + score);
+    al_draw_textf(font2,al_map_rgb(255,255,255),cameraPosition[0]+50,cameraPosition[1]+10,ALLEGRO_ALIGN_CENTER, "X %i", cont_moedas_prata);
+    al_draw_textf(font2,al_map_rgb(255,255,255),cameraPosition[0]+150,cameraPosition[1]+10,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
+   al_draw_bitmap_region(keen,5,300,21,21,cameraPosition[0]+80,cameraPosition[1]+8,0);
+    al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,cameraPosition[0]+10,cameraPosition[1]+10,0);
+    al_draw_bitmap_region(HP,regiao_x_folha_HP,regiao_y_folha_HP,largura_sprite_HP,altura_sprite_HP,cameraPosition[0]+50,cameraPosition[1]+30,NULL);
+    al_draw_bitmap_region(MP,regiao_x_folha_MP,regiao_y_folha_MP,largura_sprite_MP,altura_sprite_MP,cameraPosition[0]+50,cameraPosition[1]+60,NULL);
+    al_flip_display();
+    al_clear_to_color(al_map_rgb(0,0,0));
+}
+}
 }
 
 while(!done3)
@@ -4680,7 +5122,7 @@ ALLEGRO_EVENT events;
 al_wait_for_event(event_queue, &events);
 al_get_keyboard_state(&keyState);
 al_identity_transform(&camera);
-al_translate_transform(&camera, 0,0);
+al_translate_transform(&camera, 300,150);
 al_use_transform(&camera);
 
     if(events.type == ALLEGRO_EVENT_KEY_DOWN)
@@ -4691,15 +5133,22 @@ al_use_transform(&camera);
         case ALLEGRO_KEY_ESCAPE:
             done3 = true;
         case ALLEGRO_KEY_SPACE:
-            if(platape)
+            if(jump)
             {
-            vely -= jumpspeed;
+                vely -= jumpspeed;
+                pulo = true;
             }
 
         }
     }
   if(events.type == ALLEGRO_EVENT_KEY_UP)
     {
+        switch (events.keyboard.keycode)
+        {
+        case ALLEGRO_KEY_Z:
+        dir = 0;
+        }
+
         switch (events.keyboard.keycode)
         {
         case ALLEGRO_KEY_X:
@@ -4722,52 +5171,148 @@ al_use_transform(&camera);
     else if (events.type == ALLEGRO_EVENT_TIMER)
     {
 
-
         if(events.timer.source == timer)
         {
             active = true;
             draw = true;
+            jump = false;
+            noar = true;
+            vely +=gravity;
+            y += vely;
 
-            if(platape)
+            if(noar)
             {
-                jump = true;
-                pulo = false;
-            }
-            if(!platape)
-            {
-                pulo = true;
-                jump = false;
+                pulo=true;
             }
 
-            if(al_key_down(&keyState,ALLEGRO_KEY_SPACE) && jump && y<472)
+            if (y>=470)
+
             {
-                jump = false;
-            }
-
-
-            else if(!jump && !platape)
-            {
-                vely +=gravity;
-            }
-
-            else
+                y = 470;
                 vely = 0;
-                x += velx;
-                y += vely;
-if(y>471)
-{
-    y=470;
-}
+                pulo = false;
+                jump = true;
+                noar = false;
+       	    }
+       	    if(x>=20 && x<=150 && y>=390 && y<=400)
+       	    {
+       	        y = 390;
+                vely = 0;
+                pulo = false;
+                jump = true;
+                noar = false;
+       	    }
+       	     if(x>=160 && x<=350 && y>=310 && y<=320)
+       	    {
+       	        y = 310;
+                vely = 0;
+                pulo = false;
+                jump = true;
+                noar = false;
+       	    }
+       	     if(x>=230 && x<=315 && y>=280 && y<=290)
+       	    {
+       	        y = 280;
+                vely = 0;
+                pulo = false;
+                jump = true;
+                noar = false;
+       	    }
+       	    if(x>=330 && x<=450 && y>=370 && y<=380)
+       	    {
+       	        y = 370;
+                vely = 0;
+                pulo = false;
+                jump = true;
+                noar = false;
+       	    }
+  if(x>=450 && x<=900 && y>=170 && y<=180)
+       	    {
+       	        y = 170;
+                vely = 0;
+                pulo = false;
+                jump = true;
+                noar = false;
+       	    }
 
+       	      if(al_key_down(&keyState,ALLEGRO_KEY_RIGHT))
+            {
+                 if (x >= 800 - al_get_bitmap_width(keen)/5 && y<=250)
+                {
+                   x = 0;
+                   done3 = true;
+                   done4 = false;
+                   lobovive = true;
+                   lobo = true;
+                   lobox = 500;
+                   cont_dano = 0;
+                   velobox = 20;
+                   linha_atual_lobo = 0;
+                   cruzx = x;
+                   cruzy = y;
+                   cruz = false;
+                   pegou = true;
 
-            if(y>=470 || x>=20 && x<=150 && y>=400 && y<=410 || x>=145 && x<=380 && y>=300 && y<=320 || x>=450 && y>=190 && y<=200)
-            {
-                platape = true;
+                }
+                if(x>=800 - al_get_bitmap_width(keen)/5 && y>=300)
+                {
+                    x -=movespeed;
+                    x = 760;
+                }
+
+                x += movespeed;
+                dir = RIGHT;
             }
-            else
+
+            else if(al_key_down(&keyState,ALLEGRO_KEY_UP))
             {
-                platape = false;
+                dir = UP;
+                velx = 0;
             }
+            else if(al_key_down(&keyState,ALLEGRO_KEY_DOWN))
+            {
+                dir = DOWN;
+                velx = 0;
+            }
+            else if(al_key_down(&keyState,ALLEGRO_KEY_LEFT))
+            {
+
+                if (x<=0)
+                {
+                    x +=movespeed;
+                    x = 1;
+                }
+
+                x -= movespeed;
+                dir = LEFT;
+            }
+             else if(al_key_down(&keyState,ALLEGRO_KEY_C) && x>=cruzx-30 && x<=cruzx+30 && y<=cruzy+30 && y>=cruzy-20)
+            {
+                    cruz = false;
+                    pegou = true;
+            }
+
+            else if(al_key_down(&keyState,ALLEGRO_KEY_Z) && x >= cruzx-20 && x<= cruzx+30 && y >= cruzy-20 && y<= cruzy+30 && coluna_atual_MP>2)
+                    {
+                        oracao = true;
+                        dir = 5;
+                        cont_frames_MP++;
+                        if (cont_frames_MP>=15)
+                        {
+                            cont_frames_MP = 0;
+                            coluna_atual_MP--;
+                        }
+
+                    }
+
+           else
+        {
+            velx = 0;
+            active = false;
+            oracao = false;
+            dir = 0;
+
+        }
 
             if(!tiro)
             {
@@ -4877,87 +5422,23 @@ if(y>471)
                 posy_tiro +=0;
             }
 
-            if (cont_frames_porta >= frames_sprite_porta && abrir)
-            {
-                cont_frames_porta=0;
-                linha_atual_porta++;
+             if (oracao)
+           {
+               vuneravel = false;
+           }
 
-                if (linha_atual_porta >= linhas_porta)
-                {
-                    linha_atual_porta = 3;
-
-                }
-                regiao_y_folha_porta = linha_atual_porta * altura_sprite_porta;
-
-            }
-
-
-
-
-            if(al_key_down(&keyState,ALLEGRO_KEY_RIGHT))
-            {
-                 if (x >= 800 - al_get_bitmap_width(keen)/5 && y<=250)
-                {
-                   x = 0;
-                   done3 = true;
-                   done4 = false;
-                   lobovive = true;
-                   lobo = true;
-                   lobox = 500;
-                   cont_dano = 0;
-                   velobox = 20;
-                   linha_atual_lobo = 0;
-
-                }
-                if(x>=800 - al_get_bitmap_width(keen)/5 && y>=300)
-                {
-                    velx -=movespeed;
-                    x = 760;
-                }
-
-                velx = movespeed;
-                dir = RIGHT;
-            }
-
-            else if(al_key_down(&keyState,ALLEGRO_KEY_UP))
-            {
-                dir = UP;
-                velx = 0;
-            }
-            else if(al_key_down(&keyState,ALLEGRO_KEY_DOWN))
-            {
-                dir = DOWN;
-                velx = 0;
-            }
-            else if(al_key_down(&keyState,ALLEGRO_KEY_LEFT))
-            {
-
-                if (x<=0)
-                {
-                    velx +=movespeed;
-                    x = 1;
-                }
-
-                velx = -movespeed;
-                dir = LEFT;
-            }
-
-            else
-            {
-                velx = 0;
-                active = false;
-            }
+           largura_sprite_HP = 9*coluna_atual_HP;
+           largura_sprite_MP = 9*coluna_atual_MP;
 
 
             if (Colisao(x,y,lobox,loboy,32,64) && lobovive)
             {
-                movespeed == 0;
-                cont_vidas--;
-                morte = true;
-                if(cont_vidas == 0)
-                    {
-                        done3 = true;
-                    }
+                cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
             }
             if (Colisao(posx_tiro,posy_tiro,lobox,loboy,30,30) && tiro)
             {
@@ -4966,12 +5447,42 @@ if(y>471)
                 if(cont_dano >= 3)
                 {
                 lobo = false;
-                score += 1000;
+                if(lobovive)
+                {
+                    score += 1000;
+                }
                 lobovive = false;
                 velobox = 0;
                 tiro = false;
                 }
 
+            }
+
+
+if (coluna_atual_HP <= 2)
+            {
+                historia = true;
+                morte = true;
+                vuneravel = false;
+                cont_frames_morto++;
+                if(cont_frames_morto>=12)
+                {
+                morte = false;
+                    if(cont_frames_morto>=24)
+                    {
+                    coluna_atual_HP = 12;
+                    cont_frames_morto = 0;
+                    vuneravel = true;
+                    }
+                }
+                if(cont_frames_morto == 6)
+                {
+                    cont_vidas--;
+                       if(cont_vidas<0)
+                        {
+                        done3 = true;
+                        }
+                }
             }
 
             if(active)
@@ -4996,7 +5507,7 @@ if(y>471)
             else if(events.timer.source == BOLAtimer)
             {
 
-                  fogx += velfog;
+    fogx += velfog;
 
     if(fogx >=1024)
     {
@@ -5025,19 +5536,144 @@ if(y>471)
                 regiao_x_folha_lobo = coluna_atual_lobo*largura_sprite_lobo;
                 lobox += velobox;
             }
-    }
+    }//
 
+
+            cont_frames_oracao[1]++;
+            cont_frames_oracao[2]++;
+            cont_frames_oracao[3]++;
+            cont_frames_oracao[4]++;
+            cont_frames_oracao[5]++;
+            cont_frames_oracao[6]++;
+
+             if (cont_frames_oracao[1] >= frames_sprite_oracao[1])
+            {
+                cont_frames_oracao[1] = 0;
+                coluna_atual_oracao[1]++;
+
+                if (coluna_atual_oracao[1] >= colunas_oracao[1])
+                {
+                    coluna_atual_oracao[1] = 0;
+                    linha_atual_oracao[1]++;
+
+                }
+                if (linha_atual_oracao[1] > linhas_oracao[1])
+
+                {
+                    linha_atual_oracao[1] = 0;
+
+                }
+                regiao_x_folha_oracao[1] = coluna_atual_oracao[1] * largura_sprite_oracao[1];
+                regiao_y_folha_oracao[1] = linha_atual_oracao[1] * altura_sprite_oracao[1];
+            }
+             if (cont_frames_oracao[2] >= frames_sprite_oracao[2])
+             {
+                 cont_frames_oracao[2] = 0;
+                 coluna_atual_oracao[2]++;
+
+                 if (coluna_atual_oracao[2] >= colunas_oracao[2])
+                 {
+                     coluna_atual_oracao[2] = 0;
+                     linha_atual_oracao[2]++;
+
+                 }
+                  if (linha_atual_oracao[2] > linhas_oracao[2])
+                  {
+                       linha_atual_oracao[2] = 0;
+                  }
+                  regiao_x_folha_oracao[2] = coluna_atual_oracao[2] * largura_sprite_oracao[2];
+                  regiao_y_folha_oracao[2] = linha_atual_oracao[2] * altura_sprite_oracao[2];
+             }
+             if (cont_frames_oracao[3] >= frames_sprite_oracao[3])
+            {
+                cont_frames_oracao[3] = 0;
+                coluna_atual_oracao[3]++;
+
+                if (coluna_atual_oracao[3] >= colunas_oracao[3])
+                {
+                    coluna_atual_oracao[3] = 0;
+                    linha_atual_oracao[3]++;
+
+                }
+                if (linha_atual_oracao[3] > linhas_oracao[3])
+
+                {
+                    linha_atual_oracao[3] = 0;
+
+                }
+                regiao_x_folha_oracao[3] = coluna_atual_oracao[3] * largura_sprite_oracao[3];
+                regiao_y_folha_oracao[3] = linha_atual_oracao[3] * altura_sprite_oracao[3];
+            }
+            if (cont_frames_oracao[4] >= frames_sprite_oracao[4])
+            {
+                cont_frames_oracao[4] = 0;
+                coluna_atual_oracao[4]++;
+
+                if (coluna_atual_oracao[4] >= colunas_oracao[4])
+                {
+                    coluna_atual_oracao[4] = 0;
+                    linha_atual_oracao[4]++;
+
+                }
+                if (linha_atual_oracao[4] > linhas_oracao[4])
+
+                {
+                    linha_atual_oracao[4] = 0;
+
+                }
+                regiao_x_folha_oracao[4] = coluna_atual_oracao[4] * largura_sprite_oracao[4];
+                regiao_y_folha_oracao[4] = linha_atual_oracao[4] * altura_sprite_oracao[4];
+            }
+            if (cont_frames_oracao[5] >= frames_sprite_oracao[5])
+            {
+                cont_frames_oracao[5] = 0;
+                coluna_atual_oracao[5]++;
+
+                if (coluna_atual_oracao[5] >= colunas_oracao[5])
+                {
+                    coluna_atual_oracao[5] = 0;
+                    linha_atual_oracao[5]++;
+
+                }
+                if (linha_atual_oracao[5] > linhas_oracao[5])
+
+                {
+                    linha_atual_oracao[5] = 0;
+
+                }
+                regiao_x_folha_oracao[5] = coluna_atual_oracao[5] * largura_sprite_oracao[5];
+                regiao_y_folha_oracao[5] = linha_atual_oracao[5] * altura_sprite_oracao[5];
             }
 
+             if (cont_frames_oracao[6] >= frames_sprite_oracao[6])
+            {
+                cont_frames_oracao[6] = 0;
+                coluna_atual_oracao[6]++;
+
+                if (coluna_atual_oracao[6] >= colunas_oracao[6])
+                {
+                    coluna_atual_oracao[6] = 0;
+                    linha_atual_oracao[6]++;
+
+                }
+                if (linha_atual_oracao[6] > linhas_oracao[6])
+
+                {
+                    linha_atual_oracao[6] = 0;
+
+                }
+                regiao_x_folha_oracao[6] = coluna_atual_oracao[6] * largura_sprite_oracao[6];
+                regiao_y_folha_oracao[6] = linha_atual_oracao[6] * altura_sprite_oracao[6];
+            }
+
+
+            }//bolatimer
+
     }
 
-
-if(pulo)
+if(draw)
 {
-    if(tiro)
-    {
-        al_draw_bitmap_region(TIRO,regiao_x_tiro,0,largura_sprite_tiro,altura_sprite_tiro,posx_tiro,posy_tiro+10,0);
-    }
+    al_draw_bitmap_region(YUKIMACHI,1600,0,300,800,-300,-250,NULL);
     al_draw_bitmap(CHAOGELO,0,500,NULL);
     al_draw_bitmap(PINHO4,-300,0,NULL);
     al_draw_bitmap(PINHO4,100,0,NULL);
@@ -5046,47 +5682,43 @@ if(pulo)
     al_draw_bitmap(PLATAPEDRA3,100,310,NULL);
     al_draw_bitmap(PLATAGELO1,20,420,NULL);
     al_draw_bitmap(PINHO,450,320,NULL);
-    al_draw_textf(font,al_map_rgb(255,255,255),600,0,ALLEGRO_ALIGN_CENTER, "SCORE: %i", 1000 + score);
-    al_draw_textf(font2,al_map_rgb(255,255,255),50,10,ALLEGRO_ALIGN_CENTER, "X %i", cont_moedas_prata);
-    al_draw_textf(font2,al_map_rgb(255,255,255),120,10,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
-     if(!lobo)
+ al_draw_textf(font,al_map_rgb(255,255,255),cameraPosition[0]+700,cameraPosition[1],ALLEGRO_ALIGN_CENTER, "SCORE: %i", 1000 + score);
+    al_draw_textf(font2,al_map_rgb(255,255,255),cameraPosition[0]+50,cameraPosition[1]+10,ALLEGRO_ALIGN_CENTER, "X %i", cont_moedas_prata);
+    al_draw_textf(font2,al_map_rgb(255,255,255),cameraPosition[0]+150,cameraPosition[1]+10,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
+    if (pulo)
     {
-        al_draw_bitmap_region(LOBO,320,0,64,32,lobox,loboy,0);
+        al_draw_bitmap_region(keen,regiao_x_folha_pulo,regiao_y_folha_pulo,largura_sprite_pulo,altura_sprite_pulo,x,y,0);
     }
-    al_draw_bitmap_region(keen,regiao_x_folha_pulo,regiao_y_folha_pulo,largura_sprite_pulo,altura_sprite_pulo,x,y,0);
-    al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,moeda1x,moeda1y,0);
-    al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,moeda2x,moeda2y,0);
-    al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,moeda3x,moeda3y,0);
-    al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,moeda4x,moeda4y,0);
-    al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,moeda5x,moeda5y,0);
-    al_draw_bitmap_region(keen,5,300,21,21,80,8,0);
-    al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,10,10,0);
-  if(lobo)
+        if(!tiro && !pulo)
+        {
+            al_draw_bitmap_region(keen,sourceX,sourceY*al_get_bitmap_height(keen)/7,30,50,x,y,NULL);
+        }
+        if(tiro)
+        {
+            if(!pulo)
+            {
+                al_draw_bitmap_region(keen,sourceX,RIGHT*al_get_bitmap_height(keen)/7,30,50,x,y,NULL);
+               al_draw_bitmap_region(ATIRA,0,0,40,50,x,y,NULL);
+            }
+            al_draw_bitmap_region(TIRO,regiao_x_tiro,0,largura_sprite_tiro,altura_sprite_tiro,posx_tiro,posy_tiro+10,0);
+        }
+
+ if (cruz)
     {
-         al_draw_bitmap_region(LOBO,regiao_x_folha_lobo,regiao_y_folha_lobo,largura_sprite_lobo,altura_sprite_lobo, lobox, loboy, 0);
+       al_draw_bitmap(CRUZ,cruzx,cruzy,NULL);
     }
-    al_draw_bitmap(PINHO3,200,200,NULL);
-    al_draw_bitmap(FOG,fogx,150,NULL);
-    al_draw_bitmap(FOG,fogx-1024,150,NULL);
-    al_flip_display();
-    al_clear_to_color(al_map_rgb(0,0,0));
+      if (oracao)
+    {
 
-}
+        al_draw_bitmap(ESCUDO,x-113,y-130,NULL);
+        al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[1],regiao_y_folha_oracao[1],largura_sprite_oracao[1], altura_sprite_oracao[1], x+15, y+15, NULL);
+        al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[2],regiao_y_folha_oracao[2],largura_sprite_oracao[2], altura_sprite_oracao[2], x-30, y+30, NULL);
+        al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[3],regiao_y_folha_oracao[3],largura_sprite_oracao[3], altura_sprite_oracao[3], x-70, y, NULL);
+        al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[4],regiao_y_folha_oracao[4],largura_sprite_oracao[4], altura_sprite_oracao[4], x-70, y-45, NULL);
+        al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[5],regiao_y_folha_oracao[5],largura_sprite_oracao[5], altura_sprite_oracao[5], x+15, y-45, NULL);
+        al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[6],regiao_y_folha_oracao[6],largura_sprite_oracao[6], altura_sprite_oracao[6], x-30,y-60,NULL);
 
-if(draw && !pulo)
-{
-
-    al_draw_bitmap(CHAOGELO,0,500,NULL);
-    al_draw_bitmap(PINHO4,-300,0,NULL);
-    al_draw_bitmap(PINHO4,100,0,NULL);
-    al_draw_bitmap(PEDRABASE,360,170,NULL);
-    al_draw_bitmap(PLATAGELO1,650,200,NULL);
-    al_draw_bitmap(PLATAPEDRA3,100,310,NULL);
-    al_draw_bitmap(PLATAGELO1,20,420,NULL);
-    al_draw_bitmap(PINHO,450,320,NULL);
-    al_draw_textf(font,al_map_rgb(255,255,255),600,0,ALLEGRO_ALIGN_CENTER, "SCORE: %i", 1000 + score);
-    al_draw_textf(font2,al_map_rgb(255,255,255),50,10,ALLEGRO_ALIGN_CENTER, "X %i", cont_moedas_prata);
-    al_draw_textf(font2,al_map_rgb(255,255,255),120,10,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
+    }
       if(lobo)
     {
             al_draw_bitmap_region(LOBO,regiao_x_folha_lobo,regiao_y_folha_lobo,largura_sprite_lobo,altura_sprite_lobo, lobox, loboy, 0);
@@ -5095,26 +5727,23 @@ if(draw && !pulo)
     {
          al_draw_bitmap_region(LOBO,320,0,64,32,lobox,loboy,0);
     }
-        if(!tiro)
-        {
-            al_draw_bitmap_region(keen,sourceX,sourceY*al_get_bitmap_height(keen)/7,30,50,x,y,NULL);
-        }
-        if(tiro)
-        {
-            al_draw_bitmap_region(TIRO,regiao_x_tiro,0,largura_sprite_tiro,altura_sprite_tiro,posx_tiro,posy_tiro+10,0);
-            al_draw_bitmap_region(ATIRA,0,0,40,50,x,y,NULL);
-        }
 
     al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,moeda1x,moeda1y,0);
     al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,moeda2x,moeda2y,0);
     al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,moeda3x,moeda3y,0);
     al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,moeda4x,moeda4y,0);
     al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,moeda5x,moeda5y,0);
-    al_draw_bitmap_region(keen,5,300,21,21,80,8,0);
-    al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,10,10,0);
+
+al_draw_bitmap_region(keen,5,300,21,21,cameraPosition[0]+80,cameraPosition[1]+8,0);
+    al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,cameraPosition[0]+10,cameraPosition[1]+10,0);
     al_draw_bitmap(PINHO3,200,200,NULL);
+    al_draw_bitmap(PINHO3,-500,150,NULL);
+    al_draw_bitmap_region(HP,regiao_x_folha_HP,regiao_y_folha_HP,largura_sprite_HP,altura_sprite_HP,cameraPosition[0]+50,cameraPosition[1]+30,NULL);
+    al_draw_bitmap_region(MP,regiao_x_folha_MP,regiao_y_folha_MP,largura_sprite_MP,altura_sprite_MP,cameraPosition[0]+50,cameraPosition[1]+60,NULL);
     al_draw_bitmap(FOG,fogx,150,NULL);
     al_draw_bitmap(FOG,fogx-1024,150,NULL);
+    al_draw_bitmap(FOG,fogx-2048,150,NULL);
+    al_draw_bitmap(FOG,fogx+1024,150,NULL);
     al_flip_display();
     al_clear_to_color(al_map_rgb(0,0,0));
 
@@ -5137,23 +5766,56 @@ while(!done4)
 ALLEGRO_EVENT events;
 al_wait_for_event(event_queue, &events);
 al_get_keyboard_state(&keyState);
+al_identity_transform(&camera);
+al_translate_transform(&camera,0,150);
+al_use_transform(&camera);
 
-    if(events.type == ALLEGRO_EVENT_KEY_DOWN)
+
+
+if(events.type == ALLEGRO_EVENT_KEY_DOWN)
     {
-
         switch (events.keyboard.keycode)
         {
         case ALLEGRO_KEY_ESCAPE:
             done4 = true;
+        }
+    }
+
+    if(events.type == ALLEGRO_EVENT_KEY_DOWN && !historia)
+    {
+
+        switch (events.keyboard.keycode)
+        {
         case ALLEGRO_KEY_SPACE:
-            if(platape)
+            if(jump)
             {
-            vely -= jumpspeed;
+                vely -= jumpspeed;
+                pulo = true;
             }
 
         }
     }
-    if(events.type == ALLEGRO_EVENT_KEY_UP && permapoder)
+     if(events.type == ALLEGRO_EVENT_KEY_UP && !historia )
+    {
+
+        switch (events.keyboard.keycode)
+        {
+        case ALLEGRO_KEY_Z:
+        dir = 0;
+        }
+           switch (events.keyboard.keycode)
+        {
+           case ALLEGRO_KEY_S:
+           if(pegou)
+           {
+            cruz = true;
+            cruzx = x;
+            cruzy = y;
+            pegou = false;
+           }
+        }
+    }
+    if(events.type == ALLEGRO_EVENT_KEY_UP && permapoder && !historia)
     {
         switch (events.keyboard.keycode)
         {
@@ -5162,55 +5824,160 @@ al_get_keyboard_state(&keyState);
 
         }
     }
-    else if (events.type == ALLEGRO_EVENT_TIMER)
+         else if (events.type == ALLEGRO_EVENT_TIMER)
     {
-
 
         if(events.timer.source == timer)
         {
             active = true;
             draw = true;
+            jump = false;
+            noar = true;
+            vely +=gravity;
+            y += vely;
 
-            if(platape)
+            if(noar)
             {
-                jump = true;
-                pulo = false;
-            }
-            if(!platape)
-            {
-                pulo = true;
-                jump = false;
+                pulo=true;
             }
 
-            if(al_key_down(&keyState,ALLEGRO_KEY_SPACE) && jump && y<472)
+            if (y>=470)
+
             {
-                jump = false;
-            }
-
-
-            else if(!jump && !platape)
-            {
-                vely +=gravity;
-            }
-
-            else
+                y = 470;
                 vely = 0;
-                x += velx;
-                y += vely;
-if(y>471)
-{
-    y=470;
-}
+                pulo = false;
+                jump = true;
+                noar = false;
+       	    }
+       	     if (x>=0 && x<= 250 && y>=390 && y<=410)
+
+            {
+                y = 390;
+                vely = 0;
+                pulo = false;
+                jump = true;
+                noar = false;
+       	    }
+       	    if (x>=160 && x<= 260 && y>=310 && y<=325)
+
+            {
+                y = 310;
+                vely = 0;
+                pulo = false;
+                jump = true;
+                noar = false;
+       	    }
+       	    if (x>=0 && x<= 200 && y>=200 && y<=225)
+
+            {
+                y = 200;
+                vely = 0;
+                pulo = false;
+                jump = true;
+                noar = false;
+       	    }
+       	    if (x>=50 && x<= 150 && y>=160 && y<=180)
+
+            {
+                y = 160;
+                vely = 0;
+                pulo = false;
+                jump = true;
+                noar = false;
+       	    }
 
 
-            if(y>=470 || y >= 395 && y<400 && x > 40 && x<al_get_bitmap_width(REFUGIO)-30|| y>=290 && y<=300 && x>160 && x<250 || y>=180 && y<=190 && x>0 && x<230)
+
+       	    if(al_key_down(&keyState,ALLEGRO_KEY_RIGHT) && !historia)
             {
-                platape = true;
+
+                if (x >= 1350)
+                {
+                    x -=movespeed;
+                    x = 1350;
+
+                }
+
+                x += movespeed;
+                dir = RIGHT;
             }
-            else
+
+            else if(al_key_down(&keyState,ALLEGRO_KEY_UP) && !historia)
             {
-                platape = false;
+                dir = UP;
+                velx = 0;
+                if(iriguchi && x>=565 && x<= 575)
+                {
+                    cont_frames_fase++;
+                    if(cont_frames_done5 = 6)
+                    {
+                        done4 = true;
+                        x = 0;
+                        done5 = false;
+                    }
+                }
             }
+            else if(al_key_down(&keyState,ALLEGRO_KEY_DOWN) && !historia)
+            {
+                dir = DOWN;
+                velx = 0;
+            }
+
+            else if(al_key_down(&keyState,ALLEGRO_KEY_LEFT) && !historia)
+            {
+
+                if (x<=0)
+                {
+                    x +=movespeed;
+                    x = 1;
+                }
+
+                x -= movespeed;
+                dir = LEFT;
+            }
+            else if(al_key_down(&keyState,ALLEGRO_KEY_C) && x >= 100 && x <=120  && y<= 180)
+            {
+                    chest = true;
+                    regiao_x_folha_bau = 32;
+                    firereliq = true;
+                    historia = true;
+
+            }
+
+            else if(al_key_down(&keyState,ALLEGRO_KEY_C) && x>=cruzx-30 && x<=cruzx+30 && y<=cruzy+30 && y>=cruzy-20 && !historia)
+            {
+                    cruz = false;
+                    pegou = true;
+            }
+
+            else if(al_key_down(&keyState,ALLEGRO_KEY_Z) && x >= cruzx-20 && x<= cruzx+30 && y >= cruzy-20 && y<= cruzy+30 && coluna_atual_MP>2 && !historia)
+                    {
+                        oracao = true;
+                        dir = 5;
+                        cont_frames_MP++;
+                        if (cont_frames_MP>=15)
+                        {
+                            cont_frames_MP = 0;
+                            coluna_atual_MP--;
+                        }
+
+                    }
+
+         else
+        {
+            if (cont_frames_item>=90)
+            {
+               historia = false;
+            }
+            velx = 0;
+            active = false;
+            oracao = false;
+            historia = false;
+
+        }
+
+
 
             if(!poder)
             {
@@ -5276,95 +6043,38 @@ if(y>471)
                 {
                     firereliq = false;
                     permapoder = true;
-                }
-
-
-            }
-
-            if(al_key_down(&keyState,ALLEGRO_KEY_RIGHT))
-            {
-
-                if (x >= 800 - al_get_bitmap_width(keen)/5)
-                {
-                    velx -=movespeed;
-                    x = 760;
 
                 }
 
-                velx = movespeed;
-                dir = RIGHT;
+
             }
 
-            else if(al_key_down(&keyState,ALLEGRO_KEY_UP))
+    if (oracao)
+{
+    vuneravel = false;
+}
+
+    largura_sprite_HP = 9*coluna_atual_HP;
+    largura_sprite_BOSS1HP = 9*coluna_atual_BOSS1HP;
+    largura_sprite_MP = 9*coluna_atual_MP;
+
+            if (Colisao2(x,y,posx,posy,30,50,181,181) && boss1vive && vuneravel)
             {
-                dir = UP;
-                velx = 0;
-                if(iriguchi && x>=565 && x<= 575)
-                {
-                    cont_frames_done5++;
-                    if(cont_frames_done5 = 6)
-                    {
-                        done4 = true;
-                        x = 0;
-                        done5 = false;
-                    }
-                }
-            }
-            else if(al_key_down(&keyState,ALLEGRO_KEY_DOWN))
+          {
+               cont_frames_dano++;
+            if (cont_frames_dano>=2 && coluna_atual_HP>2)
             {
-                dir = DOWN;
-                velx = 0;
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
+            }
             }
 
-            else if(al_key_down(&keyState,ALLEGRO_KEY_LEFT))
-            {
-
-                if (x<=0)
-                {
-                    velx +=movespeed;
-                    x = 1;
-                }
-
-                velx = -movespeed;
-                dir = LEFT;
-            }
-            else if(al_key_down(&keyState,ALLEGRO_KEY_C) && x >= 105 && x<=140 && y <=200 && y>=180)
-            {
-                    chest = true;
-                    regiao_x_folha_bau = 32;
-                    firereliq = true;
-
-            }
-
-
-
-            else
-            {
-                velx = 0;
-                active = false;
-            }
- if(x>=0 && x<=al_get_bitmap_width(REFUGIO) && y>=200)
- {
-     refugio = true;
- }
- else
-    refugio = false;
-
-            if (Colisao(x,y,posx,posy,32,42) && boss1vive && !refugio)
-            {
-                movespeed == 0;
-                cont_vidas--;
-                morte = true;
-                if(cont_vidas == 0)
-                    {
-                        done4 = true;
-                    }
-            }
             if (Colisao(posx_tiro,posy_tiro,posx,posy,30,30) && poder)
             {
-                cont_dano++;
+                coluna_atual_BOSS1HP--;
                 poder= false;
-                if(cont_dano >= 1)
+                if(coluna_atual_BOSS1HP <= 2)
                 {
                 boss1 = false;
                 boss1morre = true;
@@ -5377,14 +6087,123 @@ if(y>471)
             }
              if (Colisao(x,y,lobox,loboy,32,64) && lobovive)
             {
-                movespeed == 0;
-                cont_vidas--;
-                morte = true;
-                if(cont_vidas == 0)
-                    {
-                        done4 = true;
-                    }
+               cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
             }
+
+            }
+           if (Colisao2(x,y+400,bolax[0],bolay[0],al_get_bitmap_width(keen)/5,al_get_bitmap_height(keen)/7,(al_get_bitmap_width(ESFERA1)),(al_get_bitmap_height(ESFERA1))))
+            {
+               cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
+            }
+           if (Colisao2(x,y+900,bolax[1],bolay[1],al_get_bitmap_width(keen)/5,al_get_bitmap_height(keen)/7,(al_get_bitmap_width(ESFERA1)),(al_get_bitmap_height(ESFERA1))))
+            {
+               cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
+            }
+ if (Colisao2(x,y+450,bolax[2],bolay[2],al_get_bitmap_width(keen)/5,al_get_bitmap_height(keen)/7,(al_get_bitmap_width(ESFERA1)),(al_get_bitmap_height(ESFERA1))))
+            {
+               cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
+            }
+           if (Colisao2(x,y+900,bolax[3],bolay[3],al_get_bitmap_width(keen)/5,al_get_bitmap_height(keen)/7,(al_get_bitmap_width(ESFERA1)),(al_get_bitmap_height(ESFERA1))))
+            {
+               cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
+            }
+           if (Colisao2(x,y+400,bolax[4],bolay[4],al_get_bitmap_width(keen)/5,al_get_bitmap_height(keen)/7,(al_get_bitmap_width(ESFERA1)),(al_get_bitmap_height(ESFERA1))))
+            {
+               cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
+            }
+            if (Colisao2(x,y+830,bolax[5],bolay[5],al_get_bitmap_width(keen)/5,al_get_bitmap_height(keen)/7,(al_get_bitmap_width(ESFERA1)),(al_get_bitmap_height(ESFERA1))))
+            {
+               cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
+            }
+             if (Colisao2(x,y+400,bolax[6],bolay[6],al_get_bitmap_width(keen)/5,al_get_bitmap_height(keen)/7,(al_get_bitmap_width(ESFERA1)),(al_get_bitmap_height(ESFERA1))))
+            {
+               cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
+            }
+             if (Colisao2(x,y+900,bolax[7],bolay[7],al_get_bitmap_width(keen)/5,al_get_bitmap_height(keen)/7,(al_get_bitmap_width(ESFERA1)),(al_get_bitmap_height(ESFERA1))))
+            {
+               cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
+            }
+             if (Colisao2(x,y+360,bolax[8],bolay[8],al_get_bitmap_width(keen)/5,al_get_bitmap_height(keen)/7,(al_get_bitmap_width(ESFERA1)),(al_get_bitmap_height(ESFERA1))))
+            {
+               cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
+            }
+             if (Colisao2(x,y+900,bolax[9],bolay[9],al_get_bitmap_width(keen)/5,al_get_bitmap_height(keen)/7,(al_get_bitmap_width(ESFERA1)),(al_get_bitmap_height(ESFERA1))))
+            {
+               cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
+            }
+             if (Colisao2(x,y,bolax[10],bolay[10],al_get_bitmap_width(keen)/5,al_get_bitmap_height(keen)/7,(al_get_bitmap_width(ESFERA1)),(al_get_bitmap_height(ESFERA1))))
+            {
+               cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
+            }
+             if (Colisao2(x,y+900,bolax[11],bolay[11],al_get_bitmap_width(keen)/5,al_get_bitmap_height(keen)/7,(al_get_bitmap_width(ESFERA1)),(al_get_bitmap_height(ESFERA1))))
+            {
+               cont_frames_dano++;
+            if (cont_frames_dano>=5 && coluna_atual_HP>2)
+            {
+                coluna_atual_HP-=1;
+                cont_frames_dano = 0;
+            }
+            }
+
             if (Colisao(posx_tiro,posy_tiro,lobox,loboy,30,30) && poder)
             {
                 cont_dano++;
@@ -5399,6 +6218,33 @@ if(y>471)
                 }
 
             }
+
+            if (coluna_atual_HP <= 2)
+            {
+                historia = true;
+                morte = true;
+                vuneravel = false;
+                cont_frames_morto++;
+                if(cont_frames_morto>=12)
+                {
+                morte = false;
+                    if(cont_frames_morto>=24)
+                    {
+                    coluna_atual_HP = 12;
+                    cont_frames_morto = 0;
+                    vuneravel = true;
+                    }
+                }
+                if(cont_frames_morto == 6)
+                {
+                    cont_vidas--;
+                       if(cont_vidas<0)
+                        {
+                        done4 = true;
+                        }
+                }
+            }
+
 
             if(active)
             {
@@ -5422,6 +6268,63 @@ if(y>471)
         else if(events.timer.source == BOLAtimer)
         {
 
+            if(cont_passos_boss_inicio>=1500)
+
+{
+bolay[0] += 1;bolay[2] += 2;bolay[4] += 3;bolay[6] += 1;bolay[8] += 2;bolay[10] += 3;
+              if (bolay[0]>=1000)
+              {
+                  bolay[0] = 0;
+              }
+               if (bolay[2]>=1000)
+              {
+                  bolay[2] = 0;
+              }
+               if (bolay[4]>=1000)
+              {
+                  bolay[4] = 0;
+              }
+               if (bolay[6]>=1000)
+              {
+                  bolay[6] = 0;
+              }
+               if (bolay[8]>=1000)
+              {
+                  bolay[8] = 0;
+              }
+               if (bolay[10]>=1000)
+              {
+                  bolay[10] = 0;
+              }
+
+                bolay[1] += 1;bolay[3] += 2;bolay[5] += 3;bolay[7] += 1;bolay[9] += 2;bolay[11] += 3;
+              if (bolay[1]>=2000)
+              {
+                  bolay[1] = 0;
+              }
+               if (bolay[3]>=2000)
+              {
+                  bolay[3] = 0;
+              }
+               if (bolay[5]>=2000)
+              {
+                  bolay[5] = 0;
+              }
+               if (bolay[7]>=2000)
+              {
+                  bolay[7] = 0;
+              }
+               if (bolay[9]>=2000)
+              {
+                  bolay[9] = 0;
+              }
+               if (bolay[11]>=2000)
+              {
+                  bolay[11] = 0;
+              }
+
+}
+
             cont_frames_boss1++;
             cont_frames_fogueira++;
             cont_frames_lobo++;
@@ -5439,7 +6342,7 @@ if(y>471)
                 if(coluna_atual_lobo>=colunas_lobo)
                 {
                     coluna_atual_lobo = 0;
-                    if(lobox>=780-al_get_bitmap_width(LOBO)/5 || lobox<=250+al_get_bitmap_width(LOBO)/5)
+                    if(lobox>=1200 || lobox<=250+al_get_bitmap_width(LOBO)/5)
                     {
                         linha_atual_lobo = (linha_atual_lobo+1) % linhas_lobo;
                         regiao_y_folha_lobo = linha_atual_lobo*altura_sprite_lobo;
@@ -5507,8 +6410,22 @@ if(y>471)
                 iriguchi=true;
             }
 
-            if(boss1)
+            if (chest && x>=700 && !lobovive && cont_passos_boss_inicio <=1500)
             {
+                cont_passos_boss_inicio++;
+                historia = true;
+            }
+
+            if (cont_passos_boss_inicio>=1 && cont_passos_boss_inicio <= 1000)
+            {
+                posx = 730;
+                posy +=0.3;
+            }
+
+
+            if(boss1 && cont_passos_boss_inicio > 1500)
+            {
+
                 srand(time(NULL));
                 iAleatorio = rand()%10 -4,5;
                 iAleatorio2 = rand()%10 -4,5 ;
@@ -5518,17 +6435,145 @@ if(y>471)
 
                 //se passou das bordas, inverte a direcao
 
-                if (posx<=0)
-                    posx = 1;
+                if (posx<=200 && posy>=ALTURA_TELA-350)
+                    posx = 200;
 
-                if (posx>=LARGURA_TELA-181)
-                    posx = LARGURA_TELA-181;
+                if (posx>=1300)
+                    posx = 1300;
 
                 if (posy<=181)
                     posy=181;
 
                 if(posy>=ALTURA_TELA-200)
                     posy = ALTURA_TELA-200;
+            }
+
+
+            cont_frames_oracao[1]++;
+            cont_frames_oracao[2]++;
+            cont_frames_oracao[3]++;
+            cont_frames_oracao[4]++;
+            cont_frames_oracao[5]++;
+            cont_frames_oracao[6]++;
+
+             if (cont_frames_oracao[1] >= frames_sprite_oracao[1])
+            {
+                cont_frames_oracao[1] = 0;
+                coluna_atual_oracao[1]++;
+
+                if (coluna_atual_oracao[1] >= colunas_oracao[1])
+                {
+                    coluna_atual_oracao[1] = 0;
+                    linha_atual_oracao[1]++;
+
+                }
+                if (linha_atual_oracao[1] > linhas_oracao[1])
+
+                {
+                    linha_atual_oracao[1] = 0;
+
+                }
+                regiao_x_folha_oracao[1] = coluna_atual_oracao[1] * largura_sprite_oracao[1];
+                regiao_y_folha_oracao[1] = linha_atual_oracao[1] * altura_sprite_oracao[1];
+            }
+             if (cont_frames_oracao[2] >= frames_sprite_oracao[2])
+             {
+                 cont_frames_oracao[2] = 0;
+                 coluna_atual_oracao[2]++;
+
+                 if (coluna_atual_oracao[2] >= colunas_oracao[2])
+                 {
+                     coluna_atual_oracao[2] = 0;
+                     linha_atual_oracao[2]++;
+
+                 }
+                  if (linha_atual_oracao[2] > linhas_oracao[2])
+                  {
+                       linha_atual_oracao[2] = 0;
+                  }
+                  regiao_x_folha_oracao[2] = coluna_atual_oracao[2] * largura_sprite_oracao[2];
+                  regiao_y_folha_oracao[2] = linha_atual_oracao[2] * altura_sprite_oracao[2];
+             }
+             if (cont_frames_oracao[3] >= frames_sprite_oracao[3])
+            {
+                cont_frames_oracao[3] = 0;
+                coluna_atual_oracao[3]++;
+
+                if (coluna_atual_oracao[3] >= colunas_oracao[3])
+                {
+                    coluna_atual_oracao[3] = 0;
+                    linha_atual_oracao[3]++;
+
+                }
+                if (linha_atual_oracao[3] > linhas_oracao[3])
+
+                {
+                    linha_atual_oracao[3] = 0;
+
+                }
+                regiao_x_folha_oracao[3] = coluna_atual_oracao[3] * largura_sprite_oracao[3];
+                regiao_y_folha_oracao[3] = linha_atual_oracao[3] * altura_sprite_oracao[3];
+            }
+            if (cont_frames_oracao[4] >= frames_sprite_oracao[4])
+            {
+                cont_frames_oracao[4] = 0;
+                coluna_atual_oracao[4]++;
+
+                if (coluna_atual_oracao[4] >= colunas_oracao[4])
+                {
+                    coluna_atual_oracao[4] = 0;
+                    linha_atual_oracao[4]++;
+
+                }
+                if (linha_atual_oracao[4] > linhas_oracao[4])
+
+                {
+                    linha_atual_oracao[4] = 0;
+
+                }
+                regiao_x_folha_oracao[4] = coluna_atual_oracao[4] * largura_sprite_oracao[4];
+                regiao_y_folha_oracao[4] = linha_atual_oracao[4] * altura_sprite_oracao[4];
+            }
+            if (cont_frames_oracao[5] >= frames_sprite_oracao[5])
+            {
+                cont_frames_oracao[5] = 0;
+                coluna_atual_oracao[5]++;
+
+                if (coluna_atual_oracao[5] >= colunas_oracao[5])
+                {
+                    coluna_atual_oracao[5] = 0;
+                    linha_atual_oracao[5]++;
+
+                }
+                if (linha_atual_oracao[5] > linhas_oracao[5])
+
+                {
+                    linha_atual_oracao[5] = 0;
+
+                }
+                regiao_x_folha_oracao[5] = coluna_atual_oracao[5] * largura_sprite_oracao[5];
+                regiao_y_folha_oracao[5] = linha_atual_oracao[5] * altura_sprite_oracao[5];
+            }
+
+             if (cont_frames_oracao[6] >= frames_sprite_oracao[6])
+            {
+                cont_frames_oracao[6] = 0;
+                coluna_atual_oracao[6]++;
+
+                if (coluna_atual_oracao[6] >= colunas_oracao[6])
+                {
+                    coluna_atual_oracao[6] = 0;
+                    linha_atual_oracao[6]++;
+
+                }
+                if (linha_atual_oracao[6] > linhas_oracao[6])
+
+                {
+                    linha_atual_oracao[6] = 0;
+
+                }
+                regiao_x_folha_oracao[6] = coluna_atual_oracao[6] * largura_sprite_oracao[6];
+                regiao_y_folha_oracao[6] = linha_atual_oracao[6] * altura_sprite_oracao[6];
             }
 
         }
@@ -5540,8 +6585,15 @@ if(draw)
 {
 
     al_draw_bitmap(FUNDONEVE2,-200,-200,NULL);
+    al_draw_bitmap(FUNDONEVE2,400,-200,NULL);
+    al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,220),0,-175,NULL);
+    al_draw_tinted_bitmap(FADE,al_map_rgba(0,0,0,220),al_get_bitmap_width(FADE),-175,NULL);
     al_draw_bitmap(CHAOGELO,0,500,NULL);
+    al_draw_bitmap(CHAOGELO,800,500,NULL);
+    al_draw_bitmap(DEADTREE,600,130,NULL);
     al_draw_bitmap(PEDRABASE,-100,180,NULL);
+    al_draw_bitmap_region(TAKARABAKO,regiao_x_folha_bau,regiao_y_folha_bau,largura_sprite_bau, altura_sprite_bau,105,170,0);
+    al_draw_bitmap_region(FOGUEIRA,regiao_x_folha_fogueira,regiao_y_folha_fogueira,largura_sprite_fogueira,altura_sprite_fogueira,50,150,0);
     if(iriguchi)
     {
          al_draw_bitmap(IRIGUCHI,500,300,NULL);
@@ -5558,16 +6610,11 @@ if(draw)
         {
             if(!pulo)
             {
+                al_draw_bitmap_region(keen,sourceX,RIGHT*al_get_bitmap_height(keen)/7,30,50,x,y,NULL);
                al_draw_bitmap_region(ATIRA,0,0,40,50,x,y,NULL);
             }
             al_draw_bitmap_region(PODER,regiao_x_folha_poder,regiao_y_folha_poder,largura_sprite_poder,altura_sprite_poder,posx_tiro,posy_tiro+10,0);
         }
-    al_draw_bitmap_region(TAKARABAKO,regiao_x_folha_bau,regiao_y_folha_bau,largura_sprite_bau, altura_sprite_bau,105,170,0);
-    al_draw_bitmap_region(FOGUEIRA,regiao_x_folha_fogueira,regiao_y_folha_fogueira,largura_sprite_fogueira,altura_sprite_fogueira,50,150,0);
-    al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,10,10,0);
-    al_draw_textf(font,al_map_rgb(0,0,0),600,0,ALLEGRO_ALIGN_CENTER, "SCORE: %i", 1000 + score);
-    al_draw_textf(font2,al_map_rgb(0,0,0),50,10,ALLEGRO_ALIGN_CENTER, "X %i", cont_moedas_prata);
-    al_draw_textf(font2,al_map_rgb(0,0,0),120,10,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
          if(lobo)
     {
          al_draw_bitmap_region(LOBO,regiao_x_folha_lobo,regiao_y_folha_lobo,largura_sprite_lobo,altura_sprite_lobo, lobox, loboy, 0);
@@ -5578,14 +6625,28 @@ if(draw)
     }
     al_draw_bitmap(REFUGIO,0,370,NULL);
 
-    if(boss1vive)
+    if(boss1vive && cont_passos_boss_inicio >1500)
     {
          al_draw_tinted_bitmap_region(BOSS1,al_map_rgb(255,0,0),regiao_x_folha_boss1,regiao_y_folha_boss1,largura_sprite_boss1,altura_sprite_boss1,posx,posy,0);
+        al_draw_bitmap_region(BOSS1HP,regiao_x_folha_BOSS1HP,regiao_y_folha_BOSS1HP,largura_sprite_BOSS1HP,altura_sprite_BOSS1HP,posx,posy-50,NULL);
+        al_draw_tinted_bitmap(ESFERA1,al_map_rgba(100,0,0,100),bolax[0],bolay[0]-400,NULL);
+    al_draw_tinted_bitmap(ESFERA1,al_map_rgba(100,0,0,100),bolax[1],bolay[1]-900,NULL);
+    al_draw_tinted_bitmap(ESFERA1,al_map_rgba(100,0,0,100),bolax[2],bolay[2]-400,NULL);
+    al_draw_tinted_bitmap(ESFERA1,al_map_rgba(100,0,0,100),bolax[3],bolay[3]-900,NULL);
+    al_draw_tinted_bitmap(ESFERA1,al_map_rgba(100,0,0,100),bolax[4],bolay[4]-400,NULL);
+    al_draw_tinted_bitmap(ESFERA1,al_map_rgba(100,0,0,100),bolax[5],bolay[5]-900,NULL);
+    al_draw_tinted_bitmap(ESFERA1,al_map_rgba(100,0,0,100),bolax[6],bolay[6]-400,NULL);
+    al_draw_tinted_bitmap(ESFERA1,al_map_rgba(100,0,0,100),bolax[7],bolay[7]-900,NULL);
+    al_draw_tinted_bitmap(ESFERA1,al_map_rgba(100,0,0,100),bolax[8],bolay[8]-400,NULL);
+    al_draw_tinted_bitmap(ESFERA1,al_map_rgba(100,0,0,100),bolax[9],bolay[9]-900,NULL);
+    al_draw_tinted_bitmap(ESFERA1,al_map_rgba(100,0,0,100),bolax[10],bolay[10]-400,NULL);
+    al_draw_tinted_bitmap(ESFERA1,al_map_rgba(100,0,0,100),bolax[11],bolay[11]-900,NULL);
+
     }
-
-    al_draw_bitmap_region(keen,5,300,21,21,80,8,0);
-    al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,10,10,0);
-
+    if(boss1vive && cont_passos_boss_inicio<=1500)
+    {
+      al_draw_tinted_bitmap_region(BOSS1INICIO,al_map_rgb(255,0,0),0,0,62,110,posx,posy,0);
+    }
     if(firereliq)
     {
          al_draw_bitmap_region(FIRERELIQ,regiao_x_folha_reliq,0,largura_sprite_reliq,altura_sprite_reliq,150,90,0);
@@ -5595,22 +6656,50 @@ if(draw)
     {
          al_draw_tinted_bitmap_region(BOSS1MORRE,al_map_rgb(255,0,0),regiao_x_folha_boss1morto,0,largura_sprite_boss1morto,altura_sprite_boss1morto,posx+100,posy,0);
     }
+     if (oracao)
+    {
 
-    al_draw_bitmap(FOG,fogx,150,NULL);
-    al_draw_bitmap(FOG,fogx-1024,150,NULL);
-    al_flip_display();
-    al_clear_to_color(al_map_rgb(0,0,0));
+        al_draw_bitmap(ESCUDO,x-113,y-130,NULL);
+        al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[1],regiao_y_folha_oracao[1],largura_sprite_oracao[1], altura_sprite_oracao[1], x+15, y+15, NULL);
+        al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[2],regiao_y_folha_oracao[2],largura_sprite_oracao[2], altura_sprite_oracao[2], x-30, y+30, NULL);
+        al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[3],regiao_y_folha_oracao[3],largura_sprite_oracao[3], altura_sprite_oracao[3], x-70, y, NULL);
+        al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[4],regiao_y_folha_oracao[4],largura_sprite_oracao[4], altura_sprite_oracao[4], x-70, y-45, NULL);
+        al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[5],regiao_y_folha_oracao[5],largura_sprite_oracao[5], altura_sprite_oracao[5], x+15, y-45, NULL);
+        al_draw_bitmap_region(ORACAO,regiao_x_folha_oracao[6],regiao_y_folha_oracao[6],largura_sprite_oracao[6], altura_sprite_oracao[6], x-30,y-60,NULL);
 
-}
+    }
+    if (cruz)
+    {
+       al_draw_bitmap(CRUZ,cruzx,cruzy,NULL);
+    }
 
-if (morte)
+    al_draw_rotated_bitmap(FOG,fogx,300,0,0,3.1415,NULL);
+    al_draw_rotated_bitmap(FOG,fogx+2048,300,0,0,3.1415,NULL);
+    al_draw_rotated_bitmap(FOG,fogx+1024,300,0,0,3.1415,NULL);
+    al_draw_bitmap_region(HP,regiao_x_folha_HP,regiao_y_folha_HP,largura_sprite_HP,altura_sprite_HP,cameraPosition[0]+50,cameraPosition[1]-80,NULL);
+    al_draw_bitmap_region(MP,regiao_x_folha_MP,regiao_y_folha_MP,largura_sprite_MP,altura_sprite_MP,cameraPosition[0]+50,cameraPosition[1]-50,NULL);
+     al_draw_textf(font,al_map_rgb(255,255,255),cameraPosition[0]+1100,cameraPosition[1]-110,ALLEGRO_ALIGN_CENTER, "SCORE: %i", 1000 + score);
+    al_draw_textf(font2,al_map_rgb(255,255,255),cameraPosition[0]+50,cameraPosition[1]-110,ALLEGRO_ALIGN_CENTER, "X %i", cont_moedas_prata);
+    al_draw_textf(font2,al_map_rgb(255,255,255),cameraPosition[0]+150,cameraPosition[1]-110,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
+    al_draw_bitmap_region(keen,5,300,21,21,cameraPosition[0]+80,cameraPosition[1]-113,0);
+    al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,cameraPosition[0]+10,cameraPosition[1]-113,0);
+    //al_draw_bitmap(FOG,fogx,150,NULL);
+   // al_draw_bitmap(FOG,fogx+1024,150,NULL);
+    //al_draw_bitmap(FOG,fogx-1024,150,NULL);
+
+    if (morte)
 {
     al_clear_to_color(al_map_rgb(0,0,0));
     al_draw_bitmap(morto,x,y,NULL);
     al_draw_textf(font2,al_map_rgb(255,255,255),120,10,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
     al_draw_bitmap_region(keen,5,300,21,21,80,8,0);
     al_flip_display();
-    al_rest(2.0);
+
+}
+
+    al_flip_display();
+    al_clear_to_color(al_map_rgb(0,0,0));
+
 }
 }
 
@@ -5632,11 +6721,22 @@ al_use_transform(&camera);
         case ALLEGRO_KEY_ESCAPE:
             done5 = true;
         case ALLEGRO_KEY_SPACE:
-            if(platape)
+             if(jump)
             {
-            vely -= jumpspeed;
+                vely -= jumpspeed;
+                pulo = true;
+
             }
 
+        }
+    }
+     if(events.type == ALLEGRO_EVENT_KEY_UP)
+    {
+
+        switch (events.keyboard.keycode)
+        {
+        case ALLEGRO_KEY_Z:
+        dir = 0;
         }
     }
     if(events.type == ALLEGRO_EVENT_KEY_UP && permapoder)
@@ -5656,44 +6756,56 @@ al_use_transform(&camera);
         {
             active = true;
             draw = true;
-
-            if(platape)
+            jump = false;
+            noar = true;
+            vely +=gravity;
+            y += vely;
+  if(noar)
             {
-                jump = true;
-                pulo = false;
-            }
-            if(!platape)
-            {
-                jump = false;
-                pulo = true;
+                pulo=true;
             }
 
-            if(al_key_down(&keyState,ALLEGRO_KEY_SPACE) && jump && y<472)
-            {
-                jump = false;
-            }
+        if (x<=310 && y>=470 && y<=480)
+        {
 
-
-            else if(!jump && !platape)
-            {
-                vely +=gravity;
-            }
-
-            else
+            y = 470;
                 vely = 0;
-                x += velx;
-                y += vely;
+                pulo = false;
+                jump = true;
+                noar = false;
+        }
+
+         if (x>=340 && x<=510 && y>=360 && y<=370)
+        {
+
+            y = 360;
+                vely = 0;
+                pulo = false;
+                jump = true;
+                noar = false;
+        }
+
+        if (x>=750 && x<=1100 && y>=360 && y<=370)
+        {
+
+            y = 360;
+                vely = 0;
+                pulo = false;
+                jump = true;
+                noar = false;
+        }
+
+         if (x>=1200 && x<=1510 && y>=300 && y<=310)
+        {
+
+            y = 300;
+                vely = 0;
+                pulo = false;
+                jump = true;
+                noar = false;
+        }
 
 
-
-            if(y>=470 && y<=480 && x>=0 && x<=300 || x>=360 && x<=510 && y>=350 && y<= 360 || x>=750 && x<=1100 && y>=350 && y<=360 || x>= 1200 && x<=1540 && y>=300 && y<=310)
-            {
-                platape = true;
-            }
-            else
-            {
-                platape = false;
-            }
 
             if(!poder)
             {
@@ -5741,7 +6853,7 @@ al_use_transform(&camera);
 
             if(al_key_down(&keyState,ALLEGRO_KEY_RIGHT))
             {
-                velx = movespeed;
+                x += movespeed;
                 dir = RIGHT;
             }
 
@@ -5761,23 +6873,27 @@ al_use_transform(&camera);
 
                 if (x<=0)
                 {
-                    velx +=movespeed;
+                    x +=movespeed;
                     x = 1;
                 }
 
-                velx = -movespeed;
+                x -= movespeed;
                 dir = LEFT;
             }
             else if(al_key_down(&keyState,ALLEGRO_KEY_C) && x >= 105 && x<=140 && y <=200 && y>=180)
             {
-//POR HORA N TEM FUN�AO
+//POR HORA N TEM FUNÇAO
             }
 
             else
             {
                 velx = 0;
                 active = false;
+                oracao = false;
+
+
             }
+
  if(active)
             {
                 sourceX += al_get_bitmap_width(keen)/5;
@@ -5799,35 +6915,30 @@ al_use_transform(&camera);
 
 else if(events.timer.source == BOLAtimer)
 {
-            //POR ENQUANTO NADA
-}
-
-if(pulo)
-{
-    al_draw_bitmap(ARMADILHA,500,300,NULL);
-    al_draw_bitmap(ARVORECAVE1,0,0,NULL);
-    al_draw_bitmap(ARVORECAVE2,300,100,NULL);
-    al_draw_bitmap(PLATACAVE1,0,480,NULL);
-    al_draw_bitmap(PLATACAVE3,350,380,NULL);
-    al_draw_bitmap(PLATACAVE4,750,380,NULL);
-    al_draw_bitmap(PLATACAVE1,1200,300,NULL);
-
-    if(tiro)
+           if (bat[0])
     {
-        al_draw_bitmap_region(TIRO,regiao_x_tiro,0,largura_sprite_tiro,altura_sprite_tiro,posx_tiro,posy_tiro+10,0);
-    }
-    al_draw_textf(font,al_map_rgb(255,255,255),cameraPosition[0]+600,cameraPosition[1],ALLEGRO_ALIGN_CENTER, "SCORE: %i", 1000 + score);
-    al_draw_textf(font2,al_map_rgb(255,255,255),cameraPosition[0]+50,cameraPosition[1]+10,ALLEGRO_ALIGN_CENTER, "X %i", cont_moedas_prata);
-    al_draw_textf(font2,al_map_rgb(255,255,255),cameraPosition[0]+120,cameraPosition[1]+10,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
-    al_draw_bitmap_region(keen,regiao_x_folha_pulo,regiao_y_folha_pulo,largura_sprite_pulo,altura_sprite_pulo,x,y,0);
-    al_draw_bitmap_region(keen,5,300,21,21,cameraPosition[0]+80,cameraPosition[1]+8,0);
-    al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,cameraPosition[0]+10,cameraPosition[1]+10,0);
-    al_flip_display();
-    al_clear_to_color(al_map_rgb(0,0,0));
+        cont_frame_bat++;
+            if(cont_frame_bat>=frames_sprite_bat)
+            {
+                cont_frame_bat = 0;
+                coluna_atual_bat++;
+
+                if(coluna_atual_bat>=colunas_bat)
+                {
+                    coluna_atual_bat = 0;
+
+                }
+
+                regiao_x_folha_bat = coluna_atual_bat*largura_sprite_bat;
+
+            }
+    }//
 
 }
 
-if(draw && !pulo)
+
+
+if(draw)
 {
     al_draw_bitmap(ARMADILHA,500,300,NULL);
     al_draw_bitmap(ARVORECAVE1,0,0,NULL);
@@ -5836,18 +6947,33 @@ if(draw && !pulo)
     al_draw_bitmap(PLATACAVE3,350,380,NULL);
     al_draw_bitmap(PLATACAVE4,750,380,NULL);
     al_draw_bitmap(PLATACAVE1,1200,300,NULL);
-    al_draw_textf(font,al_map_rgb(255,255,255),cameraPosition[0]+600,cameraPosition[1],ALLEGRO_ALIGN_CENTER, "SCORE: %i", 1000 + score);
+     al_draw_textf(font,al_map_rgb(255,255,255),cameraPosition[0]+1100,cameraPosition[1],ALLEGRO_ALIGN_CENTER, "SCORE: %i", 1000 + score);
     al_draw_textf(font2,al_map_rgb(255,255,255),cameraPosition[0]+50,cameraPosition[1]+10,ALLEGRO_ALIGN_CENTER, "X %i", cont_moedas_prata);
-    al_draw_textf(font2,al_map_rgb(255,255,255),cameraPosition[0]+120,cameraPosition[1]+10,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
-        if(!tiro)
+    al_draw_textf(font2,al_map_rgb(255,255,255),cameraPosition[0]+150,cameraPosition[1]+10,ALLEGRO_ALIGN_CENTER, "X %i ", cont_vidas);
+    al_draw_bitmap_region(BAT,regiao_x_folha_bat,regiao_y_folha_bat,largura_sprite_bat,altura_sprite_bat,batx[0],baty[0],NULL);
+    al_draw_bitmap_region(BAT,regiao_x_folha_bat,regiao_y_folha_bat,largura_sprite_bat,altura_sprite_bat,batx[1],baty[1],NULL);
+    al_draw_bitmap_region(BAT,regiao_x_folha_bat,regiao_y_folha_bat,largura_sprite_bat,altura_sprite_bat,batx[2],baty[2],NULL);
+    al_draw_bitmap_region(BAT,regiao_x_folha_bat,regiao_y_folha_bat,largura_sprite_bat,altura_sprite_bat,batx[3],baty[3],NULL);
+    al_draw_bitmap_region(BAT,regiao_x_folha_bat,regiao_y_folha_bat,largura_sprite_bat,altura_sprite_bat,batx[4],baty[4],NULL);
+
+       if (pulo)
+    {
+        al_draw_bitmap_region(keen,regiao_x_folha_pulo,regiao_y_folha_pulo,largura_sprite_pulo,altura_sprite_pulo,x,y,0);
+    }
+        if(!poder && !pulo)
         {
             al_draw_bitmap_region(keen,sourceX,sourceY*al_get_bitmap_height(keen)/7,30,50,x,y,NULL);
         }
-        if(tiro)
+        if(poder)
         {
-            al_draw_bitmap_region(TIRO,regiao_x_tiro,0,largura_sprite_tiro,altura_sprite_tiro,posx_tiro,posy_tiro+10,0);
-            al_draw_bitmap_region(ATIRA,0,0,40,50,x,y,NULL);
+            if(!pulo)
+            {
+               al_draw_bitmap_region(ATIRA,0,0,40,50,x,y,NULL);
+            }
+            al_draw_bitmap_region(PODER,regiao_x_folha_poder,regiao_y_folha_poder,largura_sprite_poder,altura_sprite_poder,posx_tiro,posy_tiro+10,0);
         }
+    al_draw_bitmap_region(HP,regiao_x_folha_HP,regiao_y_folha_HP,largura_sprite_HP,altura_sprite_HP,cameraPosition[0]+50,cameraPosition[1]+30,NULL);
+    al_draw_bitmap_region(MP,regiao_x_folha_MP,regiao_y_folha_MP,largura_sprite_MP,altura_sprite_MP,cameraPosition[0]+50,cameraPosition[1]+60,NULL);
     al_draw_bitmap_region(keen,5,300,21,21,cameraPosition[0]+80,cameraPosition[1]+8,0);
     al_draw_bitmap_region(MOEDA,regiao_x_folha_moedas,regiao_y_folha_moedas,largura_sprite_moedas,altura_sprite_moedas,cameraPosition[0]+10,cameraPosition[1]+10,0);
     al_flip_display();
@@ -5867,14 +6993,8 @@ if (morte)
 
 
     }
-
-
-
-
-
-
-
         }
+
     al_destroy_bitmap(fundo);
     al_destroy_bitmap(BOLA);
     al_destroy_display(display);
@@ -5979,7 +7099,12 @@ if (morte)
     al_destroy_bitmap(YUKIYAMA);
     al_destroy_bitmap(FADE);
     al_destroy_bitmap(KAGESHIMA);
-
+    al_destroy_bitmap(HP);
+    al_destroy_bitmap(MP);
+    al_destroy_bitmap(BOSS1INICIO);
+    al_destroy_bitmap(BOSS1HP);
+    al_destroy_bitmap(DEADTREE);
+    al_destroy_bitmap(ESFERA1);
 
 
 
@@ -5987,5 +7112,6 @@ if (morte)
 
      return 0;
 }
+
 
 

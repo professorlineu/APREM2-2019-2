@@ -1,0 +1,62 @@
+/**********************************************************
+- Autor:
+- Descrição: ex 4 par e impar posi e negat
+**********************************************************/
+
+#include <iostream>
+#include <locale.h>
+#include <cstdlib>
+
+using namespace std;
+
+
+int main()
+{
+    int idade = 0;
+    int iatual = 0;
+    int ianonasc = 0;
+    char escolha ='s';
+    //Configuração da tela de saída
+    setlocale(LC_ALL,"");
+    system("color F1");
+
+    //Código do programa
+    while (escolha == 's')
+    {
+        cout << " vc e alfabetizado s/n: ";
+        cin >> escolha;
+
+
+       }
+        cout <<" digite o ano de nascimento" ;
+        cout << "...";
+        cin >> ianonasc;
+        cout << " ano atual";
+        cout << "...";
+        cin >> iatual;
+        idade = iatual - ianonasc;
+
+        cout << "vc tem " << idade << endl;
+        if (idade <= 16)
+        {
+            cout << "nao pode votar";
+        }
+        else if (idade <16)
+        {
+            cout <<" pode votar se quiser";
+        }
+        else
+        {
+            cout << "deve votar";
+        }
+        if (idade >= 69)
+        {
+            cout << "opcional o voto";
+        }
+
+
+
+
+}
+
+
